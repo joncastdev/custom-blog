@@ -13,8 +13,16 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+    	$data = date('y-m-d');
+
+    	$data = date('Y-m-d\TH:i:sP');
+
+    	
+
+    	return new Response($data);
+    
+        // return $this->render('home/index.html.twig', [
+        //     'controller_name' => 'HomeController',
+        // ]);
     }
 }

@@ -79,7 +79,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->username = $username;
 
         return $this;
-    }
+    } 
 
     /**
      * A visual identifier that represents this user.

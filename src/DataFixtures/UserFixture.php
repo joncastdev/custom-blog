@@ -5,6 +5,9 @@ namespace App\DataFixtures;
 // agregar la entidad
 use App\Entity\User;
 
+// no es necesario usarla por que ya la declaramos abajo,para trabjar con fechas
+// use \DateTimeImmutable;
+
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -23,20 +26,33 @@ class UserFixture extends Fixture
 
     public function load(ObjectManager $manager)
     {
+
+    	$roles[] = 'ROLE_ADMIN';
+
+    	// aqui importamos y creamos una instancia de \DateTimeImmutable
+    	$created = new \DateTimeImmutable("now");
+    	$updated = new \DateTimeImmutable("now");
+    	$lastLogin = new \DateTimeImmutable("now");
+
         // $product = new Product();
         // $manager->persist($product);
 
         $user = new User();
-
-		$user->setFirstName('jonathan');
-		$user->setLastName('castro');
-		$user->setEmail('admin@hotmail.com');
-		$user->setRoles('ROLE_ADMIN');
+		
+		$user->setUsername('IssuesEK');
+		$user->setEmail('portafoliocastro1989@gmail.com');
+		$user->setRoles($roles);
 
 		$user->setPassword($this->passwordEncoder->encodePassword(
 			$user,
 			'12345678'
 		));
+
+		$user->setMembership('t');
+
+		$user->setCreatedAt($created);
+		$user->setUpdatedAt($updated);
+		$user->setLastLogin($lastLogin);
 
 		$manager->persist($user);
 		
