@@ -27,6 +27,8 @@ class UserFixture extends Fixture
     public function load(ObjectManager $manager)
     {
 
+    	// ahy un error con las fixtures con postgresql, no se carga la data,solo funciona en mysql
+
     	$roles[] = 'ROLE_ADMIN';
 
     	// aqui importamos y creamos una instancia de \DateTimeImmutable
@@ -39,14 +41,15 @@ class UserFixture extends Fixture
 
         $user = new User();
 		
-		$user->setUsername('IssuesEK');
-		$user->setEmail('portafoliocastro1989@gmail.com');
+		$user->setUsername('Issues');
 		$user->setRoles($roles);
 
 		$user->setPassword($this->passwordEncoder->encodePassword(
 			$user,
 			'12345678'
 		));
+
+		$user->setEmail('portafoliocastro1989@gmail.com');		
 
 		$user->setMembership('t');
 
