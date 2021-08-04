@@ -2,19 +2,28 @@
 
 {% block title %}Hello DashboardController!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block body %}	
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<!-- Page Wrapper -->
+          <div id="wrapper">
+          {{ include('admin/inc/sidebar.html.twig') }}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/mi_crm/src/Controller/DashboardController.php'|file_link(0) }}">src/Controller/DashboardController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/mi_crm/templates/dashboard/index.html.twig'|file_link(0) }}">templates/dashboard/index.html.twig</a></code></li>
-    </ul>
-</div>
+          	<!-- Content Wrapper -->
+		    <div id="content-wrapper" class="d-flex flex-column"> 	
+
+            <!-- Main Content -->
+            <div id="content">
+
+            	{{ include('admin/inc/navbar.html.twig') }}
+            <!-- End main content -->	
+            </div>
+            
+            <!-- End of Content Wrapper -->
+            </div>
+
+          <!-- End of Page Wrapper -->
+          </div> 	
+
+
+	{{ include('admin/inc/footer.html.twig') }} 	
 {% endblock %}
