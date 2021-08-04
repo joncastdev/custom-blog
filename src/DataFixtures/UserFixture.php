@@ -57,6 +57,8 @@ class UserFixture extends Fixture
 		$user->setUpdatedAt($updated);
 		$user->setLastLogin($lastLogin);
 
+		$user->setIsVerified('t');		
+
 		$manager->persist($user);
 		
 
