@@ -11,7 +11,7 @@
         <br>
         <br>
         <br>
-        <br>
+                
         <div class="col-sm-6 offset-sm-3">
 
           <div class="row">
@@ -30,6 +30,7 @@
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
@@ -44,8 +45,7 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
+        <br>        
 
       {#  end container #}
     </div>

@@ -55,7 +55,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
 
         // agregamos la redireccion despues de autenticar
-        return new RedirectResponse($this->urlGenerator->generate('contact'));
+        // aqui tenemos que poner el name no el path
+        return new RedirectResponse($this->urlGenerator->generate('app_login'));
     }
 
     protected function getLoginUrl(Request $request): string
