@@ -9,6 +9,8 @@
 /vendor/
 
 /public/assets/theme/
+/public/lib/
+/public/uploads/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
