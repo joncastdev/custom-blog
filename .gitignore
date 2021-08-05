@@ -9,6 +9,7 @@
 /vendor/
 
 /public/assets/theme/
+/public/assets/img/
 /public/lib/
 /public/uploads/
 ###< symfony/framework-bundle ###
