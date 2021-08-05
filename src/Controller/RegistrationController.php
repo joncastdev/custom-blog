@@ -28,7 +28,22 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
+
+        // aqui importamos y creamos una instancia de \DateTimeImmutable
+        $created = new \DateTimeImmutable("now");
+        $updated = new \DateTimeImmutable("now");
+        $lastLogin = new \DateTimeImmutable("now");
+
+        // creamos el objeto user
         $user = new User();
+
+        // agrego esto para establecer los datos al registrar
+        $user->setMembership('f');
+        $user->setCreatedAt($created);
+        $user->setUpdatedAt($updated);
+        $user->setLastLogin($lastLogin);
+
+
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
@@ -48,16 +63,16 @@ class RegistrationController extends AbstractController
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('jonathancastro@opengiscrm.com', 'OpenGisCRM Mail Bot'))
-                    ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
-                    ->htmlTemplate('registration/confirmation_email.html.twig')
+                ->from(new Address('jonathancastro@opengiscrm.com', 'OpenGisCRM Mail Bot'))
+                ->to($user->getEmail())
+                ->subject('Please Confirm your Email')
+                ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
 
             // return $this->redirectToRoute('dashboard');
 
-            return $this->redirectToRoute('user_dashboard');
+            return $this->redirectToRoute('user_dashboard ');
         }
 
         return $this->render('registration/register.html.twig', [
