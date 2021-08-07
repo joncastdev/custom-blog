@@ -8,5 +8,14 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
+// importar estilos de node_modules directamente
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// cargamos el paquete de jquery desde node_modules
+import jquery from 'jquery';
+
+// cargamos el paquete de boostrap desde node_modules
+import 'bootstrap';
+
 // start the Stimulus application
 import './bootstrap';
