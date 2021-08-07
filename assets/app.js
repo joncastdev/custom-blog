@@ -13,6 +13,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+import './styles/sb-admin-2.css';
+
 
 
 // import '@fortawesome/fontawesome-free/js/fontawesome'
@@ -25,6 +27,13 @@ import jquery from 'jquery';
 
 // cargamos el paquete de boostrap desde node_modules
 import 'bootstrap';
+
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+// import 'bootstrap/dist/js/bootstrap.js';
+
+
+
 
 // start the Stimulus application
 import './bootstrap';
