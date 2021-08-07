@@ -11,6 +11,15 @@ import './styles/app.css';
 // importar estilos de node_modules directamente
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
+
+// import '@fortawesome/fontawesome-free/js/fontawesome'
+// import '@fortawesome/fontawesome-free/js/solid'
+// import '@fortawesome/fontawesome-free/js/regular'
+// import '@fortawesome/fontawesome-free/js/brands'
+
 // cargamos el paquete de jquery desde node_modules
 import jquery from 'jquery';
 
