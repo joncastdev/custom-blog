@@ -9,12 +9,38 @@
           {{ include('admin/inc/sidebar.html.twig') }}
 
           	<!-- Content Wrapper -->
-		    <div id="content-wrapper" class="d-flex flex-column"> 	
+		    <div id="content-wrapper" class="d-flex flex-column">
+
+         	{{ include('admin/inc/navbar.html.twig') }}
 
             <!-- Main Content -->
             <div id="content">
 
-            	{{ include('admin/inc/navbar.html.twig') }}
+            {# 	{{ include('admin/inc/navbar.html.twig') }} #}
+
+              <br>
+              <br>           
+
+              <div class="container-fluid">
+
+              <div class="container">
+              {# {{ include('./inc/usersession.html.twig') }} #}
+              <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                 {{ include('inc/usersession.html.twig') }}
+                  <h1 class="text-danger">algo</h1>   
+                    
+                  </div>
+
+                </div>
+
+              </div>
+
+              </div>
+
+              
+
+              
             <!-- End main content -->	
             </div>
             
