@@ -16,6 +16,8 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
+// use Symfony\Component\HttpFoundation\RequestStack;
+
 class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
@@ -56,7 +58,24 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
         // agregamos la redireccion despues de autenticar
         // aqui tenemos que poner el name no el path
-        return new RedirectResponse($this->urlGenerator->generate('app_login'));
+        // return new RedirectResponse($this->urlGenerator->generate('app_login'));
+
+        return new RedirectResponse($this->urlGenerator->generate('admin_dashboard'));
+
+
+
+
+        // dump('app.request');
+
+        // $data = parse_str($request->getSession());
+
+        // $data = $request->getSession();
+
+        // settype($data, 'string'); 
+
+        // $data = serialize($request->getSession());
+
+        // return new Response($data);
     }
 
     protected function getLoginUrl(Request $request): string

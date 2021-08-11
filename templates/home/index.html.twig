@@ -3,14 +3,15 @@
 {% block title %}OpenGisCRM{% endblock %}
 
 {% block body %}
-{{ include('inc/navbar.html.twig') }}
-
- {{ include('inc/usersession.html.twig') }}   
+{{ include('inc/navbar.html.twig') }} 
 
 <div class="container">
 	<br>
+	<br>
 	<div class="row">
 		<div class="col-sm-8 offset-sm-2">
+		{{ include('inc/usersession.html.twig') }}   
+
 			<!-- <img src="assets/img/open_gis_crm.jpg" alt="Logo" style="width:80px;"> -->
 
 			<h1 class="text-center">

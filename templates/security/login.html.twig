@@ -19,6 +19,12 @@
 
             <div class="col-sm-8 offset-sm-4">
 
+        {% for flash_message in app.session.flashbag.get('register') %}
+            <div class="alert alert-info">
+                {{ flash_message }}
+            </div>
+        {% endfor %}    
+
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
