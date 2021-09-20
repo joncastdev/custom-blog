@@ -89,4 +89,15 @@ class HomeController extends AbstractController
     	]);
 		
 	}
+
+	 /**
+     * @Route("/codeigniter-4-controllers", name="codeigniter4_controllers")
+     */
+    public function codeigniterCuatroControllers()
+    {		
+
+    	return $this->render('blog/codeigniter4_controllers.html.twig', [
+    		'controller_name' => 'HomeController',
+    	]);
+    }
 }

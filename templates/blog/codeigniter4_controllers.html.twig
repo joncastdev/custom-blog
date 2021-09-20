@@ -1,0 +1,206 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}codeigniter 4 controllers{% endblock %}
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="row">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-responsive" src="assets/img/ci4_controllers.png" alt="ci4_controllers">
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">	
+		<h2 class="texto-title-blog">codeigniter 4 controllers</h2>
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-3">
+		<p>Autor:<span class="fas fa-user-circle texto-subtitle-blog">Jonathan Castro</span></p>
+
+		</div>
+
+
+		</div>
+		<hr>
+		<blockquote class="blockquote">
+
+
+		<div class="texto-blog">					
+		<p>En este articulo veremos como utilizar los controladores en la versión 4 de codeigniter framework.</p>
+		<br>
+		<p>Primero tenemos la estructura básica de un controlador.</p>
+		<br>
+
+
+	{# 	pre mantiene el formato del texto #}
+		<pre class="text-code">
+		<code class="">
+class Users extends BaseController
+{
+	public function index()
+	{		
+		
+		$data['tittle'] = 'Users';		
+
+		return view('admin/index',$data);
+	}
+
+}
+
+		</code>
+		</pre>
+
+		<p>Los controladores se encuentran hubicados en <code>app/Controllers</code>, todo controlador extiende del controlador principal llamado BaseController, el cual se encuentra en la misma ruta</p>
+
+		{# <pre> #}
+		<code class="">
+
+		class Users extends BaseController
+
+		</code>
+		{# </pre> #}
+		<br>
+		<br>
+
+		<p>Aqui tenemos el BaseController el cual extiende de Controller que es la clase core del framework, atraves de la función initController podemos cargar automaticamente servicios,libreria,modelos etc</p>
+		<pre class="text-code">
+		<code class="">
+namespace App\Controllers;
+
+/**
+ * Class BaseController
+ *
+ * BaseController provides a convenient place for loading components
+ * and performing functions that are needed by all your controllers.
+ * Extend this class in any new controllers:
+ *     class Home extends BaseController
+ *
+ * For security be sure to declare any new methods as protected or private.
+ *
+ * @package CodeIgniter
+ */
+
+use CodeIgniter\Controller;
+
+class BaseController extends Controller
+{
+
+	/**
+	 * An array of helpers to be loaded automatically upon
+	 * class instantiation. These helpers will be available
+	 * to all other controllers that extend BaseController.
+	 *
+	 * @var array
+	 */
+	protected $helpers = [];
+
+	/**
+	 * Constructor.
+	 */
+	public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
+	{
+		// Do Not Edit This Line
+		parent::initController($request, $response, $logger);
+
+		//--------------------------------------------------------------------
+		// Preload any models, libraries, etc, here.
+		//--------------------------------------------------------------------
+		// E.g.:
+		// $this->session = \Config\Services::session();
+	}
+
+}
+
+		</code>
+		</pre>
+		<br>
+		<p>En su interior tenemos una variable <code>$data</code> la cual se la podemos pasar a una vista.</p>
+		<code class="">
+
+		public function index()
+
+		</code>
+
+		<br>
+		<br>
+		<p>Ahora tenemos el metodo index, el cual es el primer metodo que se ejecuta al cargar la clase, al menos que carguemos el constructor.</p>
+		<code class="">
+
+		$data['tittle'] = 'Users';	
+
+		</code>
+
+		<br>
+		<br>
+		<p>Finalmente retornamos una vista, donde el primer parametro es el path de la vista y la cual acepta como segundo parametro la <code>$data</code></p>
+		<code class="">
+
+		return view('admin/index',$data);	
+
+		</code>
+		<br>
+		<br>
+
+		<p><strong>En este video se muestra el funcionamiento de los controladores.</strong></p>
+
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/obMDQXiEpLQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+</div>
+</blockquote>
+<br>
+
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">jonathancastro@opengiscrm.com
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a href="/"><span class="btn-default fas fa-arrow-left">Atrás</span></a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}
