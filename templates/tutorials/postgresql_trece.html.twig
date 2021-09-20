@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}tutorial postgresql{% endblock %}
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
+
+		<div class="container">
+	<br>
+	<div class="row">
+		<div class="col-sm-12 shadow p-3 mb-5 bg-primary rounded-pill">			
+
+			<h1 class="text-white text-center">tutorial postgresql</h1>
+		</div>
+
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">				
+
+				<div class="embed-responsive embed-responsive-4by3">					
+
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/rX2Es6a0rtc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+				</div>
+				
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>PostgreSQL desde 0</li>
+							<li>Combinar PostgreSQL con otras tecnologías</li>
+							<li>Desarrollar en entornos Linux</li>
+							<li>Buenas practicas en la programación</li>						
+						</ul>					
+
+					</div>
+
+					<div>
+
+					<a class="btn btn-info" target="_blank" href="https://www.udemy.com/course/aprende-postgresql-practicando-paso-a-paso/?referralCode=B78F9FF02D0C7B30E307">
+					<span class="fas fa-arrow-left"></span>		
+					Curso Completo</a>					
+
+					</div>					
+
+					<br>
+					<a class="btn btn-outline-primary" href="/">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+				
+			</div>
+		</div>
+
+	</div>		
+</div>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}codeigniter 3 tutorial{% endblock %}
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
+
+		<div class="container">
+	<br>
+	<div class="row">
+		<div class="col-sm-12 shadow p-3 mb-5 bg-warning rounded-pill">			
+
+			<h1 class="text-white text-center">codeigniter 3 tutorial</h1>
+		</div>
+
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">				
+
+				<div class="embed-responsive embed-responsive-4by3">
+
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/Tx30MsNvbDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+				</div>
+				
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>Codeigniter 3 desde 0</li>
+							<li>Combinar CodeIgniter 3 con MySQL Bootstrap 4</li>
+							<li>Desarrollar en entornos Linux</li>
+							<li>Buenas practicas en la programación</li>							
+						</ul>					
+
+					</div>
+
+					<div>
+
+					<a class="btn btn-info" target="_blank" href="https://www.udemy.com/course/master-en-frameworks-php-laravel-codeigniter-symfony/?referralCode=E11692E05076AA066A88">
+					<span class="fas fa-arrow-left"></span>		
+					Curso Completo</a>					
+
+					</div>
+					
+					<br>
+					<a class="btn btn-outline-primary" href="/">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+				
+			</div>
+		</div>
+
+	</div>		
+</div>
+</div>
+<br>
+<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

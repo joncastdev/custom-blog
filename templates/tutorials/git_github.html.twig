@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}tutorial github{% endblock %}
+
+	{% block body %}
+		<div class="container">
+	<br>
+	<div class="row">
+		<div class="col-sm-12 shadow p-3 mb-5 bg-info rounded-pill">			
+
+			<h1 class="text-white text-center">tutorial github</h1>
+		</div>
+
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">				
+
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/SlFbG0oGv6E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>Git - GitHub desde 0</li>
+							<li>Combinar Git con otras tecnologías</li>
+							<li>Desarrollar en entornos Linux</li>
+							<li>Buenas practicas con repositorios</li>						
+						</ul>					
+
+					</div>
+
+					<div>
+
+					<a class="btn btn-info" target="_blank" href="https://www.udemy.com/course/aprende-git-github-practicando-con-algo-de-scrum/?referralCode=ED3000797103E7A0A9AD">
+					<span class="fas fa-arrow-left"></span>		
+					Curso Completo</a>					
+
+					</div>	
+					
+					<br>
+					<a class="btn btn-outline-primary" href="/">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+				
+			</div>
+		</div>
+
+	</div>		
+</div>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}
