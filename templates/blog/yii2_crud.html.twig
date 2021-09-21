@@ -1,0 +1,183 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}yii2 crud{% endblock %}
+
+{% block meta %}
+<meta name="description" content="yii2 crud">
+<meta name="keywords" content="yii2 crud, yii, yii2, yii2 framework, yii2 español"/>
+{% endblock %}	
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="row">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-responsive" src="assets/img/yii2_crud.png" alt="ci4_controllers">
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">	
+		<h2 class="texto-title-blog">yii2 crud</h2>
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-3">
+		<p>Autor:<span class="fas fa-user-circle texto-subtitle-blog">Jonathan Castro</span></p>
+
+		</div>
+
+
+		</div>
+		<hr>
+		<blockquote class="blockquote">
+
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos como crear un crud con yii 2 framework.</p>
+		<br>
+		<p>Primero crearemos la tabla con el uso de las migraciones</p>
+		<br>
+
+	
+		<pre class="text-code">
+		<code class="">
+// crear migracion
+php yii migrate/create Country
+		</code>
+		</pre>
+
+		<br>
+		<p>Ahora hemos generado un archivo con un formato de fechas <code>migrations/m210725_210438_Country.php</code></p>
+		<br>
+
+		<pre class="text-code">
+		<code class="">
+use yii\db\Migration;
+
+// es necesario agregar Schema para esta forma de trabajar con migraciones
+use yii\db\Schema;
+
+/**
+ * Class m210725_210438_Country
+ */
+class m210725_210438_Country extends Migration
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function safeUp()
+    {
+
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function safeDown()
+    {
+        echo "m210725_210438_Country cannot be reverted.\n";
+
+        return false;
+    }
+
+    
+    // Use up()/down() to run migration code without a transaction.
+    public function up()
+    {
+
+        $this->createTable('country', [
+            'id' => Schema::TYPE_PK,
+            'country' => Schema::TYPE_STRING . ' NOT NULL',            
+        ]);
+
+    }
+
+    public function down()
+    {
+        // echo "m210725_210438_Country cannot be reverted.\n";
+
+        // return false;
+
+        $this->dropTable('country');
+    }
+    
+}
+
+		</code>
+		</pre>
+
+		<br>
+		<p>Ahora ejecutamos las migraciones, en este caso tenemos 1 sola, donde llamaremos a la función <code>up()</code> para crear una tabla con la función <code>createTable</code></p>
+		<br>
+
+		<pre class="text-code">
+		<code class="">
+//ejecutamos las migraciones		
+php yii migrate
+		</code>
+		</pre>
+		
+		<br>
+		<br>
+
+		<p><strong>En este video se muestra como crear un crud con yii 2.</strong></p>
+
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/kvQ-Xt0fnAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+</div>
+</blockquote>
+<br>
+
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">jonathancastro@opengiscrm.com
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a href="/"><span class="btn-default fas fa-arrow-left">Atrás</span></a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

@@ -100,4 +100,26 @@ class HomeController extends AbstractController
     		'controller_name' => 'HomeController',
     	]);
     }
+
+     /**
+     * @Route("/codeigniter-3-configuraciones", name="codeigniter3_config")
+     */
+    public function codeigniterTresConfig()
+    {
+		
+    	return $this->render('blog/codeigniter3_config.html.twig', [
+    		'controller_name' => 'HomeController',
+    	]);
+    }
+
+     /**
+     * @Route("/yii-2-crud", name="yii2_crud")
+     */
+    public function yiiDosCrud()
+    {
+		
+    	return $this->render('blog/yii2_crud.html.twig', [
+    		'controller_name' => 'HomeController',
+    	]);
+    }
 }

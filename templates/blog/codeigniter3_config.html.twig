@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}codeigniter 3 configuraciones{% endblock %}
+
+{% block meta %}
+<meta name="description" content="codeigniter 3 configuraciones">
+<meta name="keywords" content="codeigniter 3 configuraciones, codeigniter 3"/>
+{% endblock %}	
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="row">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-responsive" src="assets/img/ci3_config.png" alt="ci4_controllers">
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">	
+		<h2 class="texto-title-blog">codeigniter 3 configuraciones</h2>
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-3">
+		<p>Autor:<span class="fas fa-user-circle texto-subtitle-blog">Jonathan Castro</span></p>
+
+		</div>
+
+
+		</div>
+		<hr>
+		<blockquote class="blockquote">
+
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos como configurar codeigniter 3 framework.</p>
+		<br>
+		<p>Primero iremos a <code>application/config/config.php</code>, donde tenemos esta variable vacia</p>
+		<br>
+
+	
+		<pre class="text-code">
+		<code class="">
+$config['base_url'] = '';
+		</code>
+		</pre>
+
+		<br>
+		<p>Ahora lo que haremos sera setear esta url, por la url de tu server local o dominio</p>
+		<br>
+
+		<pre class="text-code">
+		<code class="">
+$config['base_url'] = 'http://localhost/tu_app/';
+		</code>
+		</pre>
+
+		<br>
+		<p>Ahora cargaremos automaticamente todo los recursos que queramos utilizar en nuestra aplicacion en <code>application/config/autoload.php</code>, o tambien lo podemos cargar en el cosntructor</p>
+		<br>
+
+		<pre class="text-code">
+		<code class="">
+//cargamos todas las librerias a utlizar		
+$autoload['libraries'] = array('database', 'form_validation', 'email', 'session', 'pagination');
+
+//cargamos todos los helpers (ayudantes) a utilizar	
+$autoload['helper'] = array('url' ,'security');
+		</code>
+		</pre>
+		
+		<br>
+		<br>
+
+		<p><strong>En este video se muestra como configurar codeigniter 3.</strong></p>
+
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/Tx30MsNvbDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+</div>
+</blockquote>
+<br>
+
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">jonathancastro@opengiscrm.com
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a href="/"><span class="btn-default fas fa-arrow-left">Atrás</span></a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

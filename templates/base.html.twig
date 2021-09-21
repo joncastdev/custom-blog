@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8">        
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <meta name="description" content="CRM Digital Marketing">
-        <meta name="keywords" content="symfony 5 tutorial, codeigniter 4 tutorial, laravel 8 tutorial, yii 2 tutorial, cakephp 4 tutorial, blog desarrollo web"/>
+        {% block meta %}
+        <meta name="description" content="Encuentra tutoriales sobre Javascript, PHP, Laravel, MySQL, CodeIgniter, Symfony, Yii, CakePHP y mucho más.">
+        <meta name="keywords" content="symfony 5 tutorial, codeigniter 4 tutorial, laravel 8 tutorial, yii 2 tutorial, cakephp 4 tutorial, blog desarrollo web, desarrollador freelance"/>
+        {% endblock %}
         <meta name="author" content="OpenGisCRM">
         <meta name="copyright" content="OpenGisCRM" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
 
