@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfony 5 - De 0 al Limite{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Symfony 5 - De 0 al Limite">
+<meta name="keywords" content="cursos udemy, cursos desarrollo web, curso symfony 5, curso symfony 5 español, symfony 5"/>
+{% endblock %}	
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
+
+	<div class="container">
+	<br>
+	<div class="row">
+		<div class="col-sm-12 shadow p-3 mb-5 bg-secondary rounded-pill">			
+
+			<h1 class="text-white text-center">Symfony 5 - De 0 al Limite</h1>
+		</div>
+
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">
+				<img class="img-responsive" src="../assets/img/curso_symfony5.png" alt="Symfony 5 de 0 Al Limite">
+				
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>Symfony 5</li>
+							<li>Twig</li>
+							<li>Doctrine</li>
+							<li>Combinar Symfony con Bootstrap 4, MySQL</li>
+							<li>Sistema de Login y Control de Accesos</li>
+							<li>Rest Api</li>
+							<li>Relaciones de Tablas</li>
+							<li>Combinar Symfony con Ajax</li>
+							<li>Combinar Symfony con Templates</li>
+						</ul>					
+
+					</div>					
+
+					
+
+					<a class="btn btn-danger" href="https://www.udemy.com/course/symfony-5-de-0-al-limite/?couponCode=1B32B11783B062FD5C0E" target="_blank">
+					<span class="fas fa-play"></span>		
+					Ir al curso</a>
+					<br>
+					<a class="btn btn-outline-primary" href="/cursos">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+				
+			</div>
+		</div>
+
+	</div>		
+</div>
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

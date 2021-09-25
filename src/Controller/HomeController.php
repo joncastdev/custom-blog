@@ -20,7 +20,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/codeigniter-4-tutorial", name="codeigniter4")
+     * @Route("/tutorial/codeigniter-4-tutorial", name="codeigniter4")
      */
     public function codeigniterCuatro()
     {		
@@ -31,7 +31,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/codeigniter-3-tutorial", name="codeigniter3")
+     * @Route("/tutorial/codeigniter-3-tutorial", name="codeigniter3")
      */
     public function codeigniterTres()
     {
@@ -43,7 +43,7 @@ class HomeController extends AbstractController
 
 
     /**
-     * @Route("/symfony-5-tutorial", name="symfony5")
+     * @Route("/tutorial/symfony-5-tutorial", name="symfony5")
      */
     public function symfonyCinco()
 	{
@@ -54,7 +54,7 @@ class HomeController extends AbstractController
 	}
 
 	/**
-     * @Route("/postgresql-13-tutorial", name="postgresql13")
+     * @Route("/tutorial/postgresql-13-tutorial", name="postgresql13")
      */
 	public function postgreSqlTrece()
 	{		
@@ -67,7 +67,7 @@ class HomeController extends AbstractController
 	}
 
 	/**
-     * @Route("/laravel-8-tutorial", name="laravel8")
+     * @Route("/tutorial/laravel-8-tutorial", name="laravel8")
      */
 	public function laravelOcho()
 	{
@@ -79,7 +79,7 @@ class HomeController extends AbstractController
 	}
 
 	/**
-     * @Route("/github-tutorial", name="github")
+     * @Route("/tutorial/github-tutorial", name="github")
      */
 	public function gitGithub()
 	{
@@ -91,7 +91,7 @@ class HomeController extends AbstractController
 	}
 
 	 /**
-     * @Route("/codeigniter-4-controllers", name="codeigniter4_controllers")
+     * @Route("/blog/codeigniter-4-controllers", name="codeigniter4_controllers")
      */
     public function codeigniterCuatroControllers()
     {		
@@ -102,7 +102,7 @@ class HomeController extends AbstractController
     }
 
      /**
-     * @Route("/codeigniter-3-configuraciones", name="codeigniter3_config")
+     * @Route("/blog/codeigniter-3-configuraciones", name="codeigniter3_config")
      */
     public function codeigniterTresConfig()
     {
@@ -113,7 +113,7 @@ class HomeController extends AbstractController
     }
 
      /**
-     * @Route("/yii-2-crud", name="yii2_crud")
+     * @Route("/blog/yii-2-crud", name="yii2_crud")
      */
     public function yiiDosCrud()
     {

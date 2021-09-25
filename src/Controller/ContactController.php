@@ -9,6 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends AbstractController
 {
     
+    /**
+     * @Route("/contacto", name="contacto")
+     */
     public function index(): Response
     {
         return $this->render('contact/index.html.twig', [

@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PostgreSQL - De 0 al Limite{% endblock %}
+
+{% block meta %}
+<meta name="description" content="PostgreSQL - De 0 al Limite">
+<meta name="keywords" content="cursos udemy, cursos desarrollo web, curso postgresql, curso postgresql español, postgresql"/>
+{% endblock %}	
+
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
+
+	<div class="container">
+	<br>
+	<div class="row">
+		<div class="col-sm-12 shadow p-3 mb-5 bg-primary rounded-pill">			
+
+			<h1 class="text-white text-center">PostgreSQL - De 0 al Limite</h1>
+		</div>
+
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">
+				<img class="img-responsive" src="../assets/img/curso_postgresql.png" alt="PostgreSQL - De 0 al Limite">
+				
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>Manejar Pgadmin 4 de manera fluida</li>
+							<li>Comandos select/insert/update/delete</li>
+							<li>Condiciones where</li>
+							<li>Restricciones primary key/foreign key/unique/check/not null</li>
+							<li>Funciones Void</li>
+							<li>Datos UUID - JSON</li>
+							<li>Cruces Internos - Inner</li>
+							<li>Cruces Externos - Left/Right</li>
+							<li>Trigger</li>							
+						</ul>					
+
+					</div>					
+
+					
+
+					<a class="btn btn-danger" href="https://www.udemy.com/course/aprende-postgresql-practicando-paso-a-paso/?couponCode=35194F558D842B2F5263" target="_blank">
+					<span class="fas fa-play"></span>		
+					Ir al curso</a>	
+					<br>
+					<a class="btn btn-outline-primary" href="/cursos">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+				
+			</div>
+		</div>
+
+	</div>		
+</div>
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

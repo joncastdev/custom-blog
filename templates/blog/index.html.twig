@@ -2,10 +2,149 @@
 
 {% block title %}Blog{% endblock %}
 
+{% block meta %}
+<meta name="description" content="Blog Desarrollo web">
+<meta name="keywords" content="blog, blog desarrollo web, blog programación, blog codeigniter 4, blog codeigniter 3, blog symfony 5, blog yii2, blog cakephp 4, blog mysql, blog postgresql"/>
+{% endblock %}		
+
 	{% block body %}
 		{{ include('inc/navbar.html.twig') }} 
 
 		<div class="container">
+		<br>
+		<br>
+
+		<div class="row">
+		<div class="col-sm-12 shadow p-3 mb-5 bg-dark rounded-pill">			
+
+			<h1 class="text-white text-center home-text">Blog Desarrollo Web</h1>
+		</div>
+
+	</div>
+	<br>
+
+	<div class="row">
+
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-responsive" src="assets/img/ci4_controllers.png" alt="codeigniter 4 controllers">
+
+				<div class="card-header">
+
+					<h4 class="home-text">codeigniter 4 controllers</h4>
+
+				</div>
+
+				<div class="card-body">
+					<br>
+
+					<h6>20/09/2021</h6>
+					<br>
+
+					<h6>Aprende como utilizar los controladores y rutas en codeigniter4.</h6>
+					<br>
+					
+
+					<a class="btn btn-primary" href="/blog/codeigniter-4-controllers">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-responsive" src="assets/img/ci3_config.png" alt="codeigniter 3 tutorial">
+
+				<div class="card-header">
+
+					<h4 class="home-text">codeigniter 3 config</h4>
+
+				</div>
+
+				<div class="card-body">
+					<br>
+
+					<h6>20/09/2021</h6>
+					<br>
+
+					<h6>Aprende como configurar codeigniter 3, paso a paso desde cero.</h6>
+					<br>
+					
+
+					<a class="btn btn-primary" href="/blog/codeigniter-3-configuraciones">
+					<span class="fas fa-arrow-right"></span>		
+					Seguir leyendo</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-responsive" src="assets/img/yii2_crud.png" alt="symfony 5 tutorial">
+
+				<div class="card-header">
+
+					<h4 class="home-text">yii2 crud</h4>
+
+				</div>
+
+				<div class="card-body">
+					<br>
+
+					<h6>20/09/2021</h6>
+					<br>
+
+					<h6>Aprende como crear un crud con yii2, paso a paso desde cero.</h6>
+					<br>					
+
+					<a class="btn btn-primary" href="/blog/yii-2-crud">
+					<span class="fas fa-arrow-right"></span>		
+					Seguir leyendo</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<br>
+	<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+{# 	end posts #}
+
 
 		</div><!-- end container -->
 		<br>

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Servicios{% endblock %}
+
+{% block meta %}
+<meta name="description" content="servicios">
+<meta name="keywords" content="desarrollo web a medida, freelance, desarrollador remoto, trabajo por hora"/>
+{% endblock %}		
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
+
+		<div class="container">
+
+		<br>	
+	<div class="row">
+		<div class="col-12">
+			 <div class="text-center">
+				<h2>Servicios</h2>
+			</div> 
+		</div>
+	</div>
+
+	<!-- <hr> -->
+
+	<div class="row">
+
+
+		<div class="col-12">
+
+			<header class="entry-header">
+				<h1 class="texto-blog">Conjunto de servicios</h1>
+				<img src="assets/img/servicios_01.jpg" class="img-fluid">
+			</header>
+
+			<p><b>Desarrollo en general:</b> En este espacio veras el conjunto de servicios que ofresco.</p>
+			<ul >
+				<li>Desarrollo web personalizado (desarrollo tu idea y la plasmo en un producto final llamado software)</li>
+				<li>Me uno a tu equipo de trabajo (si cuento con el perfil que estas buscando me uno a tu equipo de trabajo como desarrollador remoto)</li>
+				<li>Consultoria (te asesoro sobre mejoras o nuevas implementaciones en tu proyecto)</li>
+				<li>Me uno a tu equipo de trabajo como freelance (si cuento con el pérfil que estas buscando)</li>				
+				<li><a class="nav-link fas fa-globe" href="https://www.upwork.com/o/profiles/users/_~016c272f36ca6d79ee/" target="_blank">Upwork</a></li>					
+			</ul>
+
+			<img src="assets/img/pago.jpg" class="img-fluid float-right img-thumbnail">
+			<p><b>Modalidad de pago:</b> En este espacio veras la modalidad de pago que ofresco.</p>
+
+			<ul >
+				<li>Desarrollo web personalizado (los pagos seran por milestone, te desarrollo un demo inicial con previo pago)</li>
+				<li>Desarrollo remoto (los pagos seran a convenir, segun tu proyecto)</li>
+				<li>Consultoria (pago previo)</li>
+				<li>Freelance (los pagos seran con una plataforma como intermediario, en este caso upwork o workana)</li>						
+			</ul>
+			<br>			
+
+		</div>
+
+	</div>
+
+		</div><!-- end container -->
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Git - De 0 al Limite{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Git - De 0 al Limite">
+<meta name="keywords" content="cursos udemy, cursos desarrollo web, curso git, curso español, curso github, curso github español, git, github"/>
+{% endblock %}	
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
+
+	<div class="container">
+	<br>
+	<div class="row">
+		<div class="col-sm-12 shadow p-3 mb-5 bg-info rounded-pill">			
+
+			<h1 class="text-white text-center">Git - De 0 al Limite</h1>
+		</div>
+
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">
+				<img class="img-responsive" src="../assets/img/curso_git.png" alt="Git - De 0 al Limite">
+				
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>Comandos Git</li>
+							<li>Ejercicios Desde 0</li>
+							<li>Manejo Fluido de una Consola</li>
+							<li>Entender Cada Comando Paso a Paso</li>
+							<li>Git init, status, branch, pull, push</li>
+							<li>Git log, show, merge</li>
+							<li>Archivo .gitignore</li>
+							<li>Resolución de conflictos con diferentes branch</li>										
+						</ul>					
+
+					</div>					
+
+
+
+					<a class="btn btn-danger" href="https://www.udemy.com/course/aprende-git-github-practicando-con-algo-de-scrum/?referralCode=ED3000797103E7A0A9AD" target="_blank">
+					<span class="fas fa-play"></span>		
+					Ir al curso</a>
+					<br>
+					<a class="btn btn-outline-primary" href="/cursos">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+
+
+			</div>
+		</div>
+
+	</div>		
+</div>
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

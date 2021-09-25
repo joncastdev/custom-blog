@@ -1,20 +1,100 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Contacto{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block meta %}
+<meta name="description" content="contacto">
+<meta name="keywords" content="contacto opengiscrm, contacto desarrollador web, contacto freelance"/>
+{% endblock %}		
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }} 
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/mi_crm/src/Controller/ContactController.php'|file_link(0) }}">src/Controller/ContactController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/mi_crm/templates/contact/index.html.twig'|file_link(0) }}">templates/contact/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+		<div class="container">
+
+			<br>
+	<br>
+
+	<div class="row">
+
+		<div class="col-12">
+			<div class="text-center">
+				<h3 class="texto-blog">Contáctame completando el siguiente formulario, envíame un email directo a jonathancastro@opengiscrm.com</i></h3>			
+				
+				<hr>
+
+			</div>
+		</div>
+
+		<div class="col-12">
+
+			<br>
+
+			<div class="text-center">
+
+				<div class="text-info" id="msg_success">					
+				</div>
+
+				
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">
+						<input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre">
+						<div class="text-danger" id="msg_first_name">					
+						</div>				
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">
+						<input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellido">
+						<div class="text-danger" id="msg_last_name">					
+						</div>				
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">
+						<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+						<div class="text-danger" id="msg_email">					
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">                              
+						<textarea name="message" class="form-control" id="message" name="message" placeholder="Mensaje"></textarea>
+						<div class="text-danger" id="msg_message">					
+						</div>
+					</div>
+				</div>                         
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">   
+						<button type="submit" class="btn btn-primary btn-block">Enviar</button>
+					</div>
+				</div>                         
+
+
+			
+
+			</div> 
+
+		</div> <!-- text -->
+
+
+	</div> <!-- end row -->
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+		</div><!-- end container -->
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}
