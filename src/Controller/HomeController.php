@@ -33,10 +33,10 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('home');
         } 	
 
-    	return $this->render('home/index.html.twig', [
-    		'controller_name' => 'HomeController',
-            'form' => $form->createView()
-    	]);
+        return $this->render('home/index.html.twig', [
+          'controller_name' => 'HomeController',
+          'form' => $form->createView()
+      ]);
     }
 
     /**
@@ -55,7 +55,7 @@ class HomeController extends AbstractController
      */
     public function codeigniterTres()
     {
-		
+
     	return $this->render('tutorials/codeigniter_tres.html.twig', [
     		'controller_name' => 'HomeController',
     	]);
@@ -66,12 +66,12 @@ class HomeController extends AbstractController
      * @Route("/tutorial/symfony-5-tutorial", name="symfony5")
      */
     public function symfonyCinco()
-	{
-		return $this->render('tutorials/symfony_cinco.html.twig', [
-    		'controller_name' => 'HomeController',
-    	]);
-		
-	}
+    {
+      return $this->render('tutorials/symfony_cinco.html.twig', [
+          'controller_name' => 'HomeController',
+      ]);
+
+  }
 
 	/**
      * @Route("/tutorial/postgresql-13-tutorial", name="postgresql13")
@@ -80,8 +80,8 @@ class HomeController extends AbstractController
 	{		
 
 		return $this->render('tutorials/postgresql_trece.html.twig', [
-    		'controller_name' => 'HomeController',
-    	]);
+          'controller_name' => 'HomeController',
+      ]);
 
 
 	}
@@ -93,8 +93,8 @@ class HomeController extends AbstractController
 	{
 
 		return $this->render('tutorials/laravel_ocho.html.twig', [
-    		'controller_name' => 'HomeController',
-    	]);
+          'controller_name' => 'HomeController',
+      ]);
 		
 	}
 
@@ -105,41 +105,95 @@ class HomeController extends AbstractController
 	{
 
 		return $this->render('tutorials/git_github.html.twig', [
-    		'controller_name' => 'HomeController',
-    	]);
+          'controller_name' => 'HomeController',
+      ]);
 		
 	}
 
 	 /**
      * @Route("/blog/codeigniter-4-controllers", name="codeigniter4_controllers")
      */
-    public function codeigniterCuatroControllers()
-    {		
+     public function codeigniterCuatroControllers(Request $request)
+     {
 
-    	return $this->render('blog/codeigniter4_controllers.html.twig', [
-    		'controller_name' => 'HomeController',
-    	]);
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }   		
+
+        return $this->render('blog/codeigniter4_controllers.html.twig', [
+          'controller_name' => 'HomeController',
+          'form' => $form->createView()
+      ]);
     }
 
      /**
      * @Route("/blog/codeigniter-3-configuraciones", name="codeigniter3_config")
      */
-    public function codeigniterTresConfig()
-    {
-		
-    	return $this->render('blog/codeigniter3_config.html.twig', [
-    		'controller_name' => 'HomeController',
-    	]);
-    }
+     public function codeigniterTresConfig(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }  
+
+       return $this->render('blog/codeigniter3_config.html.twig', [
+          'controller_name' => 'HomeController',
+          'form' => $form->createView()
+      ]);
+   }
 
      /**
      * @Route("/blog/yii-2-crud", name="yii2_crud")
      */
-    public function yiiDosCrud()
-    {
-		
-    	return $this->render('blog/yii2_crud.html.twig', [
-    		'controller_name' => 'HomeController',
-    	]);
-    }
+     public function yiiDosCrud(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }  
+
+       return $this->render('blog/yii2_crud.html.twig', [
+          'controller_name' => 'HomeController',
+          'form' => $form->createView()
+      ]);
+   }
 }

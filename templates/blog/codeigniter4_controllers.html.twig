@@ -2,10 +2,10 @@
 
 {% block title %}codeigniter 4 controllers{% endblock %}
 
-{% block meta %}
-<meta name="description" content="codeigniter 4 controllers">
-<meta name="keywords" content="codeigniter 4 controllers, codeigniter 4"/>
-{% endblock %}	
+	{% block meta %}
+		<meta name="description" content="codeigniter 4 controllers">
+		<meta name="keywords" content="codeigniter 4 controllers, codeigniter 4"/>
+	{% endblock %}	
 
 	{% block body %}
 		{{ include('inc/navbar.html.twig') }} 
@@ -15,28 +15,43 @@
 
 
 		<br>
-		<div class="row">
+		<div class="">
 
 
-
+		<div class="row">	
 		<div class="offset-2 col-8">
 
 		<div class="text-center">			
 		<img class="img-responsive" src="../assets/img/ci4_controllers.png" alt="ci4_controllers">
 		</div>
+		</div>
+
+		
+		</div>
 		<br>
 
 		<div class="row">				
-		<div class="col-12 text-center">	
+		<div class="offset-2 col-8 text-center">	
 		<h2 class="texto-title-blog">codeigniter 4 controllers</h2>
 
+		
+
 		</div>
-		</div>
+	
+		</div>		
+
+		{# </div> #}
 		<br>
 		<div class="row">
 
-		<div class="col-3">
+		<div class="col-4">
 		<p>Autor:<span class="fas fa-user-circle texto-subtitle-blog">Jonathan Castro</span></p>
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('subscribe/_form.html.twig') }}
 
 		</div>
 
@@ -53,20 +68,20 @@
 		<br>
 
 
-	{# 	pre mantiene el formato del texto #}
+		{# 	pre mantiene el formato del texto #}
 		<pre class="text-code">
 		<code class="">
-class Users extends BaseController
-{
-	public function index()
-	{		
+		class Users extends BaseController
+		{
+		public function index()
+		{		
 		
 		$data['tittle'] = 'Users';		
 
 		return view('admin/index',$data);
-	}
+		}
 
-}
+		}
 
 		</code>
 		</pre>
@@ -86,40 +101,40 @@ class Users extends BaseController
 		<p>Aqui tenemos el BaseController el cual extiende de Controller que es la clase core del framework, atraves de la función initController podemos cargar automaticamente servicios,libreria,modelos etc</p>
 		<pre class="text-code">
 		<code class="">
-namespace App\Controllers;
+		namespace App\Controllers;
 
-/**
- * Class BaseController
- *
- * BaseController provides a convenient place for loading components
- * and performing functions that are needed by all your controllers.
- * Extend this class in any new controllers:
- *     class Home extends BaseController
- *
- * For security be sure to declare any new methods as protected or private.
- *
- * @package CodeIgniter
- */
+		/**
+		* Class BaseController
+		*
+		* BaseController provides a convenient place for loading components
+		* and performing functions that are needed by all your controllers.
+		* Extend this class in any new controllers:
+		*     class Home extends BaseController
+		*
+		* For security be sure to declare any new methods as protected or private.
+		*
+		* @package CodeIgniter
+		*/
 
-use CodeIgniter\Controller;
+		use CodeIgniter\Controller;
 
-class BaseController extends Controller
-{
+		class BaseController extends Controller
+		{
 
-	/**
-	 * An array of helpers to be loaded automatically upon
-	 * class instantiation. These helpers will be available
-	 * to all other controllers that extend BaseController.
-	 *
-	 * @var array
-	 */
-	protected $helpers = [];
+		/**
+		* An array of helpers to be loaded automatically upon
+		* class instantiation. These helpers will be available
+		* to all other controllers that extend BaseController.
+		*
+		* @var array
+		*/
+		protected $helpers = [];
 
-	/**
-	 * Constructor.
-	 */
-	public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
-	{
+		/**
+		* Constructor.
+		*/
+		public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
+		{
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
 
@@ -128,9 +143,9 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.:
 		// $this->session = \Config\Services::session();
-	}
+		}
 
-}
+		}
 
 		</code>
 		</pre>
@@ -167,45 +182,45 @@ class BaseController extends Controller
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/obMDQXiEpLQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-</div>
-</blockquote>
-<br>
+		</div>
+		</blockquote>
+		<br>
 
 
-<br>
+		<br>
 
 
-<blockquote >
-<p class="blockquote-footer">jonathancastro@opengiscrm.com
-</p>
-</blockquote>
+		<blockquote >
+		<p class="blockquote-footer">jonathancastro@opengiscrm.com
+		</p>
+		</blockquote>
 
-</div>
-
-
+		</div>
 
 
-</div>	
-
-</div>
 
 
-<div class="row">
+		</div>	
 
-<div class="offset-8 col-4">
-
-<div class="">
-<a href="/blog"><span class="btn-default fas fa-arrow-left">Atrás</span></a>
-</div>
-
-</div> 
-
-</div>
-<br>
-
-<br>
-<br>
+		</div>
 
 
-{{ include('inc/footer.html.twig') }} 
-{% endblock %}
+		<div class="row">
+
+		<div class="offset-8 col-4">
+
+		<div class="">
+		<a href="/blog"><span class="btn-default fas fa-arrow-left">Atrás</span></a>
+		</div>
+
+		</div> 
+
+		</div>
+		<br>
+
+		<br>
+		<br>
+
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}
