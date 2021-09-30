@@ -9,7 +9,21 @@
 
 
 	{% block body %}
-		{{ include('inc/navbar.html.twig') }} 
+		{{ include('inc/navbar.html.twig') }}
+		
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/cursos-bg.png')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Cursos</h1>
+                            <span class="subheading">Encuentra Cursos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
 
 	<div class="container">
 	<br>
@@ -24,7 +38,7 @@
 	<div class="row">
 		<div class="col-sm-6 offset-sm-3">
 			<div class="card">
-				<img class="img-responsive" src="../assets/img/curso_masterphp.png" alt="Máster en Frameworks PHP | Laravel | CodeIgniter | Symfony">
+				<img class="img-fluid" src="../assets/img/curso_masterphp.png" alt="Máster en Frameworks PHP | Laravel | CodeIgniter | Symfony">
 				
 				<div class="card-body">
 
@@ -52,6 +66,7 @@
 					<a class="btn btn-danger" href="https://www.udemy.com/course/master-en-frameworks-php-laravel-codeigniter-symfony/?couponCode=5A65F45CE5118BD070AB" target="_blank">
 					<span class="fas fa-play"></span>		
 					Ir al curso</a>
+					<br>
 					<br>
 					<a class="btn btn-outline-primary" href="/cursos">
 					<span class="fas fa-arrow-left"></span>		

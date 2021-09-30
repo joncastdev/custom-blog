@@ -1,0 +1,346 @@
+/*** Add your styles here **/
+
+.text-code{
+  background-color: black;
+  color:white;
+}
+
+
+
+div .wrapper-blog{
+  padding-bottom: 40px;
+}
+
+/*ajustando fonts con media querys*/
+/* Por debajo de 700px */
+@media screen and (max-width: 600px){
+
+  nav .nav-bar-title{
+    font-size:14px;
+  }
+  nav .nav-bar-text{
+    font-size:12px;
+  }
+
+  /*  end navbar*/
+
+
+  div .home-text{
+    font-size:14px;
+  }
+
+  div .home-donation{
+    font-size:12px;
+  }
+
+  /*end home*/
+
+  .texto-title-blog-main{
+    font-size:18px;
+
+  }
+
+  .texto-title-blog-main-link{
+    font-size:10px;
+
+  }
+
+  .texto-title-blog-main-nav{
+    font-size:14px;
+
+  }
+
+  /*end blog main*/
+
+
+  .texto-title-blog{
+    font-size:18px;
+
+  }
+
+  .texto-subtitle-blog{
+    font-size:10px;
+    /*display: none;*/
+
+  }    
+
+  .texto-blog{
+    font-size:14px;
+    /*background-color: red;*/
+  }
+
+  /*end blog*/
+  .portafolio-texto-title{
+    font-size:18px;
+
+  }
+
+  .portafolio-texto-intro{
+    font-size:14px;
+
+  }
+
+  .portafolio-texto-content{
+    font-size:14px;
+
+  }
+
+  .portafolio-texto-link{
+    font-size:12px;
+
+  }
+
+  /* end portafolio*/
+
+  /*end blog*/
+  div .footer-text{
+    font-size:12px;
+  }
+  
+
+}
+
+
+
+/* Por debajo de 400px */
+@media screen and (min-width: 600px){
+
+  nav .nav-bar-title{
+    font-size:16px;
+  }
+  nav .nav-bar-text{
+    font-size:14px;
+  }
+  /*end navbar */
+
+  header.site-header h1 { 
+    padding-top: 50px;  
+    font-size:20px;
+  }  
+
+  div .home-text{
+    font-size:14px;
+  }
+
+  div .home-donation{
+    font-size:12px;
+  }
+
+  /*end home*/
+
+  .texto-title-blog-main{
+    font-size:20px;
+
+  }
+
+  .texto-title-blog-main-link{
+    font-size:12px;
+
+  }
+
+  .texto-title-blog-main-nav{
+    font-size:18px;
+
+  }
+
+
+  /*end blog main*/
+
+
+
+
+  .texto-title-blog{
+    font-size:20px;
+    
+  }
+
+  .texto-subtitle-blog{
+    font-size:10px;
+    /*display: none;*/
+
+  }   
+
+  .texto-blog{
+    font-size:16px;
+    /*background-color: blue;*/
+  }
+
+  /* end blog*/
+
+  .portafolio-texto-title{
+    font-size:18px;
+
+  }
+
+  .portafolio-texto-intro{
+    font-size:14px;
+
+  }
+
+  .portafolio-texto-content{
+    font-size:14px;
+
+  }
+
+  .portafolio-texto-link{
+    font-size:12px;
+
+  }
+
+  /* end portafolio*/
+
+  div .footer-text{
+    font-size:14px;
+  }
+  
+
+
+}
+
+
+@media screen and (min-width: 768px){
+
+  .texto-title-blog{
+    font-size:20px;
+    
+  }
+
+  .texto-subtitle-blog{
+    font-size:14px;
+    /*display: none;*/
+
+  }   
+
+  .texto-blog{
+    font-size:16px;
+    /*background-color: green;*/
+  }
+  
+
+
+}
+
+
+/*mi laptop tiene esta medida cuando encojo pantalla*/
+@media screen and (min-width: 992px){
+
+  header.site-header h1 { 
+    padding-top: 50px;  
+    font-size:34px;
+  }  
+
+  div .home-text{
+    font-size:16px;
+  }
+
+  div .home-donation{
+    font-size:16px;
+  }
+
+  /*end home*/
+
+  .texto-title-blog-main{
+    font-size:28px;
+
+  }
+
+  .texto-title-blog-main-link{
+    font-size:14px;
+
+  }
+
+  .texto-title-blog-main-nav{
+    font-size:34px;
+
+  }
+
+
+  /*end blog main*/
+
+  .texto-title-blog{
+    font-size:20px;
+
+  }
+
+  .texto-blog{
+    font-size:16px;
+    /*background-color: yellow;*/
+  }
+
+  /* end blog*/
+  .portafolio-texto-title{
+    font-size:28px;
+
+  }
+
+  .portafolio-texto-intro{
+    font-size:16px;
+
+  }
+
+  .portafolio-texto-content{
+    font-size:16px;
+
+  }
+
+  .portafolio-texto-link{
+    font-size:14px;
+
+  }
+
+  /* end portafolio*/
+
+
+}
+
+/* esto lleva una secuencia si en 1200 quito en background color, tomara el color
+de 992px y asi sucesivamente*/
+
+/*mi laptop tiene esta medida normal*/
+@media screen and (min-width: 1200px){
+
+  nav .nav-bar-title{
+    font-size:18px;
+  }
+  nav .nav-bar-text{
+    font-size:16px;
+  }
+
+  /*end navbar */
+
+  header.site-header h1 { 
+    padding-top: 50px;  
+    font-size:40px;
+  }  
+
+  div .home-text{
+    font-size:28px;
+  }
+
+  div .home-donation{
+    font-size:16px;
+  }
+
+  /*end home*/
+
+  .texto-title-blog{
+    font-size:22px;
+    
+  }
+
+  .texto-blog{
+    font-size:18px;
+    /*background-color: orange;*/
+  } 
+
+  /*  end blog*/
+
+  div .footer-text{
+    font-size:16px;
+  }
+
+
+
+}
+
+

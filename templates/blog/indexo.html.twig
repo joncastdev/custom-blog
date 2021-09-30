@@ -8,25 +8,20 @@
 {% endblock %}		
 
 	{% block body %}
-		{{ include('inc/navbar.html.twig') }}
-
-		  <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/theme-blog/assets/img/blog-bg.png')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                            <h1>Blog</h1>
-                            <span class="subheading">Encuentra Artículos</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>  
+		{{ include('inc/navbar.html.twig') }} 
 
 		<div class="container">
 		<br>
-		<br>	
+		<br>
+
+		<div class="row">
+		<div class="col-sm-12 shadow p-3 mb-5 bg-dark rounded-pill">			
+
+			<h1 class="text-white text-center home-text">Blog Desarrollo Web</h1>
+		</div>
+
+	</div>
+	<br>
 
 	<div class="row">
 
@@ -34,7 +29,7 @@
 
 			<div class="card">
 
-				<img class="img-fluid" src="assets/img/ci4_controllers.png" alt="codeigniter 4 controllers">
+				<img class="img-responsive" src="assets/img/ci4_controllers.png" alt="codeigniter 4 controllers">
 
 				<div class="card-header">
 
@@ -67,7 +62,7 @@
 
 			<div class="card">
 
-				<img class="img-fluid" src="assets/img/ci3_config.png" alt="codeigniter 3 tutorial">
+				<img class="img-responsive" src="assets/img/ci3_config.png" alt="codeigniter 3 tutorial">
 
 				<div class="card-header">
 
@@ -99,7 +94,7 @@
 
 			<div class="card">
 
-				<img class="img-fluid" src="assets/img/yii2_crud.png" alt="symfony 5 tutorial">
+				<img class="img-responsive" src="assets/img/yii2_crud.png" alt="symfony 5 tutorial">
 
 				<div class="card-header">
 
