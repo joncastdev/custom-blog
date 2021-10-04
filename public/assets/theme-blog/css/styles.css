@@ -15,6 +15,13 @@
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");*/
 
+.text-code{
+  background-color: black;
+  color:white;
+}
+
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
