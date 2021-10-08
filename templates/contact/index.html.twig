@@ -5,7 +5,18 @@
 {% block meta %}
 <meta name="description" content="contacto">
 <meta name="keywords" content="contacto opengiscrm, contacto desarrollador web, contacto freelance"/>
-{% endblock %}		
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+ 
+{% endblock %}					
 
 	{% block body %}
 		{{ include('inc/navbar.html.twig') }}
@@ -39,14 +50,14 @@
 
 				<p class="texto-blog">Contáctame completando el siguiente formulario, envíame un email directo a jonathancastro@opengiscrm.com, escucho tu idea.</p>
 
-				<p class="texto-blog">¿Necesitas un <strong>desarrollador freelance</strong>, un <strong>programador remoto</strong> o adquirir un <strong>código de programación</strong>?.</p>				
+				<p class="texto-blog">¿Necesitas un <strong>desarrollador freelance</strong>, un <strong>programador remoto</strong>, un <strong>programador presencial</strong> o adquirir un <strong>código de programación</strong>?.</p>				
 				
 				<hr>
 
 			</div>
 		</div>
 
-		<div class="col-12">
+		<div class="col-6">
 
 			<br>
 
@@ -64,6 +75,7 @@
 						</div>				
 					</div>
 				</div>
+				<br>
 
 				<div class="form-group">
 					<div class="offset-md-3 col-sm-6">
@@ -72,6 +84,7 @@
 						</div>				
 					</div>
 				</div>
+				<br>
 
 				<div class="form-group">
 					<div class="offset-md-3 col-sm-6">
@@ -80,6 +93,7 @@
 						</div>
 					</div>
 				</div>
+				<br>
 
 				<div class="form-group">
 					<div class="offset-md-3 col-sm-6">                              
@@ -87,7 +101,8 @@
 						<div class="text-danger" id="msg_message">					
 						</div>
 					</div>
-				</div>                         
+				</div>
+				<br>                         
 
 				<div class="form-group">
 					<div class="offset-md-3 col-sm-6">   
@@ -102,8 +117,20 @@
 
 		</div> <!-- text -->
 
+		<div class="col-6">  
+	 		<div id="mapid" style="width: 100%;height: 480px;box-shadow: 5px 5px 5px #888;"></div>
+		 </div>
+
 
 	</div> <!-- end row -->
+
+	{# <div class="row">
+
+		<div class="offset-md-3 col-sm-6">  
+	 		<div id="mapid" style="width: 100%;height: 480px;box-shadow: 5px 5px 5px #888;"></div>
+		 </div>
+
+	 </div> #}
 
 	<br>
 	<br>
@@ -118,5 +145,35 @@
 		<br>
 		
 
-		{{ include('inc/footer.html.twig') }} 
+		{{ include('inc/footer.html.twig') }}
+
+		<script>
+
+
+ var map = L.map('mapid').
+     setView([10.5059600, -66.9049400],
+     15);
+
+     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+maxZoom: 18
+}).addTo(map);
+
+     L.control.scale().addTo(map);
+
+     // L.marker([10.48801, -66.87919],{draggable: true}).addTo(map);
+
+     L.marker([10.5059600, -66.9049400],{draggable: true}).bindPopup("<b>Desarrollador</b><br>Freelance,Remoto,Presencial.").addTo(map).openPopup();
+
+     // marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+     var circle = L.circle([10.5059600, -66.9049400], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(map);
+
+
+   </script> 
 	{% endblock %}
