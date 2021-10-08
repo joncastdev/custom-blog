@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Códigos de Programación | OpenGisCRM.com{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Códigos de Programación">
+<meta name="keywords" content="Códigos de Programación, Códigos de Programación gratis, Códigos de Programación económicos, Códigos de Programación personalizados"/>
+{% endblock %}		
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/theme-blog/assets/img/home-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Blog</h1>
+                            <span class="subheading">Encuentra Artículos</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>  
+
+		<div class="container">
+		<br>
+		<br>	
+
+	<div class="row">
+
+		<h1>Códigos de Programación</h1>
+
+		<div>
+		<p>Aquí encontrarás los mejores <strong>Códigos de Programación</strong>, tanto <strong>Códigos de Programación gratis</strong>, y <strong>Códigos de Programación personalizados</strong>.</p>		
+		</div>	
+
+
+
+	</div>
+
+	<br>
+
+		</div><!-- end container -->
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}
