@@ -1,0 +1,180 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}fixtures symfony{% endblock %}
+
+{% block meta %}
+<meta name="description" content="fixtures symfony">
+<meta name="keywords" content="fixtures symfony, fixtures symfony 5"/>
+{% endblock %}	
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>fixtures symfony</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/yii2_crud.png" alt="yii2_crud">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('subscribe/_form.html.twig') }}
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos como funcionan las fixtures en symfony 5 framework.</p>
+
+		<h2>¿Como crear fixtures en symfony 5?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero tenemos que instalar el paquete con composer, ejecutamos el comando en una terminal, en la raiz del proyecto.</p>
+
+		<pre class="text-code">
+		<code>
+	composer require --dev doctrine/doctrine-fixtures-bundle
+		</code>
+		</pre>
+
+		<p>Luego crearemos el archivo para las fixtures</p>
+
+		<pre class="text-code">
+		<code>
+	php bin/console make:fixtures
+		</code>
+		</pre>
+
+		<p>Le colocamos un nombre a la fixtures, por ejemplo <strong>UserFixture</strong></p>
+
+		<p>Ahora nos creara la estructura basica en la siguiente hubicacion <code>nombreApp/src/DataFixtures/UserFixtures.php</code>, nos creara una clase y un metodo, he añadido en el interior de la clase los valores con los que vamos a trabajar.</p>
+	
+		<pre class="text-code">
+		<code class="">
+	namespace App\DataFixtures;
+
+	// usamos la entidad usuario, primero necesitamos crearla
+	use App\Entity\User;
+
+	use Doctrine\Bundle\FixturesBundle\Fixture;
+	use Doctrine\Persistence\ObjectManager;
+
+	class UserFixtures extends Fixture
+	{
+
+		public function load(ObjectManager $manager)
+		{  
+			// creamos una instancia
+			$user = new User();
+
+			// seteamos 3 propiedades provenientes de la entidad
+			$user->setFirstName('jonathan');
+			$user->setLastName('castro');
+			$user->setEmail('admin@hotmail.com');		
+
+			$manager->persist($user);		
+
+			$manager->flush();
+		}
+	}
+
+		</code>
+		</pre>
+
+		<h2>¿Como cargar las fixtures?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+
+		<p>Finalmente cargamos las fixtures con la data de prueba.</p>
+
+
+		<pre class="text-code">
+		<code>
+	php bin/console doctrine:fixtures:load 
+		</code>
+		</pre>
+
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">jonathancastro@opengiscrm.com
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

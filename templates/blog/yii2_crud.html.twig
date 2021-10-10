@@ -16,8 +16,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            {# <h1>Blog</h1>
-                            <span class="subheading">Encuentra Artículos</span> #}
+                            <h1>yii2 crud</h1>                            
                         </div>
                     </div>
                 </div>
@@ -43,8 +42,7 @@
 		<br>
 
 		<div class="row">				
-		<div class="col-12 text-center">	
-		<h2 class="texto-title-blog">yii2 crud</h2>
+		<div class="col-12 text-center">		
 
 		</div>
 		</div>
@@ -52,7 +50,8 @@
 		<div class="row">
 
 		<div class="col-4">
-		<p>Autor:<span class="fas fa-user-circle texto-subtitle-blog">Jonathan Castro</span></p>
+
+		{{ include('inc/ad_defect.html.twig') }} 		
 
 		</div>
 
@@ -65,98 +64,100 @@
 
 		</div>
 		<hr>
-		<blockquote class="blockquote">
-
 
 		<div class="texto-blog">					
 		<p>En este artículo veremos como crear un crud con yii 2 framework.</p>
-		<br>
-		<p>Primero crearemos la tabla con el uso de las migraciones</p>
-		<br>
+
+		<h2>¿Como crear migraciones en yii2?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero crearemos la tabla con el uso de las migraciones</p>		
 
 	
 		<pre class="text-code">
 		<code class="">
-// crear migracion
-php yii migrate/create Country
+	// crear migracion
+	php yii migrate/create Country
 		</code>
 		</pre>
 
-		<br>
+		
 		<p>Ahora hemos generado un archivo con un formato de fechas <code>migrations/m210725_210438_Country.php</code></p>
-		<br>
+		
 
 		<pre class="text-code">
 		<code class="">
-use yii\db\Migration;
+	use yii\db\Migration;
 
-// es necesario agregar Schema para esta forma de trabajar con migraciones
-use yii\db\Schema;
+	// es necesario agregar Schema para esta forma de trabajar con migraciones
+	use yii\db\Schema;
 
-/**
- * Class m210725_210438_Country
- */
-class m210725_210438_Country extends Migration
-{
-    /**
-     * {@inheritdoc}
-     */
-    public function safeUp()
-    {
+	/**
+	 * Class m210725_210438_Country
+	 */
+	class m210725_210438_Country extends Migration
+	{
+	    /**
+	     * {@inheritdoc}
+	     */
+	    public function safeUp()
+	    {
 
-    }
+	    }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function safeDown()
-    {
-        echo "m210725_210438_Country cannot be reverted.\n";
+	    /**
+	     * {@inheritdoc}
+	     */
+	    public function safeDown()
+	    {
+	        echo "m210725_210438_Country cannot be reverted.\n";
 
-        return false;
-    }
+	        return false;
+	    }
 
-    
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
+	    
+	    // Use up()/down() to run migration code without a transaction.
+	    public function up()
+	    {
 
-        $this->createTable('country', [
-            'id' => Schema::TYPE_PK,
-            'country' => Schema::TYPE_STRING . ' NOT NULL',            
-        ]);
+	        $this->createTable('country', [
+	            'id' => Schema::TYPE_PK,
+	            'country' => Schema::TYPE_STRING . ' NOT NULL',            
+	        ]);
 
-    }
+	    }
 
-    public function down()
-    {
-        // echo "m210725_210438_Country cannot be reverted.\n";
+	    public function down()
+	    {
+	        // echo "m210725_210438_Country cannot be reverted.\n";
 
-        // return false;
+	        // return false;
 
-        $this->dropTable('country');
-    }
-    
-}
+	        $this->dropTable('country');
+	    }
+	    
+	}
 
 		</code>
 		</pre>
 
-		<br>
+		<h2>¿Como ejecutar migraciones en yii2?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+
+		
 		<p>Ahora ejecutamos las migraciones, en este caso tenemos 1 sola, donde llamaremos a la función <code>up()</code> para crear una tabla con la función <code>createTable</code></p>
-		<br>
+		
 
 		<pre class="text-code">
 		<code class="">
-//ejecutamos las migraciones		
-php yii migrate
+	//ejecutamos las migraciones		
+	php yii migrate
 		</code>
 		</pre>
 
 </div>
-</blockquote>
-<br>
-
 
 <br>
 

@@ -5,8 +5,7 @@
 	{% block meta %}
 		<meta name="description" content="codeigniter 4 controllers">
 		<meta name="keywords" content="codeigniter 4 controllers, codeigniter 4"/>
-	{% endblock %}
-		
+	{% endblock %}	
 
 	{% block body %}
 		{{ include('inc/navbar.html.twig') }}
@@ -17,27 +16,75 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            {# <h1>Blog</h1>
-                            <span class="subheading">Encuentra Artículos</span> #}
+                            <h1>codeigniter 4 controllers</h1>                            
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </header>   
 
-        <!-- Post Content-->
-        <article class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
+		
+		<div class="container">
 
-                    <img class="img-fluid" src="../assets/img/ci4_controllers.png" alt="ci4_controllers">
 
-                        <p>En este artículo veremos como utilizar los controladores en la versión 4 de codeigniter framework.</p>
-                        <p>Primero tenemos la estructura básica de un controlador.</p>          
-                        <h2 class="section-heading">Controlador Básico</h2>
-				        <pre class="text-code">
-						<code class="">
+		<br>
+		<div class="">
+
+
+		<div class="row">	
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-responsive" src="../assets/img/ci4_controllers.png" alt="ci4_controllers">
+		</div>
+		</div>
+
+		
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="offset-2 col-8 text-center">	
+				
+
+		</div>
+	
+		</div>		
+
+		{# </div> #}
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('subscribe/_form.html.twig') }}
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos como utilizar los controladores en la versión 4 de codeigniter framework.</p>
+
+		<h2 class="texto-title-blog">¿Como funcionan los controladores?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 
+		
+		<p>Primero tenemos la estructura básica de un controlador.</p>
+		
+
+
+		{# 	pre mantiene el formato del texto #}
+		<pre class="text-code">
+		<code class="">
 		class Users extends BaseController
 		{
 		public function index()
@@ -50,19 +97,28 @@
 
 		}
 
-						</code>
-						</pre>
-						<p>Los controladores se encuentran hubicados en <code>app/Controllers</code>, todo controlador extiende del controlador principal llamado BaseController, el cual se encuentra en la misma ruta.</p>
-						<p>
-						<code class="">
+		</code>
+		</pre>
 
-						class Users extends BaseController
+		<p>Los controladores se encuentran hubicados en <code>app/Controllers</code>, todo controlador extiende del controlador principal llamado BaseController, el cual se encuentra en la misma ruta</p>
 
-						</code>
-						</p>
-						<p>Aqui tenemos el BaseController el cual extiende de Controller que es la clase core del framework, atraves de la función initController podemos cargar automaticamente servicios,libreria,modelos etc.</p>
-						<p>
-						<pre class="text-code">
+		{# <pre> #}
+		<p>
+		<code class="">
+
+		class Users extends BaseController
+
+		</code>
+		</p>
+		{# </pre> #}
+		
+
+		<h2 class="texto-title-blog">¿Qué es el BaseController?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		<p>Aqui tenemos el BaseController el cual extiende de Controller que es la clase core del framework, atraves de la función initController podemos cargar automaticamente servicios,libreria,modelos etc</p>
+		<pre class="text-code">
 		<code class="">
 		namespace App\Controllers;
 
@@ -111,48 +167,68 @@
 		}
 
 		</code>
-		</pre>	
-						</p>
-						<p>En su interior tenemos una variable <code>$data</code> la cual se la podemos pasar a una vista.</p>
-						<p>
-						<code class="">
+		</pre>
+		
+		<p>En su interior tenemos una variable <code>$data</code> la cual se la podemos pasar a una vista.</p>
+		<code class="">
 
-						public function index()
+		public function index()
 
-						</code>	
-						</p>
-						<p>Ahora tenemos el metodo index, el cual es el primer metodo que se ejecuta al cargar la clase, al menos que carguemos el constructor.</p>
-						<p>
-						<code class="">
+		</code>
 
-						$data['tittle'] = 'Users';	
+		
+		<p>Ahora tenemos el metodo index, el cual es el primer metodo que se ejecuta al cargar la clase, al menos que carguemos el constructor.</p>
+		<code class="">
 
-						</code>	
-						</p>
-						<p>Finalmente retornamos una vista, donde el primer parametro es el path de la vista y la cual acepta como segundo parametro la <code>$data</code>.</p>
-						<p>
-						<code class="">
+		$data['tittle'] = 'Users';	
 
-						return view('admin/index',$data);	
+		</code>
 
-						</code>	
-						</p>
-						<p><strong>En este video se muestra el funcionamiento de los controladores.</strong></p>
-						<p>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/obMDQXiEpLQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
-						</p>
-						<blockquote class="blockquote">jonathancastro@opengiscrm.com</blockquote> 
-						<p>
-						<a class="btn btn-outline-primary" href="/blog">
-						<span class="fas fa-arrow-left"></span>		
-						Regresar</a>
+		
+		<p>Finalmente retornamos una vista, donde el primer parametro es el path de la vista y la cual acepta como segundo parametro la <code>$data</code></p>
+		<code class="">
 
-						</p>                             
-                    </div>
-                </div>
-            </div>
-        </article>   		
+		return view('admin/index',$data);	
 
+		</code>		
+
+
+		</div>
+		<br>		
+	
+
+		<blockquote >
+		<p class="blockquote-footer">jonathancastro@opengiscrm.com
+		</p>
+		</blockquote>
+
+		</div>
+
+
+
+
+		</div>	
+
+		</div>
+
+
+		<div class="row">
+
+		<div class="offset-8 col-4">
+
+		<div class="">
+		<a class="btn btn-outline-primary" href="/blog">
+		<span class="fas fa-arrow-left"></span>		
+		Regresar</a>
+		</div>
+
+		</div> 
+
+		</div>
+		<br>
+
+		<br>
+		<br>
 
 
 		{{ include('inc/footer.html.twig') }} 
