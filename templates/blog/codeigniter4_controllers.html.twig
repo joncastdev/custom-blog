@@ -96,7 +96,6 @@
 		}
 
 		}
-
 		</code>
 		</pre>
 
@@ -165,31 +164,24 @@
 		}
 
 		}
-
 		</code>
 		</pre>
 		
 		<p>En su interior tenemos una variable <code>$data</code> la cual se la podemos pasar a una vista.</p>
 		<code class="">
-
 		public function index()
-
 		</code>
 
 		
 		<p>Ahora tenemos el metodo index, el cual es el primer metodo que se ejecuta al cargar la clase, al menos que carguemos el constructor.</p>
 		<code class="">
-
-		$data['tittle'] = 'Users';	
-
+		$data['tittle'] = 'Users';
 		</code>
 
 		
 		<p>Finalmente retornamos una vista, donde el primer parametro es el path de la vista y la cual acepta como segundo parametro la <code>$data</code></p>
 		<code class="">
-
-		return view('admin/index',$data);	
-
+		return view('admin/index',$data);
 		</code>		
 
 

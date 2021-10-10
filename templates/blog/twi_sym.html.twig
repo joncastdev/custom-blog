@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}twig symfony{% endblock %}
+
+{% block meta %}
+<meta name="description" content="twig symfony">
+<meta name="keywords" content="twig symfony, twig symfony 5"/>
+{% endblock %}	
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>twig symfony</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/twig_symfony.png" alt="twig_symfony">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('subscribe/_form.html.twig') }}
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos como funciona <strong>twig</strong> el sistema de plantillas de symfony 5 framework.</p>
+
+		<h2>¿Cómo trabajar con twig en symfony 5?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero tenemos el archivo base que nos genera al crear un nuevo proyecto el cual se llama <code>base.html.twig</code> ubicado en <code>nombreProyecto/templates/base.html.twig</code>, tenemos que la convención que usa symfony, es terminar con la extesión <strong>.twig</strong> en las plantillas.</p>		
+
+		<p>Con las plantillas twig, todo se basa en <strong>blockes</strong>, por ejemplo abrimos <strong>block</strong> y cerramos <strong>endblock</strong> anteponiendo el signo de porcentaje <strong>%</strong> , los cuales se pueden extender y reutilizar, con lo cual evitamos repetición innecesaria de código.</p>
+		
+		<p>Estas son algunas de las muchas cosas que podemos hacer con <strong>twig</strong>.</p>		
+
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">jonathancastro@opengiscrm.com
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

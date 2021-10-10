@@ -138,5 +138,63 @@ class BlogController extends AbstractController
       ]);
    }
 
+   /**
+     * @Route("/blog/symfony-doctrine", name="symfony_doctrine")
+     */
+     public function docSym(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }  
+
+       return $this->render('blog/doc_sym.html.twig', [
+          'controller_name' => 'BlogController',
+          'form' => $form->createView()
+      ]);
+   }
+
+    /**
+     * @Route("/blog/twig-symfony", name="twig_symfony")
+     */
+     public function twiSym(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }  
+
+       return $this->render('blog/twi_sym.html.twig', [
+          'controller_name' => 'BlogController',
+          'form' => $form->createView()
+      ]);
+   }
+
    
 }
