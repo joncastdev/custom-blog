@@ -118,59 +118,7 @@ class HomeController extends AbstractController
           'controller_name' => 'HomeController',
       ]);
 		
-	}	 
-
+	}
     
-     public function guiaUdemy(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }  
-
-       return $this->render('blog/udemy_guia.html.twig', [
-          'controller_name' => 'HomeController',
-          'form' => $form->createView()
-      ]);
-   }
-
     
-     public function guiaUpwork(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }  
-
-       return $this->render('blog/upwork_guia.html.twig', [
-          'controller_name' => 'HomeController',
-          'form' => $form->createView()
-      ]);
-   }
 }
