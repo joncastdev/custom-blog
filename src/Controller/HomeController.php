@@ -207,9 +207,7 @@ class HomeController extends AbstractController
       ]);
    }
 
-    /**
-     * @Route("/blog/guia-udemy", name="udemy_guia")
-     */
+    
      public function guiaUdemy(Request $request)
      {
 
@@ -236,9 +234,7 @@ class HomeController extends AbstractController
       ]);
    }
 
-    /**
-     * @Route("/blog/guia-upwork", name="upwork_guia")
-     */
+    
      public function guiaUpwork(Request $request)
      {
 

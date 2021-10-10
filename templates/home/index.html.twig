@@ -3,18 +3,7 @@
 {% block title %}★ OpenGisCRM ★ | La Mejor Web Para Comprar Cursos Online {% endblock %}
 
 {% block stylesheets %}
-	{# anuncios articulos #}
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5714978672214634"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="+4d+ps+6-r1+1b4"
-     data-ad-client="ca-pub-5714978672214634"
-     data-ad-slot="3495375033"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
 {% endblock %}				
 
 {% block body %}
@@ -77,113 +66,13 @@
 
 	<br>
 
-	<div class="row">
-
-	<h2>Análisis de los mejores tutoriales en desarrollo web de 2021:</h2>
-
-		<div class="col-sm-4">
-
-			<div class="card">
-
-				<img class="img-fluid" src="assets/img/tutorial_codeigniter4.jpg" alt="codeigniter 4 tutorial">
-
-				<div class="card-header">
-
-					<h3 class="home-text">Codeigniter 4 tutorial</h3>
-
-				</div>
-
-				<div class="card-body">
-					<br>
-
-					<h4>Tutorial codeigniter 4 español</h4>					
-
-					<p>Tutorial codeigniter 4 español, la perfecta introducción
-					al framework codeigniter.
-					</p>
-					
-
-					<a class="btn btn-primary" href="/tutoriales/codeigniter-4-tutorial">
-						<span class="fas fa-arrow-right"></span>	
-						Conocer más
-					</a>					
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="col-sm-4">
-
-		<div class="card">
-
-				<img class="img-fluid" src="assets/img/tutorial_symfony5.jpg" alt="symfony 5 tutorial">
-
-				<div class="card-header">
-
-					<h3 class="home-text">Symfony 5 tutorial</h3>
-
-				</div>
-
-				<div class="card-body">
-					<br>
-
-					<h4>Tutorial symfony 5 español</h4>
-
-					<p>Tutorial symfony español, intro en linux con php 7 y base de datos mysql.
-					</p>
-
-					<a class="btn btn-primary" href="/tutoriales/symfony-5-tutorial">
-					<span class="fas fa-arrow-right"></span>		
-					Conocer más</a>
-
-				</div>
-
-			</div>			
-
-		</div>
-
-		<div class="col-sm-4">
-
-			<div class="card">
-
-				<img class="img-fluid" src="assets/img/tutorial_codeigniter3.jpg" alt="codeigniter3 tutorial">
-
-				<div class="card-header">
-
-					<h3 class="home-text">Codeigniter 3 tutorial</h3>
-
-				</div>
-
-				<div class="card-body">
-					<br>
-
-					<h4>Tutorial codeigniter 3 español</h4>
-
-					<p>Tutorial codeigniter 3 español, la perfecta introducción a un framework php.
-					</p>
-
-					<a class="btn btn-primary" href="/tutoriales/codeigniter-3-tutorial">
-					<span class="fas fa-arrow-right"></span>		
-					Conocer más</a>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<br>
-	<br>
+	<div class="container">	
 
 	<div class="row">
 
 	<h2>Catálogo de cursos de udemy al mejor precio:</h2>
 
-	<div class="col-sm-4">
+	<div class="col-sm-3 offset-sm-3">
 
 			<div class="card">
 
@@ -211,40 +100,9 @@
 
 			</div>
 
-		</div>
+		</div>		
 
-		<div class="col-sm-4">
-
-			<div class="card">
-
-				<img class="img-fluid" src="assets/img/curso_symfony5.png" alt="Symfony 5 de 0 Al Limite">
-
-				<div class="card-header">
-
-					<h3>Symfony 5</h3>
-
-				</div>
-
-				<div class="card-body">
-					<br>
-
-					<h4>Curso udemy symfony 5</h4>
-
-					<p>Mejor curso Symfony 5 en español, con doctrine y restapi.
-					</p>
-
-
-					<a class="btn btn-primary" href="/cursos/symfony-5-de-0-al-limite">
-					<span class="fas fa-arrow-right"></span>		
-					Conocer más</a>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 
 			<div class="card">
 
@@ -261,7 +119,7 @@
 
 					<h4>Curso udemy codeigniter</h4>
 
-					<p>Mejor curso CodeIgniter 4 Udemy, con creación de RESTful API.
+					<p>Mejor curso CodeIgniter 4 Udemy, desde cero.
 					</p>
 
 					<a class="btn btn-primary" href="/cursos/codeigniter-4-de-0-al-limite">
@@ -272,18 +130,28 @@
 
 			</div>
 
+		</div>
+
+		<div class="col-sm-3">
+
+			{{ include('inc/ad_products.html.twig') }} 
+
 		</div>		
 
 	</div>
-	{# end tutorials #}
+	{# end cursos #}
+	</div>
+	{# end container #}
 	<br>
 	<br>
 
+	<div class="container">		
+	
 	<div class="row">
 
 	<h2>Guías para que te conviertas en un experto en códigos de programación:</h2>
 
-		<div class="col-sm-4">
+		<div class="col-sm-3 offset-sm-3">
 
 			<div class="card">
 
@@ -291,13 +159,11 @@
 
 				<div class="card-header">
 
-					<h3 class="home-text">codeigniter 4 controllers</h3>
+					<h3 class="home-text">CI4 controllers</h3>
 
 				</div>
 
-				<div class="card-body">					
-
-					<p>20/09/2021</p>					
+				<div class="card-body">									
 
 					<p>Aprende como utilizar los controladores y rutas en codeigniter4.</p>
 					
@@ -310,37 +176,9 @@
 
 			</div>
 
-		</div>
+		</div>	
 
-		<div class="col-sm-4">
-
-			<div class="card">
-
-				<img class="img-fluid" src="assets/img/ci3_config.jpg" alt="codeigniter 3 config">
-
-				<div class="card-header">
-
-					<h3 class="home-text">codeigniter 3 config</h3>
-
-				</div>
-
-				<div class="card-body">					
-
-					<p>20/09/2021</p>					
-
-					<p>Aprende como configurar codeigniter 3, paso a paso desde cero.</p>
-					
-					<a class="btn btn-primary" href="/blog/codeigniter-3-configuraciones">
-					<span class="fas fa-arrow-right"></span>		
-					Seguir leyendo</a>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 
 			<div class="card">
 
@@ -352,9 +190,7 @@
 
 				</div>
 
-				<div class="card-body">					
-
-					<p>20/09/2021</p>	
+				<div class="card-body">						
 
 					<p>Aprende como crear un crud con yii2 un framework ligero, paso a paso.</p>
 					
@@ -368,7 +204,16 @@
 
 		</div>
 
+		<div class="col-sm-3">
+
+			{{ include('inc/ad_defect.html.twig') }} 
+
+		</div>	
+
 	</div>
+
+	</div>
+	{# end container #}
 	<br>
 	<br>
 
@@ -403,7 +248,7 @@
 	
 		<div class="card">
 
-			<h2 class="card-header text-center home-text">Realiza cualquiera de los cursos desde el canal de Youtube</h2>
+			<h2 class="card-header text-center home-text">Realiza cualquiera de los cursos con una garantía de 30 días</h2>
 
 
 

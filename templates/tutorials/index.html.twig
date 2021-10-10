@@ -5,7 +5,11 @@
 {% block meta %}
 <meta name="description" content="tutoriales desarrollo web">
 <meta name="keywords" content="tutoriales desarrollo web, tutoriales en español, tutoriales programación, los 100 tutoriales de youtube"/>
-{% endblock %}		
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
 
 	{% block body %}
 		{{ include('inc/navbar.html.twig') }} 
@@ -36,7 +40,7 @@
 
 		<h2>Lista de tutoriales en desarrollo web:</h2>		
 
-		<div class="col-sm-4">
+		<div class="col-sm-3 offset-sm-1">
 
 			<div class="card">
 
@@ -66,7 +70,7 @@
 
 		</div>
 
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 
 			<div class="card">
 
@@ -94,7 +98,7 @@
 
 		</div>
 
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 
 			<div class="card">
 
@@ -122,13 +126,19 @@
 
 		</div>
 
+		<div class="col-sm-2">
+
+			{{ include('inc/ad_products.html.twig') }} 
+
+		</div>	
+
 	</div>
 
 	<br>
 
 	<div class="row">
 
-		<div class="col-sm-4">
+		<div class="col-sm-3 offset-sm-1">
 
 			<div class="card">
 
@@ -156,7 +166,7 @@
 
 		</div>
 
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 
 			<div class="card">
 
@@ -184,7 +194,7 @@
 
 		</div>
 
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 
 			<div class="card">
 
@@ -211,6 +221,12 @@
 			</div>
 
 		</div>
+
+		<div class="col-sm-2">
+
+			{{ include('inc/ad_defect.html.twig') }} 
+
+		</div>	
 
 	</div>
 

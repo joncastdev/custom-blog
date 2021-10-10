@@ -50,7 +50,7 @@
 
 				<p class="texto-blog">Contáctame completando el siguiente formulario, envíame un email directo a jonathancastro@opengiscrm.com, escucho tu idea.</p>
 
-				<p class="texto-blog">¿Necesitas un <strong>desarrollador freelance</strong>, un <strong>programador remoto</strong>, un <strong>programador presencial</strong> o adquirir un <strong>código de programación</strong>?.</p>				
+				<p class="texto-blog">¿Necesitas un <strong>desarrollador freelance</strong>, un <strong>programador remoto</strong>, o adquirir un <strong>código de programación</strong>?.</p>				
 				
 				<hr>
 
@@ -59,6 +59,10 @@
 
 		<div class="col-6">
 
+		{{ include('inc/ad_defect.html.twig') }} 
+
+			<br>
+			<br>
 			<br>
 
 			<div class="text-center">
@@ -151,7 +155,7 @@
 
 
  var map = L.map('mapid').
-     setView([10.5059600, -66.9049400],
+     setView([10.48801, -66.75919],
      15);
 
      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -163,16 +167,16 @@ maxZoom: 18
 
      // L.marker([10.48801, -66.87919],{draggable: true}).addTo(map);
 
-     L.marker([10.5059600, -66.9049400],{draggable: true}).bindPopup("<b>Desarrollador</b><br>Freelance,Remoto,Presencial.").addTo(map).openPopup();
+     L.marker([10.48801, -66.75919],{draggable: true}).bindPopup("<b>OpenGisCRM</b><br>Programación.").addTo(map).openPopup();
 
      // marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 
-     var circle = L.circle([10.5059600, -66.9049400], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 500
-}).addTo(map);
+//      var circle = L.circle([6.42375, -66.58973], {
+//     color: 'red',
+//     fillColor: '#f03',
+//     fillOpacity: 0.5,
+//     radius: 500
+// }).addTo(map);
 
 
    </script> 
