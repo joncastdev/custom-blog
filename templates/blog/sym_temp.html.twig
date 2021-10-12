@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}twig symfony{% endblock %}
+{% block title %}Symfony personalizar 404{% endblock %}
 
 {% block meta %}
-<meta name="description" content="twig symfony">
-<meta name="keywords" content="twig symfony, twig symfony 5"/>
+<meta name="description" content="Symfony personalizar 404">
+<meta name="keywords" content="Symfony personalizar 404, Symfony 404 template"/>
 {% endblock %}
 
 {% block stylesheets %}
@@ -20,7 +20,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>twig symfony</h1>                            
+                            <h1>Symfony personalizar 404</h1>                            
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
 		<div class="offset-2 col-8">
 
 		<div class="text-center">			
-		<img class="img-fluid" src="../assets/img/twig_symfony.png" alt="twig_symfony">
+		<img class="img-fluid" src="../assets/img/symfony_temp.png" alt="symfony_template">
 		</div>
 		</div>
 		</div>
@@ -70,24 +70,36 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos como funciona <strong>twig</strong> el sistema de plantillas de symfony 5 framework.</p>
+		<p>En este artículo veremos como personalizar una vista 404 en symfony 5, con las plantillas twig.</p>
 
-		<h2>¿Cómo trabajar con twig en symfony 5?</h2>
+		<h2>¿Como personalizar una vista 404?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 	
 		
-		<p>Primero tenemos el archivo base que nos genera al crear un nuevo proyecto el cual se llama <code>base.html.twig</code> ubicado en <code>nombreProyecto/templates/base.html.twig</code>, tenemos que la convención que usa symfony, es terminar con la extesión <strong>.twig</strong> en las plantillas.</p>		
-
-		<p>Con las plantillas twig, todo se basa en <strong>blockes</strong>, por ejemplo abrimos <strong>block</strong> y cerramos <strong>endblock</strong> anteponiendo el signo de porcentaje <strong>%</strong> , los cuales se pueden extender y reutilizar, con lo cual evitamos repetición innecesaria de código.</p>
+		<p>Tenemos que las vistas 404, 500 entre otras se manejan mediante las excepciones predeterminadas del framework, lo cual por defecto muestra una vista 404 como la siguiente.</p>
 
 		<div class="text-center">
 
-		<img class="img-fluid" src="../assets/img/twig.png" alt="twig">
+		<img class="img-fluid" src="../assets/img/exception.png" alt="exception">
+
+		</div>
+
+		<p>Ahora en nuestro proyecto vamos a sobreescribir la vista por defecto <code>nombreApp/templates/bundles/TwigBundle/Exception/error404.html.twig</code>, incluiremos una barra de navegacion para que el usuario se mantenga en el sitio web y sea más amigable para el seo.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/exception1.png" alt="exception1">
+
+		</div>
+
+		<p>Resultado final, el usuario se mantiene en el sitio web y mejoramos el seo de nuestro sitio web.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/exception2.png" alt="exception2">
 
 		</div>
 		
-		<p>Estas son algunas de las muchas cosas que podemos hacer con <strong>twig</strong>.</p>		
-
 </div>
 
 <br>
