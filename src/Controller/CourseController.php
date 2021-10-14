@@ -90,5 +90,44 @@ class CourseController extends AbstractController
 		
 	}
 
+    /**
+     * @Route("/cursos/yii-2-de-0-al-limite", name="curso_yii2")
+     */
+    public function yiiDos()
+    {       
+
+        return $this->render('course/yii_dos.html.twig', [
+            'controller_name' => 'CourseController',
+        ]);
+
+
+    }
+
+     /**
+     * @Route("/cursos/cakephp-4-de-0-al-limite", name="curso_cakephp")
+     */
+    public function cakeCuatro()
+    {       
+
+        return $this->render('course/cakephp_cuatro.html.twig', [
+            'controller_name' => 'CourseController',
+        ]);
+
+
+    }
+
+     /**
+     * @Route("/cursos/laravel-8-de-0-al-limite", name="curso_laravel8")
+     */
+    public function laraOcho()
+    {       
+
+        return $this->render('course/laravel_ocho.html.twig', [
+            'controller_name' => 'CourseController',
+        ]);
+
+
+    }
+
 	
 }

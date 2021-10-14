@@ -196,9 +196,7 @@ class BlogController extends AbstractController
       ]);
    }
 
-    /**
-     * @Route("/blog/udemy-cursos", name="udemy_cursos")
-     */
+   
      public function udemyCursos(Request $request)
      {
 
@@ -225,9 +223,7 @@ class BlogController extends AbstractController
       ]);
    }
 
-   /**
-     * @Route("/blog/upwork-freelancer", name="upwork_freelancer")
-     */
+  
      public function upworkFreelancer(Request $request)
      {
 

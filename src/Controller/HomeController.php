@@ -39,9 +39,7 @@ class HomeController extends AbstractController
       ]);
     }
 
-    /**
-     * @Route("/tutoriales", name="tutoriales")
-     */
+   
     public function tutorials()
     {       
 
@@ -49,9 +47,7 @@ class HomeController extends AbstractController
     }
 
 
-    /**
-     * @Route("/tutoriales/codeigniter-4-tutorial", name="codeigniter4")
-     */
+    
     public function codeigniterCuatro()
     {		
 
@@ -60,9 +56,7 @@ class HomeController extends AbstractController
     	]);
     }
 
-    /**
-     * @Route("/tutoriales/codeigniter-3-tutorial", name="codeigniter3")
-     */
+    
     public function codeigniterTres()
     {
 
@@ -72,9 +66,7 @@ class HomeController extends AbstractController
     }
 
 
-    /**
-     * @Route("/tutoriales/symfony-5-tutorial", name="symfony5")
-     */
+   
     public function symfonyCinco()
     {
       return $this->render('tutorials/symfony_cinco.html.twig', [
@@ -83,9 +75,7 @@ class HomeController extends AbstractController
 
   }
 
-	/**
-     * @Route("/tutoriales/postgresql-13-tutorial", name="postgresql13")
-     */
+	
 	public function postgreSqlTrece()
 	{		
 
@@ -96,9 +86,7 @@ class HomeController extends AbstractController
 
 	}
 
-	/**
-     * @Route("/tutoriales/laravel-8-tutorial", name="laravel8")
-     */
+	
 	public function laravelOcho()
 	{
 
@@ -108,9 +96,7 @@ class HomeController extends AbstractController
 		
 	}
 
-	/**
-     * @Route("/tutoriales/github-tutorial", name="github")
-     */
+	
 	public function gitGithub()
 	{
 
