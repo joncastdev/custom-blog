@@ -1,0 +1,342 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}codeigniter 4 rest api{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Crear una rest api en codeigniter 4">
+<meta name="keywords" content="rest api codeigniter 4, RestFul api codeigniter 4, rutas codeigniter 4"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Crear una API REST en CodeIgniter 4</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/codeigniter4_rest.png" alt="codeigniter4_rest">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('subscribe/_form.html.twig') }}
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos como crear una <strong>API REST en CodeIgniter 4</strong>,con el uso del <strong>API Response Trait</strong>, algo nuevo que se incorpora en esta nueva versión, también aprenderemos como usar las rutas y el uso de rutas de tipo <strong>resource</strong>.</p>
+
+		<h2>¿Como crear una RestFul api codeigniter 4?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero partiremos desde nuestro controlador, esto se encuentra en <code>nombreApp/app/Controller/Users.php</code>, nosotros vamos a realizar una <strong>api rest de tipo crud</strong> para realizar operaciones con usuarios.</p>
+
+		<pre class="text-code">
+		<code>
+		// importamos el trait	
+		use CodeIgniter\API\ResponseTrait;
+
+		// importamos el modelo
+		use App\Models\UserModel;
+
+		class Users extends BaseController
+		{
+			// usamos el trait
+			use ResponseTrait;
+
+			// declaramos las variables
+			protected $UserModel;			
+
+			protected $validation;	
+
+
+			public function __construct()
+			{
+
+				$this->UserModel = new UserModel();
+
+				// cargamos el helper form
+				helper('form');				
+
+				// cargamos el servicio de validación
+				$this->validation =  \Config\Services::validation();
+
+			}
+
+			public function index()
+			{		
+
+				// lista de metódos que nos trae el trait
+				// Generic response method
+				// 		respond($data, 200);
+				// // Generic failure response
+				// 		fail($errors, 400);
+				// // Item created response
+				// 		respondCreated($data);
+				// // Item successfully deleted
+				// 		respondDeleted($data);
+				// // Command executed by no response required
+				// 		respondNoContent($message);
+				// // Client isn't authorized
+				// 		failUnauthorized($description);
+				// // Forbidden action
+				// 		failForbidden($description);
+				// // Resource Not Found
+				// 		failNotFound($description);
+				// // Data did not validate
+				// 		failValidationError($description);
+				// // Resource already exists
+				// 		failResourceExists($description);
+				// // Resource previously deleted
+				// 		failResourceGone($description);
+				// // Client made too many requests
+				// 		failTooManyRequests($description);
+				
+				// consulta, vendria a ser select * from users;
+				$data['users'] = $this->UserModel->findAll();			
+
+				// le pasamos la data, y obtenemos un status code 200
+				return $this->respond($data);			
+				
+				
+			}
+
+
+			public function create()
+			{
+				// declaramos reglas de validación desde el front-end
+				$rules = [
+					'first_name' => [
+						'rules'  => 'required',
+						'errors' => [
+							'required' => 'Nombre es requerido.'
+						]
+					],
+					'last_name' => [
+						'rules'  => 'required',
+						'errors' => [
+							'required' => 'Apellido es requerido.'
+						]
+					],
+					'password' => [
+						'rules'  => 'required',
+						'errors' => [
+							'required' => 'Password es requerido.'
+						]
+					],
+					'email'    => [
+						'rules'  => 'required|valid_email',
+						'errors' => [
+							'required' => 'Email es requerido.',
+							'valid_email' => 'Verifica el email.'
+						]
+					],
+				];		
+
+				// obtenemos todo lo que enviamos por el metódo post
+				$data = $this->request->getPost();
+
+				
+
+				// si falla la validación
+				if (!$this->validate($rules)) {
+
+					$errors = $this->validator->listErrors();			
+
+					return $this->failValidationError($errors);					
+					
+				}else{
+
+					// consulta para crear un recurso, insert into users etc
+					$data = $this->UserModel->save($data);
+
+					// metodo al crear un recurso status code 201
+					return $this->respondCreated($data);
+				}		
+				
+			}
+
+
+			public function show($id)
+			{
+				
+
+				if (!$data = $this->UserModel->find($id)) {			
+
+					
+					// usamos una excepcion predeterminada del framework, para status code 404
+					throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Un error a ocurrido");
+					
+
+				}else{
+
+					// status code 200
+					return $this->respond($data);
+				}
+				
+				
+			}
+
+			public function update($id)
+			{
+				
+				// obtenemos todo lo que enviamos por metodos puto o patch
+				$data = $this->request->getRawInput();
+				
+
+				if (!$user = $this->UserModel->find($id)) {
+
+					// metodo cuando no encontramos un recurso
+					return $this->failNotFound('Usuario con  id nro:'.$id.' no encontrado.');
+					
+				}else{
+
+					// update users etc
+					$data['user'] = $this->UserModel->update($id,$data);
+
+					return $this->respond($data);
+
+
+				}
+
+				
+				
+			}
+
+
+			public function delete($id)
+			{		
+
+				
+				// validamos que eliminamos un usuario por el ide, delete users etc
+				if ($data = $this->UserModel->delete($id)) {			
+
+					// respuesta al eliminar
+					return $this->respondDeleted();
+					
+				}
+				
+				
+			}
+
+			
+
+		}
+		</code>
+		</pre>
+
+		<h2>¿Cómo funcionan las rutas en codeigniter 4?</h2>
+
+		<p>Ahora vamos con las rutas, las rutas se encuentran en <code>nombreApp/app/Config/Routes.php</code>, nosotros creamos una ruta de tipo recurso <strong>resource</strong>, recuerden deshabilitar el método <code>setAutoRoute(false)</code>, ya que si lo dejamos en true podemos ingresar con <strong>nombre clase/nombre controlador</strong>.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_rest.png" alt="ci4_test">
+
+		</div>
+
+		<p>Ahora vamos a listar las rutas asociadas a nuestro controlador <strong>users</strong>, el cual es el nombre de la clase que le estamos pasando.</p>
+
+
+		<pre class="text-code">
+		<code>
+	php spark routes
+		</code>
+		</pre>
+
+		<p>Y de esta manera nos listaría todas las rutas asociadas a nuestros métodos del controlador y a cada uno de los <strong>endpoints</strong>, donde podemos usar herramientas como postman, para testear apis en el formato <strong>json</strong> o cualquier otro.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_rutasapi.png" alt="ci4_rutasapi">
+
+		</div>
+		
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">jonathancastro@opengiscrm.com
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

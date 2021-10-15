@@ -223,7 +223,9 @@ class BlogController extends AbstractController
       ]);
    }
 
-  
+   /**
+     * @Route("/blog/upwork-freelancer", name="upwork_freelancer")
+     */
      public function upworkFreelancer(Request $request)
      {
 
@@ -278,6 +280,35 @@ class BlogController extends AbstractController
           'form' => $form->createView()
       ]);
    }
+
+    /**
+     * @Route("/blog/codeigniter-4-rest", name="codeigniter4_rest")
+     */
+     public function codeigniterCuatroRest(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }       
+
+        return $this->render('blog/codeigniter4_rest.html.twig', [
+          'controller_name' => 'BlogController',
+          'form' => $form->createView()
+      ]);
+    }
 
    
 }
