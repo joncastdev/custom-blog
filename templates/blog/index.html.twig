@@ -30,7 +30,9 @@
 
 		<div class="container">
 		<br>
-		<br>	
+		<br>
+		
+				 {{ include('inc/ad_defect.html.twig') }} 
 
 	
 		<div class="row">
@@ -43,7 +45,17 @@
 		</div>
 		{# end row #}
 	
- <br>
+	<div class="col-sm-3 offset-sm-9">
+
+	<a class="btn btn-danger" href="http://fumacrom.com/2XouP" target="_blank">
+					<span class="fas fa-arrow-right"></span>		
+					Curso gratis del mes</a>
+
+	</div>
+	<br>	
+
+	<h2>Últimos temas agregados:</h2>
+ 
   <div class="row">
 		<div class="col-sm-4">
 
@@ -288,6 +300,8 @@
 			</div>
 
 		</div>
+		
+		
 
 	</div>
 {# 	end row #}
@@ -305,3 +319,4 @@
 
 		{{ include('inc/footer.html.twig') }} 
 	{% endblock %}
+
