@@ -1,0 +1,223 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cómo bloquear Adblock con javascript y SweetAlert{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Cómo bloquear Adblock con javascript y SweetAlert">
+<meta name="keywords" content="Cómo bloquear Adblock con javascript, Cómo evitar Adblock"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Cómo bloquear Adblock con javascript y SweetAlert</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/block.png" alt="ad_block">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/master_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos <strong>cómo bloquear Adblock</strong> en nuestro sitio web, haremos uso de la librería <strong>SweetAlert2</strong> para crear alertas elegantes, primero arrancaremos de un script que nos comparte este amigo en su <a class="" href="https://jonathanmelgoza.com/blog/como-detectar-adblock-con-javascript/" target="_blank">publicación</a>, el cual me ha parecido interesante, recuerden siempre dar el crédito al trabajo de las demás personas.</p>
+
+		<h2>¿Como evitar Adblock en mi sitio web?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Muchas personas vive de sus proyectos web, así sea un blog, enlaces de referido etc, el uso de <strong>Adblock</strong> limita la presencia de anuncios en nuestro sitio web, con el uso de <strong>Google AdSense</strong>.</p>
+
+		<p>Primero arrancamos del <strong>script</strong> base del amigo, el cual genera una alerta genérica al detectar el bloqueador, lo que haremos será crear una alerta con la cual el usuario no podrá remover la alerta al dar click, hasta que <strong>desactive el bloqueador</strong>.</p>
+
+		<pre class="text-code">
+		<code>
+        $(document).ready(function(){
+ 
+          detectarBloqueador();
+ 
+        });
+
+        async function detectarBloqueador(){
+          const bloqueadorActivo = await checkAdBlocker();
+          if( bloqueadorActivo ){
+          	  
+              // crearemos una nueva función, al detectar el bloqueador 
+              modalBlock();
+          }
+      }
+
+      async function checkAdBlocker() {
+ 
+          let bloqueador;
+       
+          async function tryRequest() {
+              try {
+                 return fetch(
+                     new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
+                        method: 'HEAD',
+                        mode: 'no-cors'
+                      }))
+                      .then(function(response) {
+                        bloqueador = false;
+                        return bloqueador;
+                      }).catch(function(e) {
+                        bloqueador = true;
+                        return bloqueador;
+                  });
+              } catch (error) {
+                    console.log(error);
+                    bloqueador = true;
+                    return bloqueador;
+              }
+          }
+       
+          return bloqueador !== undefined ? bloqueador : await tryRequest();
+      }           
+		</code>
+		</pre>
+
+		<p>Hasta ahora lo que hemos hecho es agregar una nueva función llamada <code>modalBlock()</code>, ahora procedemos con la carga de las librería jquery y sweetalert con el uso de sus cdn.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/alert1.png" alt="alert1">
+
+		</div>
+
+		<h2>¿Cómo usar sweetalert 2?</h2>
+
+		<p>Llamaremos entonces a la función <code>modalBlock()</code>, recuerden abrir y cerrar etiqueta de script, usaremos la función <code>swal()</code> la cual en su interior tiene unas propiedades como icono,título etc, usaremos la propiedad <strong>button</strong> como falsa para que no aparezca un botón y aquí lo importante es la propiedad <strong>closeOnClickOutside</strong>, para que al dar click afuera del modal este no cierre.</p>
+
+		<pre class="text-code">
+		<code>
+		async function modalBlock()
+		{
+
+		    swal({
+		      icon: "warning",
+		      title: 'Este sitio muestra anuncios',
+		      text: 'DeshabilitarAdBlock',
+		      type: 'warning',
+		      showCancelButton: false,
+		      showConfirmButton: false,
+		      button: false,
+		      closeOnClickOutside: false
+		    }).then(function() {      
+
+		    	console.log("Algun mensaje de success,opcional");
+
+		      }, function(err) {   
+
+		      	console.log("Algun mensaje de error" + err);
+		      });
+
+		  }          
+		</code>
+		</pre>
+
+		<p>Resultado cuando tenemos activado adbblock.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/alert2.png" alt="adblock2">
+
+		</div>
+
+		<p>Resultado cuando desactivamos adbblock.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/alert3.png" alt="adblock3">
+
+		</div>
+
+		<p>Si este artículo te aparece de ayuda, apoya compartiendo el contenido.</p>
+
+
+<blockquote >
+<p class="blockquote-footer">jonathan castro
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

@@ -10,17 +10,6 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-/*importar las fonts diretamente*/
-/*@import url("https://fonts.googleapis.com/css?family=Lora");
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");*/
-
-.text-code{
-  background-color: black;
-  color:white;
-}
-
-
 
 :root {
   --bs-blue: #0d6efd;

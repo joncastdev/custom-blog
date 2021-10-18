@@ -1,0 +1,226 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cómo crear un mapa con Leaflet{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Cómo crear un mapa con Leaflet">
+<meta name="keywords" content="Cómo crear un mapa con Leaflet, Cómo usar Leaflet"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Cómo crear un mapa con Leaflet</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/leaflet_map.png" alt="leaflet_map">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/master_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos <strong>Cómo crear un mapa con Leaflet/OpenStreetMap</strong>, algo similar a <strong>Google Maps</strong>, leaflet es una librería JavaScript opensource para crear mapas interactivos en web o móvil, la cual se puede combinar con extensiones como <strong>postgis</strong> para crear mapas dinámicos con data provenientes de base de datos como postgresql/mysql entre otras.</p>
+
+		<h2>¿Como agregar Leaflet en Symfony 5?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero agregamos las cdn en el bloque de estilos con el uso de las plantillas <strong>twig</strong>, si no sabes como funciona este sistema de plantillas revisa este <a class="" href="/blog/twig-symfony">artículo</a>.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/leaflet1.png" alt="leaflet1">
+
+		</div>
+
+		<p>Agregaremos unas etiquetas <strong>para el uso de contenedores</strong>, usaremos <strong>Bootstrap 4</strong> para que abarque 6 columnas en la grid, la grid funciona con 12 columnas, ahora apuntaremos al id del mapa llamado <strong>mapid</strong>.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/leaflet2.png" alt="leaflet2">
+
+		</div>
+
+
+		<p>Como vemos la librería cuenta con diversos métodos, tenemos el método <code>map('mapid')</code> donde apuntaremos al id, <code>setView()</code> colocaremos unas coordenadas aquí, podemos combinarlo con <strong>postgis</strong> para crear mapas con data de base de datos o apis, pero eso ya es otra historia, nos interesa el método <code>openPopup()</code> si lo colocamos después de <strong>addTo(map)</strong> cargara de una vez el popup en el mapa.</p>		
+
+		<pre class="text-code">
+		<code>	
+     var map = L.map('mapid').
+     setView([10.48801, -66.75919],
+     15);
+
+     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+	maxZoom: 18
+	}).addTo(map);
+
+     L.control.scale().addTo(map);    
+
+     L.marker([10.48801, -66.75919],{draggable: true}).bindPopup("<b>OpenGisCRM</b><br>Programación.").addTo(map).openPopup();
+		</code>
+		</pre>
+
+		<p>Resultado cargando el popup.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/leaflet3.png" alt="leaflet3">
+
+		</div>
+
+		<p>Si colocamos el método <code>openPopup()</code> antes de agregarlo al mapa <strong>addTo(map)</strong>, solo se mostrara al dar click con el mouse.</p>
+
+		<pre class="text-code">
+		<code>
+     var map = L.map('mapid').
+     setView([10.48801, -66.75919],
+     15);
+
+     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+	maxZoom: 18
+	}).addTo(map);
+
+     L.control.scale().addTo(map);
+    
+
+     L.marker([10.48801, -66.75919],{draggable: true}).bindPopup("<b>OpenGisCRM</b><br>Programación.").openPopup().addTo(map);
+		</code>
+		</pre>
+
+		<p>Resultado cargando el mapa, solo aparece el popup al dar click.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/leaflet4.png" alt="leaflet4">
+
+		</div>
+
+		<p>Si queremos agregar un círculo utilizaremos el método <code>circle()</code> con sus coordenadas.</p>
+
+		<pre class="text-code">
+		<code>
+     var map = L.map('mapid').
+     setView([10.48801, -66.75919],
+     15);
+
+     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+	maxZoom: 18
+	}).addTo(map);
+
+     L.control.scale().addTo(map);
+    
+
+     L.marker([10.48801, -66.75919],{draggable: true}).bindPopup("<b>OpenGisCRM</b><br>Programación.").addTo(map).openPopup();
+  
+
+     var circle = L.circle([10.48801, -66.75919], {
+     color: 'red',
+     fillColor: '#f03',
+     fillOpacity: 0.5,
+     radius: 500
+	 }).addTo(map);
+
+		</code>
+		</pre>
+
+		<p>Resultado cargando el mapa.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/leaflet5.png" alt="leaflet5">
+
+		</div>
+
+		<p>Si este articulo te aparece de ayuda, apoya compartiendo el contenido.</p>
+
+
+<blockquote >
+<p class="blockquote-footer">jonathan castro
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

@@ -284,5 +284,64 @@ class BlogController extends AbstractController
       ]);
     }
 
+    /**
+     * @Route("/blog/como-bloquear-adblock", name="bloquear_adblock")
+     */
+     public function bloquearAdBlock(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }       
+
+        return $this->render('blog/ad_block.html.twig', [
+          'controller_name' => 'BlogController',
+          'form' => $form->createView()
+      ]);
+    }
+
+
+    /**
+     * @Route("/blog/como-crear-mapa-leaflet", name="mapa_leaflet")
+     */
+     public function leafletMap(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }       
+
+        return $this->render('blog/leaflet_map.html.twig', [
+          'controller_name' => 'BlogController',
+          'form' => $form->createView()
+      ]);
+    }
+
    
 }
