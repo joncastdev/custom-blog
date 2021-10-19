@@ -1,0 +1,186 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cómo integrar Stripe Api{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Cómo integrar Stripe Api en codeigniter 4">
+<meta name="keywords" content="Cómo integrar Stripe Api, Cómo integrar Stripe Api en codeigniter 4, Stripe Payment Gateway"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Cómo integrar Stripe Api</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/stripe.png" alt="stripe">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ci4_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos <strong>Cómo integrar Stripe Api en CodeIgniter 4</strong>, con el uso de <strong>Stripe Payment Gateway</strong>, crearemos un formulario con <strong>stripe checkout</strong> y haremos unas pruebas en <strong>test mode</strong>.</p>
+
+		<h2>¿Cómo integrar Stripe Api en CodeIgniter 4?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero instalaremos el paquete con composer, ir a la raíz de tu proyecto y ejecutar el siguiente comando <code>composer require stripe/stripe-php</code>, el cual nos agrega la versión más reciente, verificar luego en el archivo <strong>composer.json</strong>, donde dice <strong>require</strong>.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/stripe1.png" alt="stripe1">
+
+		</div>
+
+		<p>Crearemos el formulario para el checkout, <strong>PK será la clave publicable</strong>, la cual la usaremos solo en las vistas, y tenemos la <strong>SK clave secreta que será para operaciones con el back-end</strong> y <strong>test porque andamos en modo de pruebas</strong>.</p>
+
+		<pre class="text-code">
+		<code>
+		namespace App\Controllers;
+
+
+		use Stripe\Stripe;
+		use Stripe\Customer;
+		use Stripe\Charge;
+
+
+		class Customers extends BaseController
+		{
+
+			public function __construct()
+			{		
+				$stripe = Stripe::setApiKey('sk_test_tuApiKey');
+
+			}
+
+			public function index()
+			{
+				return view('customers');
+			}
+
+			public function createCustomer()
+			{
+
+				$customer = Customer::create([
+					'email' => $this->request->getPost('stripeEmail'),
+					'source'  => $this->request->getPost('stripeToken'),
+					'description' => 'Full access'
+				]);
+
+				$charge = Charge::create([
+					'customer' => $customer->id,         
+					'amount'   => 79900,
+					'currency' => 'usd'
+				]);
+
+				dd($customer);	
+
+			}
+			}
+		</code>
+		</pre>
+
+		<p>Agregando el checkout en la vista, solo usaremos la <strong>PK</strong>.</p>
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/stripe2.png" alt="stripe2">
+
+		</div>
+
+		<p>Finalmente tenemos el formulario listo, solo resta crear un nuevo customer y asociarle un cargo por su id.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/stripe3.png" alt="stripe3">
+
+		</div>		
+		<br>
+
+<blockquote >
+<p class="blockquote-footer">jonathan castro
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

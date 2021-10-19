@@ -1,0 +1,189 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cómo usar Factorías en Laravel 8{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Cómo usar Factorías(Factory) en Laravel 8">
+<meta name="keywords" content="Cómo usar Factorías en Laravel 8, Factory Laravel 8"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Cómo usar Factorías en Laravel 8</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/factory.png" alt="factory">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/master_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos <strong>Cómo usar Factorías(Factories/seeder) en Laravel 8</strong>, con el uso de la clase <strong>Factory</strong> y combinarla con la librería <strong>faker</strong>, para testear data de prueba, usaremos <strong>PostgreSQL</strong> y la interfaz gráfica <strong>pgAdmin 4</strong>.</p>
+
+		<h2>¿Cómo funcionan las factory en laravel 8?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero tenemos que crear la clase con la que vayamos a trabajar <code>php artisan make:factory Project
+		</code>, una vez creado con el mensaje <strong>Factory created successfully</strong>, tendremos una clase con un método <code>definition()</code>, el cual lo vamos a combinar con la librería <strong>faker</strong> para trabajar con data de prueba, recuerden cargar previamente las migraciones <code>php artisan migrate</code>.</p>
+
+		<pre class="text-code">
+		<code>
+		namespace Database\Factories;
+
+		use App\Models\Project;
+		use Illuminate\Database\Eloquent\Factories\Factory;
+
+		class ProjectFactory extends Factory
+		{
+		    /**
+		     * The name of the factory's corresponding model.
+		     *
+		     * @var string
+		     */
+		    protected $model = Project::class;
+
+		    /**
+		     * Define the model's default state.
+		     *
+		     * @return array
+		     */
+		    public function definition()
+		    {
+		    	// definimos los metodos de la libreria facker
+		        return [
+		         'client_name' => $this->faker->name(),
+		         'client_company_name' => $this->faker->company(),
+		         'client_phone' => $this->faker->phoneNumber(),
+		         'client_email' => $this->faker->companyEmail(),
+		         'client_address' => $this->faker->address(),
+		         'project_name' => $this->faker->jobTitle(),
+		     ];
+		 }
+		}
+		</code>
+		</pre>
+
+		<p>Ahora en el archivo <code>DatabaseSeeder.php</code>, agregar como parámetro a la clase factory el conjunto de valores que vamos a insertar en la tabla asociada, en este caso serian <strong>30</strong>, ejecutamos ahora el comando <code>php artisan db:seed</code> para insertar la data.</p>
+
+		<pre class="text-code">
+		<code>
+		namespace Database\Seeders;
+
+		use Illuminate\Database\Seeder;
+
+
+		class DatabaseSeeder extends Seeder
+		{
+		    /**
+		     * Seed the application's database.
+		     *
+		     * @return void
+		     */
+		    public function run()
+		    {        
+		    	// agregaremos esta linea de código
+		        \App\Models\Project::factory(30)->create();
+		        
+		    }
+		}
+		</code>
+		</pre>
+
+		<p>Resultado en nuestra tabla con el uso de PostgreSQL y pgAdmin 4, nos ha generado 30 registros con data random con la librería faker.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/factory1.png" alt="factory1">
+
+		</div>
+		<br>
+
+<blockquote >
+<p class="blockquote-footer">jonathan castro
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

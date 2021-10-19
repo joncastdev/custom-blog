@@ -373,5 +373,93 @@ class BlogController extends AbstractController
       ]);
     }
 
+
+    /**
+     * @Route("/blog/factorias-laravel-8", name="factorias_laravel")
+     */
+     public function factoryLara(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }       
+
+        return $this->render('blog/factory_lara.html.twig', [
+          'controller_name' => 'BlogController',
+          'form' => $form->createView()
+      ]);
+    }
+
+    /**
+     * @Route("/blog/como-integrar-stripe", name="stripe_api")
+     */
+     public function ci4Stripe(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }       
+
+        return $this->render('blog/ci4_stripe.html.twig', [
+          'controller_name' => 'BlogController',
+          'form' => $form->createView()
+      ]);
+    }
+
+    /**
+     * @Route("/blog/cuanto-gana-desarrollador-web", name="cuanto_gana_desarrollador")
+     */
+     public function upworkSueldo(Request $request)
+     {
+
+        $subs = new Subscribe();
+        $form = $this->createForm(SubscribeFormType::class, $subs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($subs);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'sub_message',
+                'Gracias por Suscribirse'
+            );
+
+            return $this->redirectToRoute('home');
+        }       
+
+        return $this->render('blog/upwork_ganar.html.twig', [
+          'controller_name' => 'BlogController',
+          'form' => $form->createView()
+      ]);
+    }
+
    
 }
