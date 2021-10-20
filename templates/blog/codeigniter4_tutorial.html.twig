@@ -1,0 +1,220 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tutorial CodeIgniter 4{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Tutorial CodeIgniter 4 en español, composer, controladores, vistas">
+<meta name="keywords" content="Tutorial CodeIgniter 4, Tutorial CodeIgniter 4 en español"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Tutorial CodeIgniter 4</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/tutorial-ci4.png" alt="tutorial_ci4">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ci4_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>Aprenderemos en este <strong>curso/tutorial CodeIgniter 4 desde cero</strong>, como instalar con composer, el funcionamiento de los controladores, vistas, rutas, todo paso a paso.</p>
+
+		<h2>¿Cómo instalar CodeIgniter 4 con composer?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }}
+
+		<p>Primero necesitamos tener instalado en nuestro ordenador <strong>php</strong> desde su versión <strong>7.3</strong> en adelante, tener habilitadas las extensiones <strong>intl/mbstring</strong>, y <strong>composer</strong> para el manejo de dependencias, primero ejecutamos el siguiente comando para crear un nuevo proyecto.</p>
+
+		<code>composer create-project codeigniter4/appstarter tutorial-ci4</code>		
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci41.png" alt="ci41">
+
+		</div>
+
+		<p>Luego listaremos y le daremos todos los permisos a nuestro proyecto el cual se llama <strong>tutorial-ci4</strong>.</p>
+			
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci42.png" alt="ci42">
+
+		</div>
+
+		<p>Navegamos al interior de nuestro proyecto, con lo cual nos encontraremos en la raíz he iniciaremos el server de desarrollo, usaremos la <strong>command line tool</strong>.</p>
+
+		<code>php spark serve</code>	
+			
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci43.png" alt="ci43">
+
+		</div>
+
+		<p>Copiamos la url en nuestro navegador, con lo cual tenemos el proyecto ejecutándose.</p>			
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci44.png" alt="ci44">
+
+		</div>
+
+		<p>Crearemos un nuevo archivo llamado <code>.env</code> para agregar las variables de entorno, modificaremos las variables <code>CI_ENVIRONMENT</code> y <code>app.baseURL</code>, para trabajar en un estado de desarrollo.</p>
+
+		<pre class="text-code">
+		<code>
+	#--------------------------------------------------------------------
+	# Example Environment Configuration file
+	#
+	# This file can be used as a starting point for your own
+	# custom .env files, and contains most of the possible settings
+	# available in a default install.
+	#
+	# By default, all of the settings are commented out. If you want
+	# to override the setting, you must un-comment it by removing the '#'
+	# at the beginning of the line.
+	#--------------------------------------------------------------------
+
+	#--------------------------------------------------------------------
+	# ENVIRONMENT
+	#--------------------------------------------------------------------
+
+	  CI_ENVIRONMENT = development
+
+	#--------------------------------------------------------------------
+	# APP
+	#--------------------------------------------------------------------
+
+	  app.baseURL = 'http://localhost:8080/'
+		</code>
+		</pre>
+
+
+		<p>Crearemos un nuevo controlador, si quieres conocer como funciona el controlador por defecto lee el siguiente <a class="" href="/blog/codeigniter-4-controllers">artículo</a>.</p>
+
+		<code>php spark make:controller Student</code>				
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci45.png" alt="ci45">
+
+		</div>
+
+		<p>Crearemos una nueva ruta en <code>nombreProyecto/app/Config/Routes.php</code>, con lo cual le asociamos a una url, la clase y nombre del método.</p>
+
+		<code>$routes->get('/student', 'Student::index');</code>
+
+		<p>Verificamos el conjunto de rutas que tenemos creadas.</p>
+
+		<code>php spark routes</code>						
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci46.png" alt="ci46">
+
+		</div>
+
+		<p>Vamos al navegador y mostramos el mensaje.</p>						
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci47.png" alt="ci47">
+
+		</div>				
+
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">jonathan castro
+</p>
+</blockquote>
+
+</div>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

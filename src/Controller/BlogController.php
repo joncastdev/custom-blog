@@ -345,9 +345,9 @@ class BlogController extends AbstractController
 
 
     /**
-     * @Route("/blog/udemy-instructor", name="udemy")
+     * @Route("/blog/tutorial-codeigniter-4", name="ci4_tutorial")
      */
-     public function udemyInstructor(Request $request)
+     public function tutoCiCuatro(Request $request)
      {
 
         $subs = new Subscribe();
@@ -367,7 +367,7 @@ class BlogController extends AbstractController
             return $this->redirectToRoute('home');
         }       
 
-        return $this->render('blog/udemy_instructor.html.twig', [
+        return $this->render('blog/codeigniter4_tutorial.html.twig', [
           'controller_name' => 'BlogController',
           'form' => $form->createView()
       ]);
