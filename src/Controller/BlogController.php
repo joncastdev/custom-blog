@@ -11,9 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
-    /**
-     * @Route("/blog", name="blog")
-     */
+    
     public function index(): Response
     {        
 
@@ -23,27 +21,10 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/codeigniter-4-controllers", name="codeigniter4_controllers")
+     * @Route("/codeigniter-4-controllers", name="codeigniter4_controllers")
      */
-     public function codeigniterCuatroControllers(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }   		
+     public function codeigniterCuatroControllers()
+     {        		
 
         return $this->render('blog/codeigniter4_controllers.html.twig', [
           'controller_name' => 'BlogController',
@@ -52,27 +33,10 @@ class BlogController extends AbstractController
     }
 
      /**
-     * @Route("/blog/codeigniter-3-configuraciones", name="codeigniter3_config")
+     * @Route("/codeigniter-3-config", name="codeigniter3_config")
      */
-     public function codeigniterTresConfig(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }  
+     public function codeigniterTresConfig()
+     {        
 
        return $this->render('blog/codeigniter3_config.html.twig', [
           'controller_name' => 'BlogController',
@@ -81,27 +45,10 @@ class BlogController extends AbstractController
    }
 
      /**
-     * @Route("/blog/yii-2-crud", name="yii2_crud")
+     * @Route("/yii-2-crud", name="yii2_crud")
      */
-     public function yiiDosCrud(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }  
+     public function yiiDosCrud()
+     {        
 
        return $this->render('blog/yii2_crud.html.twig', [
           'controller_name' => 'BlogController',
@@ -110,27 +57,10 @@ class BlogController extends AbstractController
    }
 
    /**
-     * @Route("/blog/fixtures-symfony", name="fixtures_symfony")
+     * @Route("/fixtures-symfony", name="fixtures_symfony")
      */
-     public function fixtuSym(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }  
+     public function fixtuSym()
+     {        
 
        return $this->render('blog/fixtu_sym.html.twig', [
           'controller_name' => 'BlogController',
@@ -139,27 +69,10 @@ class BlogController extends AbstractController
    }
 
    /**
-     * @Route("/blog/symfony-doctrine", name="symfony_doctrine")
+     * @Route("/symfony-doctrine", name="symfony_doctrine")
      */
-     public function docSym(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }  
+     public function docSym()
+     {        
 
        return $this->render('blog/doc_sym.html.twig', [
           'controller_name' => 'BlogController',
@@ -168,86 +81,22 @@ class BlogController extends AbstractController
    }
 
     /**
-     * @Route("/blog/twig-symfony", name="twig_symfony")
+     * @Route("/twig-symfony", name="twig_symfony")
      */
-     public function twiSym(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }  
+     public function twiSym()
+     {        
 
        return $this->render('blog/twi_sym.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
-   }  
-     
-
-   /**
-     * @Route("/blog/upwork-freelancer", name="upwork_freelancer")
-     */
-     public function upworkFreelancer(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }  
-
-       return $this->render('blog/upwork_freelancer.html.twig', [
           'controller_name' => 'BlogController',
           'form' => $form->createView()
       ]);
    }
 
     /**
-     * @Route("/blog/symfony-vista-404", name="symfony_vista")
+     * @Route("/symfony-view-404", name="symfony_view")
      */
-     public function symTemp(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }  
+     public function symTemp()
+     {        
 
        return $this->render('blog/sym_temp.html.twig', [
           'controller_name' => 'BlogController',
@@ -256,27 +105,10 @@ class BlogController extends AbstractController
    }
 
     /**
-     * @Route("/blog/codeigniter-4-rest", name="codeigniter4_rest")
+     * @Route("/codeigniter-4-rest-api", name="codeigniter4_rest_api")
      */
-     public function codeigniterCuatroRest(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }       
+     public function codeigniterCuatroRest()
+     {            
 
         return $this->render('blog/codeigniter4_rest.html.twig', [
           'controller_name' => 'BlogController',
@@ -285,27 +117,10 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/como-bloquear-adblock", name="bloquear_adblock")
+     * @Route("/how-block-adblock", name="block_adblock")
      */
-     public function bloquearAdBlock(Request $request)
+     public function bloquearAdBlock()
      {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }       
 
         return $this->render('blog/ad_block.html.twig', [
           'controller_name' => 'BlogController',
@@ -315,27 +130,10 @@ class BlogController extends AbstractController
 
 
     /**
-     * @Route("/blog/como-crear-mapa-leaflet", name="mapa_leaflet")
+     * @Route("/como-add-map-leaflet", name="map_leaflet")
      */
-     public function leafletMap(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }       
+     public function leafletMap()
+     {           
 
         return $this->render('blog/leaflet_map.html.twig', [
           'controller_name' => 'BlogController',
@@ -345,27 +143,10 @@ class BlogController extends AbstractController
 
 
     /**
-     * @Route("/blog/tutorial-codeigniter-4", name="ci4_tutorial")
+     * @Route("/tutorial-codeigniter-4", name="ci4_tutorial")
      */
-     public function tutoCiCuatro(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }       
+     public function tutoCiCuatro()
+     {            
 
         return $this->render('blog/codeigniter4_tutorial.html.twig', [
           'controller_name' => 'BlogController',
@@ -375,91 +156,24 @@ class BlogController extends AbstractController
 
 
     /**
-     * @Route("/blog/factorias-laravel-8", name="factorias_laravel")
+     * @Route("/factory-laravel-8", name="factory_laravel")
      */
-     public function factoryLara(Request $request)
-     {
+     public function factoryLara()
+     {           
 
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }       
-
-        return $this->render('blog/factory_lara.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+        return $this->render('blog/factory_lara.html.twig');
     }
 
     /**
-     * @Route("/blog/como-integrar-stripe", name="stripe_api")
+     * @Route("/how-add-stripe", name="stripe_api")
      */
-     public function ci4Stripe(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }       
+     public function ci4Stripe()
+     {           
 
         return $this->render('blog/ci4_stripe.html.twig', [
           'controller_name' => 'BlogController',
-          'form' => $form->createView()
+         
       ]);
     }
-
-    /**
-     * @Route("/blog/cuanto-gana-desarrollador-web", name="cuanto_gana_desarrollador")
-     */
-     public function upworkSueldo(Request $request)
-     {
-
-        $subs = new Subscribe();
-        $form = $this->createForm(SubscribeFormType::class, $subs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subs);
-            $entityManager->flush();
-
-            $this->addFlash(
-                'sub_message',
-                'Gracias por Suscribirse'
-            );
-
-            return $this->redirectToRoute('home');
-        }       
-
-        return $this->render('blog/upwork_ganar.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
-    }
-
    
 }

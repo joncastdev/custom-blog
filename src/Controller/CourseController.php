@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CourseController extends AbstractController
 {
-    /**
-     * @Route("/cursos", name="cursos")
-     */
+    
     public function index(): Response
     {   	
 
@@ -19,9 +17,7 @@ class CourseController extends AbstractController
     	]);
     }
 
-    /**
-     * @Route("/cursos/codeigniter-4-de-0-al-limite", name="curso_codeigniter4")
-     */
+    
     public function codeigniterCuatro()
     {		
 
@@ -30,9 +26,7 @@ class CourseController extends AbstractController
     	]);
     }
 
-    /**
-     * @Route("/cursos/master-en-frameworks-php", name="curso_master_php")
-     */
+    
     public function masterPhp()
     {
 		
@@ -42,9 +36,7 @@ class CourseController extends AbstractController
     }
 
 
-    /**
-     * @Route("/cursos/codeigniter-3-de-0-al-limite", name="curso_codeigniter3")
-     */
+    
     public function codeigniterTres()
 	{
 		return $this->render('course/codeigniter_tres.html.twig', [
@@ -53,9 +45,7 @@ class CourseController extends AbstractController
 		
 	}
 
-	/**
-     * @Route("/cursos/symfony-5-de-0-al-limite", name="curso_symfony5")
-     */
+	
 	public function symfonyCinco()
 	{		
 
@@ -66,9 +56,7 @@ class CourseController extends AbstractController
 
 	}
 
-	/**
-     * @Route("/cursos/postgresql-de-0-al-limite", name="curso_postgresql10")
-     */
+	
 	public function laravelOcho()
 	{
 
@@ -78,9 +66,7 @@ class CourseController extends AbstractController
 		
 	}
 
-	/**
-     * @Route("/cursos/git-de-0-al-limite", name="curso_git")
-     */
+	
 	public function gitGithub()
 	{
 
@@ -90,9 +76,7 @@ class CourseController extends AbstractController
 		
 	}
 
-    /**
-     * @Route("/cursos/yii-2-de-0-al-limite", name="curso_yii2")
-     */
+    
     public function yiiDos()
     {       
 
@@ -103,9 +87,6 @@ class CourseController extends AbstractController
 
     }
 
-     /**
-     * @Route("/cursos/cakephp-4-de-0-al-limite", name="curso_cakephp")
-     */
     public function cakeCuatro()
     {       
 
@@ -116,9 +97,7 @@ class CourseController extends AbstractController
 
     }
 
-     /**
-     * @Route("/cursos/laravel-8-de-0-al-limite", name="curso_laravel8")
-     */
+     
     public function laraOcho()
     {       
 

@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cómo usar Factorías en Laravel 8{% endblock %}
+{% block title %}How to use Factories in Laravel 8{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Cómo usar Factorías(Factory) en Laravel 8">
-<meta name="keywords" content="Cómo usar Factorías en Laravel 8, Factory Laravel 8"/>
+<meta name="description" content="How to use Factories in Laravel 8 for database testing">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to use Factories in Laravel 8" />
+<meta property="og:description" content="How to use Factories in Laravel 8 for database testing" />
+<meta property="og:image" content="assets/img/factory.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/factory-laravel-8" /> 
 {% endblock %}
-
-{% block stylesheets %}
-
-{% endblock %}			
+		
 
 	{% block body %}
 		{{ include('inc/navbar.html.twig') }}
@@ -20,7 +21,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Cómo usar Factorías en Laravel 8</h1>                            
+                            <h1>How to use Factories in Laravel 8</h1>                            
                         </div>
                     </div>
                 </div>
@@ -70,14 +71,14 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos <strong>Cómo usar Factorías(Factories/seeder) en Laravel 8</strong>, con el uso de la clase <strong>Factory</strong> y combinarla con la librería <strong>faker</strong>, para testear data de prueba, usaremos <strong>PostgreSQL</strong> y la interfaz gráfica <strong>pgAdmin 4</strong>.</p>
+		<p>In this article we will see How to use <strong>Factories</strong> (Factories / seeder) in Laravel 8, with the use of the Factory class and combine it with the faker library, to test test data, we will use PostgreSQL and the graphical interface pgAdmin 4..</p>
 
-		<h2>¿Cómo funcionan las factory en laravel 8?</h2>
+		<h2>How do factories work in laravel 8?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 	
 		
-		<p>Primero tenemos que crear la clase con la que vayamos a trabajar <code>php artisan make:factory Project
-		</code>, una vez creado con el mensaje <strong>Factory created successfully</strong>, tendremos una clase con un método <code>definition()</code>, el cual lo vamos a combinar con la librería <strong>faker</strong> para trabajar con data de prueba, recuerden cargar previamente las migraciones <code>php artisan migrate</code>.</p>
+		<p>First we have to create the class with which we are going to work <code>php artisan make:factory Project
+		</code>, once created with the Factory created <strong>Factory created successfully</strong>, we will have a class with a <code>definition()</code> method, which we are going to combine with the <strong>faker</strong> libray to work with test data, remember to preload the migrations <code>php artisan migrate</code>.</p>
 
 		<pre class="text-code">
 		<code>
@@ -102,7 +103,7 @@
 		     */
 		    public function definition()
 		    {
-		    	// definimos los metodos de la libreria facker
+		    	// define the methods of the facker library
 		        return [
 		         'client_name' => $this->faker->name(),
 		         'client_company_name' => $this->faker->company(),
@@ -116,7 +117,7 @@
 		</code>
 		</pre>
 
-		<p>Ahora en el archivo <code>DatabaseSeeder.php</code>, agregar como parámetro a la clase factory el conjunto de valores que vamos a insertar en la tabla asociada, en este caso serian <strong>30</strong>, ejecutamos ahora el comando <code>php artisan db:seed</code> para insertar la data.</p>
+		<p>Now in the archive <code>DatabaseSeeder.php</code>, add as a parameter to the factory class the set of values that we are going to insert in the associated table, in this case they would be <strong>30</strong>, we now execute the command <code>php artisan db:seed</code> to insert the data.</p>
 
 		<pre class="text-code">
 		<code>
@@ -134,7 +135,7 @@
 		     */
 		    public function run()
 		    {        
-		    	// agregaremos esta linea de código
+		    	// we will add this line of code
 		        \App\Models\Project::factory(30)->create();
 		        
 		    }
@@ -142,7 +143,7 @@
 		</code>
 		</pre>
 
-		<p>Resultado en nuestra tabla con el uso de PostgreSQL y pgAdmin 4, nos ha generado 30 registros con data random con la librería faker.</p>
+		<p>Result in our table with the use of PostgreSQL and pgAdmin 4, we have generated 30 records with random data with the faker library.</p>
 
 		<div class="text-center">
 
@@ -152,7 +153,7 @@
 		<br>
 
 <blockquote >
-<p class="blockquote-footer">jonathan castro
+<p class="blockquote-footer">Jonathan Castro
 </p>
 </blockquote>
 
@@ -171,9 +172,9 @@
 <div class="offset-8 col-4">
 
 <div class="">
-<a class="btn btn-outline-primary" href="/blog">
+<a class="btn btn-outline-primary" href="/">
 <span class="fas fa-arrow-left"></span>		
-Regresar</a>
+Go Back</a>
 </div>
 
 </div> 

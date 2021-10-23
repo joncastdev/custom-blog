@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CodeController extends AbstractController
 {
-    /**
-     * @Route("/codigos-de-programacion", name="codigos")
-     */
+    
     public function index(): Response
     {        
 

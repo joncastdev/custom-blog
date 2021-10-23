@@ -1,0 +1,284 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}★ OpenGisCRM | Software de Marketing Gis, Ventas y Servicio al cliente ★{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}				
+
+{% block body %}
+{{ include('inc/navbar.html.twig') }}
+
+  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/theme-blog/assets/img/homes-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Home</h1>
+                            <span class="subheading">Encuentra Tutoriales</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header> 
+
+<div class="container ">
+	<br>
+	<br>
+	<div class="row">
+
+		<div class="col-sm-8 offset-sm-2">
+		
+		   {% for flash_message in app.session.flashbag.get('sub_message') %}
+              <div class="alert alert-success">
+               {{ flash_message }}
+              </div>
+   		   {% endfor %}
+			
+			</div>
+
+		</div>
+
+
+        <!-- Post Content-->
+        <article class="">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="">
+
+                    <h1>Simple y Económico</h1>
+
+                    <p>Una plataforma de <strong>CRM</strong>, simple y económica muy fácil de usar que te permitirá crear experiencias excepcionales para ti y tus clientes con tecnologías <strong>gis</strong>.
+
+                    En <strong>OpenGisCRM</strong> encontrarás todo lo que necesitas de un CRM <strong>(Customer relationship management)</strong>, es fácil e intuitivo y lo mejor de todo, es económico. 
+                    </p>
+
+                    <p>Comienza con <strong>OpenGisCRM</strong> y saca más provecho de nuestro software prémium.
+                    </p>
+
+                                           
+                    </div>
+                </div>
+            </div>
+        </article>   		
+		
+
+	<br>
+
+	<div class="container">	
+
+	<h2>CRM software:</h2>
+
+	<div class="row bg-light">	
+
+	<div class="col-sm-4 offset-sm-4">
+
+			<div class="card">
+{# 
+				<img class="img-fluid" src="assets/img/curso_masterphp.png" alt="Máster en Frameworks PHP | Laravel | CodeIgniter | Symfony"> #}
+				<p class="text-center">Solicitar Desde</p>
+
+				<h2 class="text-center">$99,99</h2>
+				<br>
+
+				<div class="card-header">
+
+					<h3 class="text-center">OpenGisCRM</h3>
+
+				</div>
+
+				<div class="card-body">									
+					
+					<p>Un software de CRM de ventas que te permitirá recopilar datos más relevantes de tus clientes o posible cliente (leads), automatizar las tareas, cerrar negocios y aumentar ventas.
+					</p>
+
+					<div class="text-center">
+
+					<a class="btn btn-danger" href="/contacto">
+					<span class="fas fa-arrow-right"></span>		
+					Conocer Más</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>		
+
+		<div class="col-sm-3">
+
+			{{ include('inc/ad_products.html.twig') }} 
+
+		</div>		
+
+	</div>
+	{# end cursos #}
+	</div>
+	{# end container #}
+	<br>
+	<br>
+
+	<div class="container">		
+	
+	<div class="row">
+
+	<h2>Guías para que te conviertas en un experto en códigos de programación:</h2>
+
+		<div class="col-sm-3 offset-sm-3">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/ci4_controllers.png" alt="codeigniter 4 controllers">
+
+				<div class="card-header">
+
+					<h3 class="home-text">CI4 controllers</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Aprende como utilizar los controladores y rutas en codeigniter 4.</p>
+					
+					<a class="btn btn-primary" href="/blog/codeigniter-4-controllers">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>	
+
+		<div class="col-sm-3">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/yii2_crud.png" alt="yii2 crud">
+
+				<div class="card-header">
+
+					<h3 class="home-text">yii2 crud</h3>
+
+				</div>
+
+				<div class="card-body">						
+
+					<p>Aprende como crear un crud con yii2 un framework ligero, paso a paso.</p>
+					
+					<a class="btn btn-primary" href="/blog/yii-2-crud">
+					<span class="fas fa-arrow-right"></span>		
+					Seguir leyendo</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-sm-3">
+
+			{{ include('inc/ad_defect.html.twig') }} 
+
+		</div>	
+
+	</div>
+
+	</div>
+	{# end container #}
+	<br>
+	<br>
+
+	<div class="row">
+
+	<h2>¿Sabes en qué se diferencia nuestros cursos online de un tutorial en la web?</h2>
+
+	<p>Esta es la primera pregunta que debes hacerte, y no te preocupes si no sabes la respuesta porque confundirlas es un error muy habitual. La diferencia entre nuestros cursos online y un tutorial en la web se llama <strong>calidad</strong>: la calidad al mostrar contenido único con habilidades en el sector IT, el cual te permitira aumentar en gran porcentaje el obtener más oportunidades de trabajo o emprendimientos propios.</p>
+	<div>
+	<ul class="font-italic">
+	    <li>¿Sabías que la palabra <strong>Open</strong>?, es muy utilizada en el mundo de la creación de cursos, por ejemplo cursos de inglés donde podemos mencionar a <strong>Open English</strong> por lo tanto al seguir un curso en <strong>OpenGisCRM</strong> estarás apuntando al éxito en cursos de programación en español.</li>
+		<br>
+		<li>¿Estabas al tanto que la palabra <strong>Gis</strong>?, que significa <strong>Sistema de información geográfica</strong> es muy utilizada en el mundo de las aplicaciones web, escritorio o móvil con extensiones como <strong>PostGIS</strong> con el uso de base de datos relacionales <strong>PostgreSQL</strong> o <strong>MySQL</strong>, las cuales al combinarlas con librerías como <strong>Leaflet</strong> o <strong>OpenStreetMap</strong> potenciaras tus aplicaciones geográficas al máximo.</li>
+		<br>
+		<li>¿Además sabías que la palabra <strong>CRM</strong>?, que significa <strong>Customer relationship management</strong> es muy utilizada en el mundo de la creación de códigos de programación, por ejemplo al crear <strong>CRM</strong> como <strong>Salesforce</strong>, entonces al adquirir algunos de nuestros cursos en español, tendrás conocimientos para iniciar tu propio proyecto en la nube <strong>SAAS</strong> que significa <strong>Software As A Service</strong>.</li>
+		<br>
+		<li>Otra de las grandes posibilidades que tendrás en el mundo laboral es como <strong>Freelance</strong> un <strong>Freelance</strong> es un trabajador independiente que ofrece sus servicios en diversas áreas como lo son el <strong>desarrolllo web</strong> entre otras, entre las habilidades más demandadas podemos mencionar el manejo de frameworks php como <strong>laravel</strong>.</li>
+		<br>
+		<li>Por ejemplo al seguir cualquiera de nuestros cursos de Udemy <strong>aprender cualquier tecnología desde cero</strong>, será mucho más fácil, ya que serás llevado de la mano desde cero en un lenguaje de programación o framework.</li>
+		<br>
+		<li>Además de aprender cualquier tecnología desde cero <strong>combinarás estas tecnologías con muchas otras</strong> incrementando el valor agregado.</li>
+		<br>
+		<li>Obtendrás habilidades <strong>tanto en front-end como en el back-end con nuestros cursos</strong> con frameworks como jquery o vue.</li>
+		<br>					
+	</ul>
+	</div>
+
+	<p>Recuerda que todo curso de Udemy, cuenta con una garantía de reembolso válida por 30 días <strong>en el caso que no cumpla tus expectativas</strong> ¿qué esperas?, unete y aprende de manera confiable.</p>
+
+	</div>
+	<br>
+	
+		<div class="card">
+
+			<h2 class="card-header text-center home-text">Realiza cualquiera de los cursos con una garantía de 30 días</h2>
+
+
+
+			<div class="card-body">
+
+				<div class="row">
+
+
+					<div class="col-sm">						
+
+								<h3 class="font-weight-bold home-text">¿Qué aprenderás con los cursos de OpenGisCRM.com con el instructor Jonathan Castro?</h3>
+								<br>						
+								<ul class="font-italic">
+									<li><strong>Aprender cualquier tecnología desde cero</strong></li>
+									<li><strong>Desarrollar programas en tiempo real</strong></li>
+									<li><strong>Aprender a tu propio ritmo</strong></li>
+									<li><strong>Desarrollar en distintos sistemas operativos</strong></li>
+									<li><strong>Habilidades reales en el desarrollo web</strong></li>			
+								</ul>
+				
+					</div>
+
+			<div class="col-sm">
+
+				<h3 class="home-text">Si el contenido de OpenGisCRM.com te es de utilidad, invita un café</h3>
+
+				<a href="https://www.paypal.com/paypalme/joncastroweb?locale.x=es_XC" target="_blank" class="btn btn-primary btn-block" alt="donacionPaypal"><span class="fab fa-paypal texto-blog-link"></span>Café</a>
+
+				<a href="" target="_blank" class="btn btn-danger btn-block" alt="donacionBitcoin"><span class="fab fa-bitcoin"></span>wallet</a>
+				<br>
+				<p class="text-center">16FJhtxHw7Nd5icQzMZxJW82TSDTBFadVc</p>
+
+			</div>
+
+			<div class="col-sm">
+
+				<h3 class="home-text">Subscribe para las últimas novedades.</h3>
+
+				 {{ include('subscribe/_form.html.twig') }}
+
+			</div>
+
+		</div><!-- end row -->
+
+	</div><!-- end cardbody -->
+
+</div><!-- end card -->
+
+
+
+
+</div><!-- end container -->
+<br>
+<br>
+ 	
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

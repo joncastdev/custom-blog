@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PortfolioController extends AbstractController
 {
-    /**
-     * @Route("/portafolio", name="portafolio")
-     */
+    
     public function index(): Response
     {        
 

@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ServiceController extends AbstractController
 {
-    /**
-     * @Route("/servicios", name="servicios")
-     */
+    
     public function index(): Response
     {        
 
