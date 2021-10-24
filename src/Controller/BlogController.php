@@ -105,15 +105,12 @@ class BlogController extends AbstractController
    }
 
     /**
-     * @Route("/codeigniter-4-rest-api", name="codeigniter4_rest_api")
+     * @Route("/codeigniter4-restful-api", name="codeigniter4_rest_api")
      */
      public function codeigniterCuatroRest()
      {            
 
-        return $this->render('blog/codeigniter4_rest.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+        return $this->render('blog/codeigniter4_rest.html.twig');
     }
 
     /**
@@ -165,15 +162,12 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/how-add-stripe", name="stripe_api")
+     * @Route("/stripe-payment-gateway-integration", name="stripe_api")
      */
      public function ci4Stripe()
      {           
 
-        return $this->render('blog/ci4_stripe.html.twig', [
-          'controller_name' => 'BlogController',
-         
-      ]);
+        return $this->render('blog/ci4_stripe.html.twig');
     }
    
 }

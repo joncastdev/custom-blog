@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}codeigniter 4 rest api{% endblock %}
+{% block title %}How to Create RESTful API in CodeIgniter 4{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Crear una rest api en codeigniter 4">
-<meta name="keywords" content="rest api codeigniter 4, RestFul api codeigniter 4, rutas codeigniter 4"/>
+<meta name="description" content="How to Create RESTful API in CodeIgniter 4 with PI Response Trait">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Create RESTful API in CodeIgniter 4" />
+<meta property="og:description" content="How to Create RESTful API in CodeIgniter 4 with PI Response Trait" />
+<meta property="og:image" content="assets/img/codeigniter4_rest.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/codeigniter4-restful-api" /> 
 {% endblock %}
 
 {% block stylesheets %}
@@ -20,7 +24,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Crear una API REST en CodeIgniter 4</h1>                            
+                            <h1>How to Create RESTful API in CodeIgniter 4</h1>                            
                         </div>
                     </div>
                 </div>
@@ -70,28 +74,28 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos como crear una <strong>API REST en CodeIgniter 4</strong>,con el uso del <strong>API Response Trait</strong>, algo nuevo que se incorpora en esta nueva versión, también aprenderemos como usar las rutas y el uso de rutas de tipo <strong>resource</strong>.</p>
+		<p>In this article we will see how to create a <strong>RESTful API in CodeIgniter 4</strong>, with the use of <strong>API Response Trait</strong>, something new that is incorporated in this new version, we will also learn how to use routes and the use of routes of type <strong>resource</strong>.</p>
 
-		<h2>¿Como crear una RestFul api codeigniter 4?</h2>
+		<h2>How to create a RestFul api codeigniter 4?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 	
 		
-		<p>Primero partiremos desde nuestro controlador, esto se encuentra en <code>nombreApp/app/Controller/Users.php</code>, nosotros vamos a realizar una <strong>api rest de tipo crud</strong> para realizar operaciones con usuarios.</p>
+		<p>First we will start from our controller, this is in <code>nameApp/app/Controller/Users.php</code>, we are going to make a <strong>api rest of type CRUD</strong> to perform operations with users.</p>
 
 		<pre class="text-code">
 		<code>
-		// importamos el trait	
+		// import the trait
 		use CodeIgniter\API\ResponseTrait;
 
-		// importamos el modelo
+		// import the model
 		use App\Models\UserModel;
 
 		class Users extends BaseController
 		{
-			// usamos el trait
+			// use the trait
 			use ResponseTrait;
 
-			// declaramos las variables
+			// we declare the variables
 			protected $UserModel;			
 
 			protected $validation;	
@@ -102,47 +106,21 @@
 
 				$this->UserModel = new UserModel();
 
-				// cargamos el helper form
+				// load the helper form
 				helper('form');				
 
-				// cargamos el servicio de validación
+				// load the validation service
 				$this->validation =  \Config\Services::validation();
 
 			}
 
 			public function index()
-			{		
-
-				// lista de metódos que nos trae el trait
-				// Generic response method
-				// 		respond($data, 200);
-				// // Generic failure response
-				// 		fail($errors, 400);
-				// // Item created response
-				// 		respondCreated($data);
-				// // Item successfully deleted
-				// 		respondDeleted($data);
-				// // Command executed by no response required
-				// 		respondNoContent($message);
-				// // Client isn't authorized
-				// 		failUnauthorized($description);
-				// // Forbidden action
-				// 		failForbidden($description);
-				// // Resource Not Found
-				// 		failNotFound($description);
-				// // Data did not validate
-				// 		failValidationError($description);
-				// // Resource already exists
-				// 		failResourceExists($description);
-				// // Resource previously deleted
-				// 		failResourceGone($description);
-				// // Client made too many requests
-				// 		failTooManyRequests($description);
+			{				
 				
-				// consulta, vendria a ser select * from users;
+				// query, it would be select * from users;
 				$data['users'] = $this->UserModel->findAll();			
 
-				// le pasamos la data, y obtenemos un status code 200
+				// we pass the data to him, and we get a code 200
 				return $this->respond($data);			
 				
 				
@@ -151,41 +129,41 @@
 
 			public function create()
 			{
-				// declaramos reglas de validación desde el front-end
+				// We declare validation rules from the front-end
 				$rules = [
 					'first_name' => [
 						'rules'  => 'required',
 						'errors' => [
-							'required' => 'Nombre es requerido.'
+							'required' => 'Name is required.'
 						]
 					],
 					'last_name' => [
 						'rules'  => 'required',
 						'errors' => [
-							'required' => 'Apellido es requerido.'
+							'required' => 'LastName is required.'
 						]
 					],
 					'password' => [
 						'rules'  => 'required',
 						'errors' => [
-							'required' => 'Password es requerido.'
+							'required' => 'Password is required.'
 						]
 					],
 					'email'    => [
 						'rules'  => 'required|valid_email',
 						'errors' => [
-							'required' => 'Email es requerido.',
-							'valid_email' => 'Verifica el email.'
+							'required' => 'Email is required.',
+							'valid_email' => 'Verify the email.'
 						]
 					],
 				];		
 
-				// obtenemos todo lo que enviamos por el metódo post
+				// we get everything we send by the method post
 				$data = $this->request->getPost();
 
 				
 
-				// si falla la validación
+				// if validation fails
 				if (!$this->validate($rules)) {
 
 					$errors = $this->validator->listErrors();			
@@ -194,10 +172,10 @@
 					
 				}else{
 
-					// consulta para crear un recurso, insert into users etc
+					// query to create a resource, insert into users etc
 					$data = $this->UserModel->save($data);
 
-					// metodo al crear un recurso status code 201
+					// method when creating a resource status code 201
 					return $this->respondCreated($data);
 				}		
 				
@@ -211,7 +189,7 @@
 				if (!$data = $this->UserModel->find($id)) {			
 
 					
-					// usamos una excepcion predeterminada del framework, para status code 404
+					// we use a default exception of the framework, to status code 404
 					throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Un error a ocurrido");
 					
 
@@ -227,14 +205,14 @@
 			public function update($id)
 			{
 				
-				// obtenemos todo lo que enviamos por metodos puto o patch
+				// we get everything we send by methods put o patch
 				$data = $this->request->getRawInput();
 				
 
 				if (!$user = $this->UserModel->find($id)) {
 
-					// metodo cuando no encontramos un recurso
-					return $this->failNotFound('Usuario con  id nro:'.$id.' no encontrado.');
+					// method when we can't find a resource
+					return $this->failNotFound('User with  id nro:'.$id.' no found.');
 					
 				}else{
 
@@ -255,10 +233,10 @@
 			{		
 
 				
-				// validamos que eliminamos un usuario por el ide, delete users etc
+				// We validate that we delete a user by id, delete users etc
 				if ($data = $this->UserModel->delete($id)) {			
 
-					// respuesta al eliminar
+					// response when delete
 					return $this->respondDeleted();
 					
 				}
@@ -272,9 +250,9 @@
 		</code>
 		</pre>
 
-		<h2>¿Cómo funcionan las rutas en codeigniter 4?</h2>
+		<h2>How do routes work in codeigniter 4?</h2>
 
-		<p>Ahora vamos con las rutas, las rutas se encuentran en <code>nombreApp/app/Config/Routes.php</code>, nosotros creamos una ruta de tipo recurso <strong>resource</strong>, recuerden deshabilitar el método <code>setAutoRoute(false)</code>, ya que si lo dejamos en true podemos ingresar con <strong>nombre clase/nombre controlador</strong>.</p>
+		<p>Now we go with the routes, the routes are in <code>nameApp/app/Config/Routes.php</code>, we create a resource type route <strong>resource</strong>, remember to disable the method <code>setAutoRoute(false)</code>, since if we leave it in true we can enter with <strong>class name / controller name</strong>.</p>
 
 		<div class="text-center">
 
@@ -282,7 +260,7 @@
 
 		</div>
 
-		<p>Ahora vamos a listar las rutas asociadas a nuestro controlador <strong>users</strong>, el cual es el nombre de la clase que le estamos pasando.</p>
+		<p>Now we are going to list the routes associated with our controller <strong>users</strong>, which is the name of the class that we are passing.</p>
 
 
 		<pre class="text-code">
@@ -291,7 +269,7 @@
 		</code>
 		</pre>
 
-		<p>Y de esta manera nos listaría todas las rutas asociadas a nuestros métodos del controlador y a cada uno de los <strong>endpoints</strong>, donde podemos usar herramientas como postman, para testear apis en el formato <strong>json</strong> o cualquier otro.</p>
+		<p>And in this way we would list all the routes associated with our controller methods and each of the <strong>endpoints</strong>, where we can use tools like postman, to test apis in the format <strong>json</strong> or any other.</p>
 
 		<div class="text-center">
 
@@ -305,7 +283,7 @@
 
 
 <blockquote >
-<p class="blockquote-footer">jonathan castro
+<p class="blockquote-footer">Jonathan Castro
 </p>
 </blockquote>
 
@@ -326,7 +304,7 @@
 <div class="">
 <a class="btn btn-outline-primary" href="/">
 <span class="fas fa-arrow-left"></span>		
-Regresar</a>
+Go Back</a>
 </div>
 
 </div> 

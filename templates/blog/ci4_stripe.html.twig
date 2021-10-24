@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cómo integrar Stripe Api{% endblock %}
+{% block title %}Stripe Payment Gateway Integration{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Cómo integrar Stripe Api en codeigniter 4">
-<meta name="keywords" content="Cómo integrar Stripe Api, Cómo integrar Stripe Api en codeigniter 4, Stripe Payment Gateway"/>
+<meta name="description" content="Stripe Payment Gateway Integration codeigniter 4">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Stripe Payment Gateway Integration" />
+<meta property="og:description" content="Stripe Payment Gateway Integration codeigniter 4" />
+<meta property="og:image" content="assets/img/stripe.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/stripe-payment-gateway-integration" /> 
 {% endblock %}
 
 {% block stylesheets %}
@@ -20,7 +24,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Cómo integrar Stripe Api</h1>                            
+                            <h1>Stripe Payment Gateway Integration</h1>                            
                         </div>
                     </div>
                 </div>
@@ -70,13 +74,13 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos <strong>Cómo integrar Stripe Api en CodeIgniter 4</strong>, con el uso de <strong>Stripe Payment Gateway</strong>, crearemos un formulario con <strong>stripe checkout</strong> y haremos unas pruebas en <strong>test mode</strong>.</p>
+		<p>In this article we will see <strong>How to integrate Stripe Api in CodeIgniter 4</strong>, with the use of <strong>Stripe Payment Gateway</strong>, we will create a form with <strong>stripe checkout</strong> and we will do some tests in <strong>test mode</strong>.</p>
 
-		<h2>¿Cómo integrar Stripe Api en CodeIgniter 4?</h2>
+		<h2>How to integrate Stripe Api in CodeIgniter 4?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 	
 		
-		<p>Primero instalaremos el paquete con composer, ir a la raíz de tu proyecto y ejecutar el siguiente comando <code>composer require stripe/stripe-php</code>, el cual nos agrega la versión más reciente, verificar luego en el archivo <strong>composer.json</strong>, donde dice <strong>require</strong>.</p>
+		<p>We will first install the package with <strong>composer</strong>, go to the root of your project and run the following command <code>composer require stripe/stripe-php</code>, which adds the most recent version, check later in the file <strong>composer.json</strong>, where says <strong>require</strong>.</p>
 
 		<div class="text-center">
 
@@ -84,7 +88,7 @@
 
 		</div>
 
-		<p>Crearemos el formulario para el checkout, <strong>PK será la clave publicable</strong>, la cual la usaremos solo en las vistas, y tenemos la <strong>SK clave secreta que será para operaciones con el back-end</strong> y <strong>test porque andamos en modo de pruebas</strong>.</p>
+		<p>We will create the form for the checkout, <strong>PK will be the publishable key</strong>, which we will use only in the views, and we have the <strong>SK secret key that will be for operations with the back-end</strong> and <strong>test because we are in test mode</strong>.</p>
 
 		<pre class="text-code">
 		<code>
@@ -101,7 +105,7 @@
 
 			public function __construct()
 			{		
-				$stripe = Stripe::setApiKey('sk_test_tuApiKey');
+				$stripe = Stripe::setApiKey('sk_test_yourApiKey');
 
 			}
 
@@ -132,14 +136,14 @@
 		</code>
 		</pre>
 
-		<p>Agregando el checkout en la vista, solo usaremos la <strong>PK</strong>.</p>
+		<p>Adding the checkout in the view, we will only use the <strong>PK</strong>.</p>
 		<div class="text-center">
 
 		<img class="img-fluid" src="../assets/img/stripe2.png" alt="stripe2">
 
 		</div>
 
-		<p>Finalmente tenemos el formulario listo, solo resta crear un nuevo customer y asociarle un cargo por su id.</p>
+		<p>Finally we have the form ready, it only remains to create a new one customer and associate a charge for your id.</p>
 
 		<div class="text-center">
 
@@ -149,7 +153,7 @@
 		<br>
 
 <blockquote >
-<p class="blockquote-footer">jonathan castro
+<p class="blockquote-footer">Jonathan Castro
 </p>
 </blockquote>
 
@@ -170,7 +174,7 @@
 <div class="">
 <a class="btn btn-outline-primary" href="/">
 <span class="fas fa-arrow-left"></span>		
-Regresar</a>
+Go Back</a>
 </div>
 
 </div> 
