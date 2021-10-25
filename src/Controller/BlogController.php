@@ -114,28 +114,22 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/how-block-adblock", name="block_adblock")
+     * @Route("/how-to-block-adblock", name="block_adblock")
      */
      public function bloquearAdBlock()
      {
 
-        return $this->render('blog/ad_block.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+        return $this->render('blog/ad_block.html.twig');
     }
 
 
     /**
-     * @Route("/como-add-map-leaflet", name="map_leaflet")
+     * @Route("/how-to-create-map-leaflet", name="map_leaflet")
      */
      public function leafletMap()
      {           
 
-        return $this->render('blog/leaflet_map.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+        return $this->render('blog/leaflet_map.html.twig');
     }
 
 

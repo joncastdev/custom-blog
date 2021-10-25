@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cómo bloquear Adblock con javascript y SweetAlert{% endblock %}
+{% block title %}How to block Adblock with javascript and SweetAlert{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Cómo bloquear Adblock con javascript y SweetAlert">
-<meta name="keywords" content="Cómo bloquear Adblock con javascript, Cómo evitar Adblock"/>
+<meta name="description" content="How to block Adblock with javascript and SweetAlert, Symfony 5 framework">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to block Adblock with javascript and SweetAlert" />
+<meta property="og:description" content="How to block Adblock with javascript and SweetAlert, Symfony 5 framework" />
+<meta property="og:image" content="assets/img/block.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/how-block-adblock" /> 
 {% endblock %}
 
 {% block stylesheets %}
@@ -20,7 +24,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Cómo bloquear Adblock con javascript y SweetAlert</h1>                            
+                            <h1>How to block Adblock with javascript and SweetAlert</h1>                            
                         </div>
                     </div>
                 </div>
@@ -70,15 +74,15 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos <strong>cómo bloquear Adblock</strong> en nuestro sitio web, haremos uso de la librería <strong>SweetAlert2</strong> para crear alertas elegantes, primero arrancaremos de un script que nos comparte este amigo en su <a class="" href="https://jonathanmelgoza.com/blog/como-detectar-adblock-con-javascript/" target="_blank">publicación</a>, el cual me ha parecido interesante, recuerden siempre dar el crédito al trabajo de las demás personas.</p>
+		<p>In this article we will see <strong>how to block adblock in symfony 5 framework</strong> on our website, we will use the library <strong>SweetAlert2</strong> to create elegant alerts, we will first start from a script that this friend shares with us in his <a class="" href="https://jonathanmelgoza.com/blog/como-detectar-adblock-con-javascript/" target="_blank">publication</a>, which I found interesting, always remember to give credit to other people's work.</p>
 
-		<h2>¿Como evitar Adblock en mi sitio web?</h2>
+		<h2>How to avoid Adblock on my website?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 	
 		
-		<p>Muchas personas vive de sus proyectos web, así sea un blog, enlaces de referido etc, el uso de <strong>Adblock</strong> limita la presencia de anuncios en nuestro sitio web, con el uso de <strong>Google AdSense</strong>.</p>
+		<p>Many people make a living from their web projects, be it a blog, referral links etc, the use of <strong>Adblock</strong> limits the presence of advertisements on our website, with the use of <strong>Google AdSense</strong>.</p>
 
-		<p>Primero arrancamos del <strong>script</strong> base del amigo, el cual genera una alerta genérica al detectar el bloqueador, lo que haremos será crear una alerta con la cual el usuario no podrá remover la alerta al dar click, hasta que <strong>desactive el bloqueador</strong>.</p>
+		<p>first we start from <strong>script</strong> base of the friend, which generates a generic alert when detecting the blocker, what we will do is create an alert with which the user will not be able to remove the alert when clicking, until <strong>disable blocker</strong>.</p>
 
 		<pre class="text-code">
 		<code>
@@ -92,7 +96,7 @@
           const bloqueadorActivo = await checkAdBlocker();
           if( bloqueadorActivo ){
           	  
-              // crearemos una nueva función, al detectar el bloqueador 
+              // we will create a new function, upon detecting the blocker 
               modalBlock();
           }
       }
@@ -127,7 +131,7 @@
 		</code>
 		</pre>
 
-		<p>Hasta ahora lo que hemos hecho es agregar una nueva función llamada <code>modalBlock()</code>, ahora procedemos con la carga de las librería jquery y sweetalert con el uso de sus cdn.</p>
+		<p>So far what we have done is add a new function called <code>modalBlock()</code>, now we proceed with the loading of the jquery and sweetalert libraries with the use of their cdn.</p>
 
 		<div class="text-center">
 
@@ -135,9 +139,9 @@
 
 		</div>
 
-		<h2>¿Cómo usar sweetalert 2?</h2>
+		<h2>How to use sweetalert 2?</h2>
 
-		<p>Llamaremos entonces a la función <code>modalBlock()</code>, recuerden abrir y cerrar etiqueta de script, usaremos la función <code>swal()</code> la cual en su interior tiene unas propiedades como icono,título etc, usaremos la propiedad <strong>button</strong> como falsa para que no aparezca un botón y aquí lo importante es la propiedad <strong>closeOnClickOutside</strong>, para que al dar click afuera del modal este no cierre.</p>
+		<p>We will then call the function <code>modalBlock()</code>, remember to open and close script tag, we will use the function <code>swal()</code> which inside has properties such as icon, title, etc., we will use the property <strong>button</strong> as false so that a button does not appear and here the important thing is the property <strong>closeOnClickOutside</strong>, so that when clicking outside the modal it does not close.</p>
 
 		<pre class="text-code">
 		<code>
@@ -166,7 +170,7 @@
 		</code>
 		</pre>
 
-		<p>Resultado cuando tenemos activado adbblock.</p>
+		<p>Result when we have adblock activated.</p>
 
 		<div class="text-center">
 
@@ -174,7 +178,7 @@
 
 		</div>
 
-		<p>Resultado cuando desactivamos adbblock.</p>
+		<p>Result when you disable adblock.</p>
 
 		<div class="text-center">
 
@@ -182,11 +186,11 @@
 
 		</div>
 
-		<p>Si este artículo te aparece de ayuda, apoya compartiendo el contenido.</p>
+		<p>If this article is helpful, support by sharing the content.</p>
 
 
 <blockquote >
-<p class="blockquote-footer">jonathan castro
+<p class="blockquote-footer">Jonathan Castro
 </p>
 </blockquote>
 
@@ -207,7 +211,7 @@
 <div class="">
 <a class="btn btn-outline-primary" href="/">
 <span class="fas fa-arrow-left"></span>		
-Regresar</a>
+Go Back</a>
 </div>
 
 </div> 

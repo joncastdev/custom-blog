@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cómo crear un mapa con Leaflet{% endblock %}
+{% block title %}How to create a map with Leaflet{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Cómo crear un mapa con Leaflet">
-<meta name="keywords" content="Cómo crear un mapa con Leaflet, Cómo usar Leaflet"/>
+<meta name="description" content="How to create a map with Leaflet and OpenStreetMap">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to create a map with Leaflet" />
+<meta property="og:description" content="How to create a map with Leaflet and OpenStreetMap" />
+<meta property="og:image" content="assets/img/leaflet_map.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/how-to-create-map-leaflet" /> 
 {% endblock %}
 
 {% block stylesheets %}
@@ -20,7 +24,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Cómo crear un mapa con Leaflet</h1>                            
+                            <h1>How to create a map with Leaflet</h1>                            
                         </div>
                     </div>
                 </div>
@@ -70,13 +74,13 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos <strong>Cómo crear un mapa con Leaflet/OpenStreetMap</strong>, algo similar a <strong>Google Maps</strong>, leaflet es una librería JavaScript opensource para crear mapas interactivos en web o móvil, la cual se puede combinar con extensiones como <strong>postgis</strong> para crear mapas dinámicos con data provenientes de base de datos como postgresql/mysql entre otras.</p>
+		<p>In this article we will see <strong>How to create a map with Leaflet / OpenStreetMap</strong>, something similar to <strong>Google Maps</strong>, leaflet is an opensource JavaScript library to create interactive maps on the web or mobile, which can be combined with extensions such as <strong>postgis</strong> to create dynamic maps with data from databases such as postgresql / mysql among others.</p>
 
-		<h2>¿Como agregar Leaflet en Symfony 5?</h2>
+		<h2>How to add Leaflet in Symfony 5?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 	
 		
-		<p>Primero agregamos las cdn en el bloque de estilos con el uso de las plantillas <strong>twig</strong>, si no sabes como funciona este sistema de plantillas revisa este <a class="" href="/blog/twig-symfony">artículo</a>.</p>
+		<p>First we add the cdn in the style block with the use of templates <strong>twig</strong>, if you do not know how this template system works, check this <a class="" href="/blog/twig-symfony">article</a>.</p>
 
 		<div class="text-center">
 
@@ -84,7 +88,7 @@
 
 		</div>
 
-		<p>Agregaremos unas etiquetas <strong>para el uso de contenedores</strong>, usaremos <strong>Bootstrap 4</strong> para que abarque 6 columnas en la grid, la grid funciona con 12 columnas, ahora apuntaremos al id del mapa llamado <strong>mapid</strong>.</p>
+		<p>We will add some labels <strong>for container use</strong>, we will use <strong>Bootstrap 4</strong> so that it covers 6 columns in the grid, the grid works with 12 columns, now we will point to the id of the map called <strong>mapid</strong>.</p>
 
 		<div class="text-center">
 
@@ -93,7 +97,7 @@
 		</div>
 
 
-		<p>Como vemos la librería cuenta con diversos métodos, tenemos el método <code>map('mapid')</code> donde apuntaremos al id, <code>setView()</code> colocaremos unas coordenadas aquí, podemos combinarlo con <strong>postgis</strong> para crear mapas con data de base de datos o apis, pero eso ya es otra historia, nos interesa el método <code>openPopup()</code> si lo colocamos después de <strong>addTo(map)</strong> cargara de una vez el popup en el mapa.</p>		
+		<p>As we see the library has several methods, we have the method <code>map('mapid')</code> where we will point to the id, <code>setView()</code> we will place some coordinates here, we can combine it with <strong>postgis</strong> to create maps with data from database or apis, but that is another story, we are interested in the method <code>openPopup()</code> if we put it after <strong>addTo(map)</strong> will load the popup on the map at once.</p>		
 
 		<pre class="text-code">
 		<code>	
@@ -112,7 +116,7 @@
 		</code>
 		</pre>
 
-		<p>Resultado cargando el popup.</p>
+		<p>Result loading the popup.</p>
 
 		<div class="text-center">
 
@@ -120,7 +124,7 @@
 
 		</div>
 
-		<p>Si colocamos el método <code>openPopup()</code> antes de agregarlo al mapa <strong>addTo(map)</strong>, solo se mostrara al dar click con el mouse.</p>
+		<p>If we put the method <code>openPopup()</code> before adding it to the map <strong>addTo(map)</strong>, it will only be shown when you click with the mouse.</p>
 
 		<pre class="text-code">
 		<code>
@@ -140,7 +144,7 @@
 		</code>
 		</pre>
 
-		<p>Resultado cargando el mapa, solo aparece el popup al dar click.</p>
+		<p>Result loading the map, only the popup appears when you click.</p>
 
 		<div class="text-center">
 
@@ -148,7 +152,7 @@
 
 		</div>
 
-		<p>Si queremos agregar un círculo utilizaremos el método <code>circle()</code> con sus coordenadas.</p>
+		<p>If we want to add a circle we will use the method <code>circle()</code> with its coordinates.</p>
 
 		<pre class="text-code">
 		<code>
@@ -177,7 +181,7 @@
 		</code>
 		</pre>
 
-		<p>Resultado cargando el mapa.</p>
+		<p>Result loading the map.</p>
 
 		<div class="text-center">
 
@@ -185,11 +189,11 @@
 
 		</div>
 
-		<p>Si este articulo te aparece de ayuda, apoya compartiendo el contenido.</p>
+		<p>If this article is helpful, support by sharing the content.</p>
 
 
 <blockquote >
-<p class="blockquote-footer">jonathan castro
+<p class="blockquote-footer">Jonathan Castro
 </p>
 </blockquote>
 
@@ -210,7 +214,7 @@
 <div class="">
 <a class="btn btn-outline-primary" href="/">
 <span class="fas fa-arrow-left"></span>		
-Regresar</a>
+Go Back</a>
 </div>
 
 </div> 
