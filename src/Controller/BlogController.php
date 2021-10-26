@@ -26,22 +26,16 @@ class BlogController extends AbstractController
      public function codeigniterCuatroControllers()
      {        		
 
-        return $this->render('blog/codeigniter4_controllers.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+        return $this->render('blog/codeigniter4_controllers.html.twig');
     }
 
      /**
-     * @Route("/codeigniter-3-config", name="codeigniter3_config")
+     * @Route("/codeigniter-3-config-class", name="codeigniter3_config")
      */
      public function codeigniterTresConfig()
      {        
 
-       return $this->render('blog/codeigniter3_config.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+       return $this->render('blog/codeigniter3_config.html.twig');
    }
 
      /**
@@ -50,10 +44,7 @@ class BlogController extends AbstractController
      public function yiiDosCrud()
      {        
 
-       return $this->render('blog/yii2_crud.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+       return $this->render('blog/yii2_crud.html.twig');
    }
 
    /**
@@ -93,15 +84,12 @@ class BlogController extends AbstractController
    }
 
     /**
-     * @Route("/symfony-view-404", name="symfony_view")
+     * @Route("/error-pages-symfony5", name="symfony_view")
      */
      public function symTemp()
      {        
 
-       return $this->render('blog/sym_temp.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+       return $this->render('blog/sym_temp.html.twig');
    }
 
     /**
@@ -134,15 +122,12 @@ class BlogController extends AbstractController
 
 
     /**
-     * @Route("/tutorial-codeigniter-4", name="ci4_tutorial")
+     * @Route("/codeigniter-4-tutorial", name="ci4_tutorial")
      */
      public function tutoCiCuatro()
      {            
 
-        return $this->render('blog/codeigniter4_tutorial.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+        return $this->render('blog/codeigniter4_tutorial.html.twig');
     }
 
 

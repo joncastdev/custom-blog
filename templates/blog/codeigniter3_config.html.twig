@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}codeigniter 3 configuraciones{% endblock %}
+{% block title %}Codeigniter 3 Config Class{% endblock %}
 
 {% block meta %}
-<meta name="description" content="codeigniter 3 configuraciones">
-<meta name="keywords" content="codeigniter 3 configuraciones, codeigniter 3"/>
+<meta name="description" content="Codeigniter 3 Config Class, with examples">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Codeigniter 3 Config Class" />
+<meta property="og:description" content="Codeigniter 3 Config Class, with examples" />
+<meta property="og:image" content="assets/img/ci3_config.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/codeigniter-3-config-class" />
 {% endblock %}
 
 {% block stylesheets %}
@@ -20,7 +24,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                           <h1 class="texto-title-blog">codeigniter 3 configuraciones</h1>
+                           <h1 class="texto-title-blog">Codeigniter 3 Config Class</h1>
                            {#  <span class="subheading">Encuentra Artículos</span>  #}
                         </div>
                     </div>
@@ -72,13 +76,13 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos como configurar codeigniter 3 framework.</p>
+		<p>In this article we will see <strong>How to configure codeigniter 3 framework</strong>.</p>
 		
-		<h2 class="texto-title-blog">¿Como configurar la base_url?</h2>
+		<h2 class="texto-title-blog">How to configure the base_url?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 
 		
-		<p>Primero iremos a <code>application/config/config.php</code>, donde tenemos esta variable vacía.</p>
+		<p>First we will go to <code>nameProject/application/config/config.php</code>, where we have this empty variable.</p>
 		
 
 	
@@ -89,27 +93,27 @@
 		</pre>
 
 		
-		<p>Ahora lo que haremos será setear esta url, por la url de tu server local o dominio.</p>
+		<p>Now what we will do is set this url, by the url of your local server or domain.</p>
 		
 
 		<pre class="text-code">
 		<code class="">
-	$config['base_url'] = 'http://localhost/tu_app/';
+	$config['base_url'] = 'http://localhost/your_app/';
 		</code>
 		</pre>
 
-		<h2 class="texto-title-blog">¿Cómo cargamos recursos?</h2>		
+		<h2 class="texto-title-blog">How do we load resources?</h2>		
 
 		
-		<p>Ahora cargaremos automáticamente todos los recursos que queramos utilizar en nuestra aplicación en <code>application/config/autoload.php</code>, o también lo podemos cargar en el constructor.</p>
+		<p>Now we will automatically load all the resources that we want to use in our application in <code>nameApp/application/config/autoload.php</code>, or we can also load it in the <strong>constructor</strong>.</p>
 		
 
 		<pre class="text-code">
 		<code class="">
-	//cargamos todas las librerias a utlizar		
+	//we load all the libraries to use		
 	$autoload['libraries'] = array('database', 'form_validation', 'email', 'session', 'pagination');
 
-	//cargamos todos los helpers (ayudantes) a utilizar	
+	//we load all the helpers to use
 	$autoload['helper'] = array('url' ,'security');
 		</code>
 		</pre>		
@@ -119,7 +123,7 @@
 <br>
 
 <blockquote >
-<p class="blockquote-footer">jonathan castro
+<p class="blockquote-footer">Jonathan Castro
 </p>
 </blockquote>
 
@@ -140,7 +144,7 @@
 <div class="">
 <a class="btn btn-outline-primary" href="/">
 <span class="fas fa-arrow-left"></span>		
-Regresar</a>
+Go Back</a>
 </div>
 
 </div> 

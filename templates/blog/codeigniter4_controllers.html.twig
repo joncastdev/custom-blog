@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}codeigniter 4 controllers{% endblock %}
+{% block title %}How to create controllers in codeigniter 4{% endblock %}
 
-	{% block meta %}
-		<meta name="description" content="codeigniter 4 controllers">
-		<meta name="keywords" content="codeigniter 4 controllers, codeigniter 4"/>
-	{% endblock %}
+{% block meta %}
+<meta name="description" content="How to create controllers in codeigniter 4, use BaseController">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to create controllers in codeigniter 4" />
+<meta property="og:description" content="How to create controllers in codeigniter 4, use BaseController" />
+<meta property="og:image" content="assets/img/ci4_controllers.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/codeigniter-4-controllers" />
+{% endblock %}
 
 	{% block stylesheets %}
 
@@ -20,7 +24,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>codeigniter 4 controllers</h1>                            
+                            <h1>How to create controllers in codeigniter 4</h1>                            
                         </div>
                     </div>
                 </div>
@@ -76,13 +80,13 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos como utilizar los controladores en la versión 4 de codeigniter framework.</p>
+		<p>In this article we will see <strong>how to use the controllers in version 4</strong> of the codeigniter framework.</p>
 
-		<h2 class="texto-title-blog">¿Cómo funcionan los controladores?</h2>
+		<h2 class="texto-title-blog">How do the controllers work?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 
 		
-		<p>Primero tenemos la estructura básica de un controlador.</p>
+		<p>First we have the basic structure of a controller.</p>
 		
 
 
@@ -103,7 +107,7 @@
 		</code>
 		</pre>
 
-		<p>Los controladores se encuentran ubicados en <code>app/Controllers</code>, todo controlador extiende del controlador principal llamado BaseController, el cual se encuentra en la misma ruta.</p>
+		<p>The controllers are located in <code>nameProject/app/Controllers</code>, every controller extends from the main controller named <strong>BaseController</strong>, which is on the same route.</p>
 
 		{# <pre> #}
 		<p>
@@ -116,9 +120,9 @@
 		{# </pre> #}
 		
 
-		<h2 class="texto-title-blog">¿Qué es el BaseController?</h2>			
+		<h2 class="texto-title-blog">What is the BaseController?</h2>			
 
-		<p>Aquí tenemos el BaseController el cual extiende de Controller que es la clase core del framework, a través de la función initController podemos cargar automáticamente servicios, librerias, modelos etc.</p>
+		<p>Here we have the BaseController which extends from Controller which is the core class of the framework, through the initController function we can automatically load services, libraries, models etc.</p>
 		<pre class="text-code">
 		<code class="">
 		namespace App\Controllers;
@@ -169,19 +173,19 @@
 		</code>
 		</pre>
 		
-		<p>En su interior tenemos una variable <code>$data</code> la cual se la podemos pasar a una vista.</p>
+		<p>Inside we have a variable <code>$data</code> which we can pass to a view.</p>
 		<code class="">
 		public function index()
 		</code>
 
 		
-		<p>Ahora tenemos el método index, el cual es el primer método que se ejecuta al cargar la clase, al menos que carguemos el constructor.</p>
+		<p>Now we have the index method, which is the first method that is executed when loading the class, unless we load the constructor.</p>
 		<code class="">
 		$data['tittle'] = 'Users';
 		</code>
 
 		
-		<p>Finalmente retornamos una vista, donde el primer parámetro es el path de la vista y la cual acepta como segundo parámetro la <code>$data</code>.</p>
+		<p>Finally we return a view, where the first parameter is the path of the view and which accepts as the second parameter the <code>$data</code>.</p>
 		<code class="">
 		return view('admin/index',$data);
 		</code>		
@@ -192,7 +196,7 @@
 	
 
 		<blockquote >
-		<p class="blockquote-footer">jonathan castro
+		<p class="blockquote-footer">Jonathan Castro
 		</p>
 		</blockquote>
 
@@ -213,7 +217,7 @@
 		<div class="">
 		<a class="btn btn-outline-primary" href="/">
 		<span class="fas fa-arrow-left"></span>		
-		Regresar</a>
+		Go Back</a>
 		</div>
 
 		</div> 
