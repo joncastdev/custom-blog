@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}fixtures symfony{% endblock %}
+{% block title %}How to use DoctrineFixturesBundle{% endblock %}
 
 {% block meta %}
-<meta name="description" content="fixtures symfony">
-<meta name="keywords" content="fixtures symfony, fixtures symfony 5"/>
+<meta name="description" content="How to use DoctrineFixturesBundle in Symfony 5">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to use DoctrineFixturesBundle" />
+<meta property="og:description" content="How to use DoctrineFixturesBundle in Symfony 5" />
+<meta property="og:image" content="assets/img/fixtures_symfony.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/fixtures-bundle-symfony5" />
 {% endblock %}
 
 {% block stylesheets %}
@@ -20,7 +24,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>fixtures symfony</h1>                            
+                            <h1>How to use DoctrineFixturesBundle</h1>                            
                         </div>
                     </div>
                 </div>
@@ -70,13 +74,13 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos como funcionan las fixtures en symfony 5 framework.</p>
+		<p>In this article we will see <strong>How fixtures work in the symfony 5 framework</strong>, to work with test data in our databases.</p>
 
-		<h2>¿Como crear fixtures en symfony 5?</h2>
+		<h2>How to create fixtures in symfony 5?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 	
 		
-		<p>Primero tenemos que instalar el paquete con composer, ejecutamos el comando en una terminal, en la raíz del proyecto.</p>
+		<p>First we have to install the package with <strong>composer</strong>, we execute the command in a terminal, in the root of the project.</p>
 
 		<pre class="text-code">
 		<code>
@@ -84,7 +88,7 @@
 		</code>
 		</pre>
 
-		<p>Luego crearemos el archivo para las fixtures.</p>
+		<p>Then we will create the file for the fixtures.</p>
 
 		<pre class="text-code">
 		<code>
@@ -92,15 +96,15 @@
 		</code>
 		</pre>
 
-		<p>Le colocamos un nombre a la fixtures, por ejemplo <strong>UserFixture</strong>.</p>
+		<p>We put a name to the fixtures, for example <strong>UserFixture</strong>.</p>
 
-		<p>Ahora nos creara la estructura básica en la siguiente ubicación <code>nombreApp/src/DataFixtures/UserFixtures.php</code>, nos creara una clase y un método, he añadido en el interior de la clase los valores con los que vamos a trabajar.</p>
+		<p>Now we will create the basic structure in the following location <code>nameProject/src/DataFixtures/UserFixtures.php</code>, we will create a class and a method, I have added the values with which we are going to work inside the class.</p>
 	
 		<pre class="text-code">
 		<code class="">
 	namespace App\DataFixtures;
 
-	// usamos la entidad usuario, primero necesitamos crearla
+	// we use the user entity, first we need to create it
 	use App\Entity\User;
 
 	use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -111,10 +115,10 @@
 
 		public function load(ObjectManager $manager)
 		{  
-			// creamos una instancia
+			// we create an instance
 			$user = new User();
 
-			// seteamos 3 propiedades provenientes de la entidad
+			// we set 3 properties from the entity
 			$user->setFirstName('jonathan');
 			$user->setLastName('castro');
 			$user->setEmail('admin@hotmail.com');		
@@ -127,9 +131,9 @@
 		</code>
 		</pre>
 
-		<h2>¿Como cargar las fixtures?</h2>		
+		<h2>How to load the fixtures?</h2>		
 
-		<p>Finalmente cargamos las fixtures con la data de prueba.</p>
+		<p>Finally we load the fixtures with the test data.</p>
 
 
 		<pre class="text-code">
@@ -144,7 +148,7 @@
 
 
 <blockquote >
-<p class="blockquote-footer">jonathan castro
+<p class="blockquote-footer">Jonathan Castro
 </p>
 </blockquote>
 
@@ -165,7 +169,7 @@
 <div class="">
 <a class="btn btn-outline-primary" href="/">
 <span class="fas fa-arrow-left"></span>		
-Regresar</a>
+Go Back</a>
 </div>
 
 </div> 

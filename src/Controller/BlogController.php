@@ -48,27 +48,21 @@ class BlogController extends AbstractController
    }
 
    /**
-     * @Route("/fixtures-symfony", name="fixtures_symfony")
+     * @Route("/fixtures-bundle-symfony5", name="fixtures_symfony")
      */
      public function fixtuSym()
      {        
 
-       return $this->render('blog/fixtu_sym.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+       return $this->render('blog/fixtu_sym.html.twig');
    }
 
    /**
-     * @Route("/symfony-doctrine", name="symfony_doctrine")
+     * @Route("/symfony-doctrine-orm", name="symfony_doctrine")
      */
      public function docSym()
      {        
 
-       return $this->render('blog/doc_sym.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+       return $this->render('blog/doc_sym.html.twig');
    }
 
     /**
@@ -77,10 +71,7 @@ class BlogController extends AbstractController
      public function twiSym()
      {        
 
-       return $this->render('blog/twi_sym.html.twig', [
-          'controller_name' => 'BlogController',
-          'form' => $form->createView()
-      ]);
+       return $this->render('blog/twi_sym.html.twig');
    }
 
     /**
@@ -147,6 +138,24 @@ class BlogController extends AbstractController
      {           
 
         return $this->render('blog/ci4_stripe.html.twig');
+    }
+
+    /**
+     * @Route("/codeigniter4-de-0-al-limite", name="course_ci4")
+     */
+     public function ci4Course()
+     {           
+
+        return $this->render('blog/ci4_course.html.twig');
+    }
+
+    /**
+     * @Route("/symfony5-de-0-al-limite", name="course_sym5")
+     */
+     public function sy5Course()
+     {           
+
+        return $this->render('blog/sym5_course.html.twig');
     }
    
 }

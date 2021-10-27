@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}symfony doctrine{% endblock %}
+{% block title %}How to use Doctrine ORM{% endblock %}
 
 {% block meta %}
-<meta name="description" content="symfony doctrine">
-<meta name="keywords" content="symfony doctrine, symfony 5 doctrine"/>
+<meta name="description" content="How to use Doctrine ORM in Symfony 5">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to use Doctrine ORM" />
+<meta property="og:description" content="How to use Doctrine ORM in Symfony 5" />
+<meta property="og:image" content="assets/img/symfony_doctrine.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/symfony-doctrine-orm" />
 {% endblock %}
 
 {% block stylesheets %}
@@ -20,7 +24,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>symfony doctrine</h1>                            
+                            <h1>How to use Doctrine ORM</h1>                            
                         </div>
                     </div>
                 </div>
@@ -70,13 +74,13 @@
 		<hr>
 
 		<div class="texto-blog">					
-		<p>En este artículo veremos como funciona <strong>doctrine</strong> el orm de symfony 5 framework.</p>
+		<p>In this article we will see how it works <strong>doctrine</strong> the symfony 5 framework orm.</p>
 
-		<h2>¿Cómo trabajar con doctrine en symfony 5?</h2>
+		<h2>How to work with doctrine in symfony 5?</h2>
 
 		{{ include('inc/ad_defect.html.twig') }} 	
 		
-		<p>Primero tenemos que configurar el archivo <code>.env</code> ubicado en <code>nombreProyecto/.env</code>, en este ejemplo lo haremos con mysql, pero puedes usar postgresql, sqlite o lo que prefieras, recuerden que las líneas que comienzan con <strong>#</strong> son partes del código comentadas.</p>
+		<p>First we have to configure the file <code>.env</code> located in <code>nameProject/.env</code>, in this example we will do it with mysql, but you can use postgresql, sqlite or whatever you prefer, remember that the lines that start with <strong>#</strong> are commented parts of the code.</p>
 
 		<pre class="text-code">
 		<code>
@@ -110,14 +114,14 @@
 	#
 	# DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
 	# DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7"
-	# Nos interesa esta linea para conectarnos a mysql
-	  DATABASE_URL="mysql://root:123@127.0.0.1:3306/nombre_db?serverVersion=5.7"
+	# We are interested in this line to connect to mysql
+	  DATABASE_URL="mysql://root:123@127.0.0.1:3306/name_db?serverVersion=5.7"
 	# DATABASE_URL="postgresql://db_user:db_password@127.0.0.1:5432/db_name?serverVersion=13&charset=utf8"
 	###< doctrine/doctrine-bundle ###
 		</code>
 		</pre>
 
-		<p>Luego ejecutamos el siguiente comando, en una terminal, en la raíz del proyecto, ejemplo <code>cd/nombreApp</code>,ahora nos crearía una base de datos, para nuestro ejemplo se llamaría <strong>nombre_db</strong>.</p>
+		<p>Then we execute the following command, in a terminal, in the root of the project, example <code>cd/nameProject</code>, now we would create a database, for our example it would be called <strong>name_db</strong>.</p>
 
 		<pre class="text-code">
 		<code>
@@ -125,9 +129,9 @@
 		</code>
 		</pre>
 
-		<h2>¿Cómo eliminar base de datos con doctrine?</h2>					
+		<h2>How to delete database with doctrine?</h2>					
 
-		<p>Ahora si quisiéramos eliminar esta base de datos, podemos hacer lo siguiente, y nos eliminaría la base de datos.</p>
+		<p>Now if we wanted to delete this database, we can do the following, and we would delete the database.</p>
 	
 		<pre class="text-code">
 		<code class="">
@@ -135,7 +139,7 @@
 		</code>
 		</pre>
 
-		<p>Estas son algunas de las muchas cosas que podemos hacer con el <strong>orm doctrine</strong>.</p>		
+		<p>These are some of the many things we can do with it <strong>orm doctrine</strong>.</p>		
 
 </div>
 
@@ -143,7 +147,7 @@
 
 
 <blockquote >
-<p class="blockquote-footer">jonathan castro
+<p class="blockquote-footer">Jonathan Castro
 </p>
 </blockquote>
 
@@ -164,7 +168,7 @@
 <div class="">
 <a class="btn btn-outline-primary" href="/">
 <span class="fas fa-arrow-left"></span>		
-Regresar</a>
+Go Back</a>
 </div>
 
 </div> 
