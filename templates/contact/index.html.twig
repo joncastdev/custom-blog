@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}¡Hola! ¿Qué tal? - OpenGisCRM.com{% endblock %}
+{% block title %}OpenGisCRM - Contact{% endblock %}
 
 {% block meta %}
-<meta name="description" content="contacto">
-<meta name="keywords" content="contacto opengiscrm, contacto desarrollador web, contacto freelance"/>
+<meta name="description" content="OpenGisCRM - Contact, tell me more about your online project.">
+<meta name="keywords" content="opengiscrm contact, web developer contact, freelance contact"/>
 {% endblock %}	
 
 {% block stylesheets %}
@@ -46,11 +46,9 @@
 		<div class="col-12">
 			<div class="text-center">
 
-				<h1 class="texto-blog">¡Hola! ¿Qué tal? Cuéntame más de tu proyecto </h1>
+				<h1 class="texto-blog">OpenGisCRM - Contact</h1>
 
-				<p class="texto-blog">Buscas <strong>¿desarrollador web en caracas/venezuela?</strong>, instructor online especializado en symfony, laravel, codeigniter, contáctame en <a class="nav-link" href="https://www.upwork.com/o/profiles/users/_~016c272f36ca6d79ee/" target="_blank">Upwork</a>, escucho tu idea.</p>
-
-				<p class="texto-blog">¿Necesitas un <strong>desarrollador freelance</strong>, un <strong>programador remoto</strong>, o adquirir un <strong>código de programación</strong>?.</p>				
+				<p class="texto-blog">Are you looking for a web developer? Online instructor, freelance developer specialized in symfony, laravel, codeigniter, contact me by completing the form, I hear your idea.</p>							
 				
 				<hr>
 
@@ -72,7 +70,7 @@
 
 				<div class="form-group">
 					<div class="offset-md-3 col-sm-6">
-						<input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre">
+						<input type="text" class="form-control" id="first_name" name="first_name" placeholder="FirstName">
 						<div class="text-danger" id="msg_first_name">					
 						</div>				
 					</div>
@@ -81,7 +79,7 @@
 
 				<div class="form-group">
 					<div class="offset-md-3 col-sm-6">
-						<input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellido">
+						<input type="text" class="form-control" id="last_name" name="last_name" placeholder="LastName">
 						<div class="text-danger" id="msg_last_name">					
 						</div>				
 					</div>
@@ -99,7 +97,7 @@
 
 				<div class="form-group">
 					<div class="offset-md-3 col-sm-6">                              
-						<textarea name="message" class="form-control" id="message" name="message" placeholder="Mensaje"></textarea>
+						<textarea name="message" class="form-control" id="message" name="message" placeholder="Message"></textarea>
 						<div class="text-danger" id="msg_message">					
 						</div>
 					</div>
@@ -108,7 +106,7 @@
 
 				<div class="form-group">
 					<div class="offset-md-3 col-sm-6">   
-						<button type="submit" class="btn btn-primary btn-block">Enviar</button>
+						<button type="submit" class="btn btn-primary btn-block">Send</button>
 					</div>
 				</div>                         
 
@@ -153,7 +151,7 @@
 
 
  var map = L.map('mapid').
-     setView([10.48801, -66.75919],
+     setView([40.6643, -73.9385],
      15);
 
      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -165,7 +163,7 @@ maxZoom: 18
 
      // L.marker([10.48801, -66.87919],{draggable: true}).addTo(map);
 
-     L.marker([10.48801, -66.75919],{draggable: true}).bindPopup("<b>OpenGisCRM</b><br>Programación.").addTo(map).openPopup();
+     L.marker([40.6643, -73.9385],{draggable: true}).bindPopup("<b>OpenGisCRM</b>").addTo(map).openPopup();
 
      // marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 
