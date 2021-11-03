@@ -1,0 +1,310 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}How to Create Auth in CodeIgniter 4{% endblock %}
+
+	{% block meta %}
+		<meta name="description" content="How to Create Auth in CodeIgniter 4 with Models">
+		<meta name="keywords" content="codeigniter 4 auth, codeigniter 4 models, codeigniter 4 validation"/>
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="How to Create Auth in CodeIgniter 4" />
+		<meta property="og:description" content="How to Create Auth in CodeIgniter 4 with Models" />
+		<meta property="og:image" content="assets/img/codeigniter4_auth.png" /> 
+		<meta property="og:url" content="https://www.opengiscrm.com/codeigniter-4-auth" /> 
+	{% endblock %}
+
+	{% block stylesheets %}
+
+	{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		<!-- Page Header-->
+		<header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+		<div class="container position-relative px-4 px-lg-5">
+		<div class="row gx-4 gx-lg-5 justify-content-center">
+		<div class="col-md-10 col-lg-8 col-xl-7">
+		<div class="site-heading">
+		<h1>How to Create Auth in CodeIgniter 4</h1>                            
+		</div>
+		</div>
+		</div>
+		</div>
+		</header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/codeigniter4_auth.png" alt="How to Create Auth in CodeIgniter 4">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_defect.html.twig') }} 		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ci4_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see <strong>CodeIgniter 4 Auth</strong> and how to implement <strong>CodeIgniter 4 Models</strong>, we will create a custom authentication system.</p>
+
+		<h2>How to create Custom Auth in Codeigniter 4?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>First it is necessary to create a controller called login, if you do not know the basics of this framework read the following article <a class="text-info" href="/codeigniter-4-tutorial">CodeIgniter 4 Tutorial</a>.</p>
+
+		<code>php spark make:controller Login</code>
+
+		<p>Which will create the base structure of a controller in codeigniter 4, we will work with a controller called Login, where we will add the following code, where we will work with <a class="text-info" href="/codeigniter-4-forms">CodeIgniter 4 Forms</a>.</p>
+
+		<pre class="text-code">
+		<code>
+		namespace App\Controllers;
+
+		use App\Models\UserModel;
+
+		use App\Traits\Auth;
+
+		class Login extends BaseController
+		{
+			
+			use Auth;
+
+			protected $UserModel;
+
+			protected $session;
+
+
+			public function __construct()
+			{
+
+				$this->UserModel = new UserModel();
+
+
+				helper(['form', 'url']);
+				
+
+				$this->session = \Config\Services::session();
+
+			}
+
+			public function index()
+			{		
+				
+				$data['tittle'] = 'Login';
+
+				$data['session'] = $this->session;
+
+				return view('login',$data);
+				
+			}	
+
+
+			public function sign()
+			{		
+
+				$email = $this->request->getPost('email');
+				$password = $this->request->getPost('password');
+
+				if ($this->checkUser($email,$password)) {
+
+
+				$this->setSession($email);
+
+
+				if ($this->session->get('role_id') == 1) {
+
+
+
+					return redirect()->to('/dashboard');
+
+				}
+
+				}else{
+
+				$this->session->setFlashdata('credentials','Invalid credentials');
+
+				return redirect()->to('/');		
+
+			}
+
+
+
+
+			}
+
+
+			public function out()
+			{		
+
+				$this->session->destroy();	
+
+				return redirect()->to('/');
+			}
+
+
+		}
+		</code>
+		</pre>
+
+		<p>It is necessary to create a model to validate the required fields and we will add the following code.</p>
+
+		<pre>
+		<code>
+		namespace App\Models;
+
+		use CodeIgniter\Model;
+
+		class UserModel extends Model
+		{
+
+			protected $table = 'users';
+
+			protected $primaryKey = 'user_id';
+
+			protected $returnType = 'object';	
+
+			protected $allowedFields = ['img','first_name','last_name','email','password'];
+
+			protected $validationRules = [
+				'first_name' => 'required',
+				'last_name' => 'required',
+				'email' => 'required',
+				'password' => 'required'
+			];				
+			
+
+		}
+		</code>
+		</pre>		
+
+		<p>We will create 1 trait called <code>nameProject/app/Traits/Auth.php</code>, which will take care of the logic when working with sessions and validating the user's data.</p>
+
+		<p>With the method <code>checkuser()</code>, we will validate that the user's email exists in our table, with the method <code>verifyHash()</code> It will return true or false if the password sent by the form matches the hash in the users table and with the method <code>setSession()</code> we will start a session with the user's data.</p>
+
+		<pre>
+		<code>
+		namespace App\Traits;
+
+		trait Auth
+		{	
+
+		    public function checkUser($email, $password)	
+			{	
+
+				$hash = $this->UserModel->where('email',$email)
+				->findColumn('password');
+
+				return $this->verifyHash($password,$hash[0]);
+
+
+			}
+
+			public function verifyHash($password,$hash )
+			{
+				return password_verify($password,$hash);
+
+			}
+					
+
+			public function setSession($email)
+			{		
+
+				$data = $this->UserModel->where('email',$email)
+				->findAll();
+
+				$data=array(
+					'user_id' => $data[0]->user_id,		
+					'first_name' => $data[0]->first_name,
+					'last_name' => 	$data[0]->last_name,	
+					'email' => $data[0]->email,		
+					'role_id' => $data[0]->role_id								
+				);	
+				
+
+				return $this->session->set($data);
+
+			}
+		}
+		</code>
+		</pre>
+
+		<p>After finishing the logic we will be redirected to the dashboard, you need to create this file.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_auth1.png" alt="ci4_auth">
+
+		</div>		
+
+		</div>
+
+		<br>
+
+
+		<blockquote >
+		<p class="blockquote-footer">Jonathan Castro
+		</p>
+		</blockquote>
+
+		</div>
+
+
+
+
+		</div>	
+
+		</div>
+
+
+		<div class="row">
+
+		<div class="offset-8 col-4">
+
+		<div class="">
+		<a class="btn btn-outline-primary" href="/">
+		<span class="fas fa-arrow-left"></span>		
+		Go Back</a>
+		</div>
+
+		</div> 
+
+		</div>
+		<br>
+
+		<br>
+		<br>
+
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

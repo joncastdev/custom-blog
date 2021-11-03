@@ -157,5 +157,23 @@ class BlogController extends AbstractController
 
         return $this->render('blog/sym5_course.html.twig');
     }
+
+     /**
+     * @Route("/codeigniter-4-forms", name="codeigniter4_forms")
+     */
+     public function codeigniterCuatroForms()
+     {              
+
+        return $this->render('blog/ci4_forms.html.twig');
+    }
+
+     /**
+     * @Route("/codeigniter-4-auth", name="codeigniter4_auth")
+     */
+     public function codeigniterCuatroAuth()
+     {              
+
+        return $this->render('blog/ci4_auth.html.twig');
+    }
    
 }
