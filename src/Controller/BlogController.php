@@ -175,5 +175,14 @@ class BlogController extends AbstractController
 
         return $this->render('blog/ci4_auth.html.twig');
     }
+
+    /**
+     * @Route("/codeigniter-4-deployment", name="codeigniter4_deployment")
+     */
+     public function codeigniterCuatroDeploy()
+     {              
+
+        return $this->render('blog/ci4_deploy.html.twig');
+    }
    
 }

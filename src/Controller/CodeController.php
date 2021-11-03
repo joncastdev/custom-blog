@@ -8,7 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CodeController extends AbstractController
 {
-    
+    /**
+     * @Route("/codes", name="codes")
+     */
     public function index(): Response
     {        
 
