@@ -16,4 +16,12 @@ class ContactController extends AbstractController
     {
         return $this->render('contact/index.html.twig');
     }
+
+    /**
+     * @Route("/contacto", name="contacto")
+     */
+    public function contactoEspa(): Response
+    {
+        return $this->render('contact/contacto.html.twig');
+    }
 }

@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OpenGisCRM | Servicios en línea{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/servicios" /> 		
+<meta name="description" content="OpenGisCRM | Servicios en línea, encuentra un freelance backend developer">
+<meta name="keywords" content="online services, it services, web services, freelance backend developer, freelance online, upwork freelancer"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}		
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/theme-blog/assets/img/servicios-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                           {#  <h1>Servicios</h1>
+                            <span class="subheading">Encuentra Desarrollador</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header> 
+ 
+
+		<div class="container">
+
+		<br>
+
+	<!-- <hr> -->
+
+	<div class="row">
+
+	<h1>Servicios en línea</h1>
+	<div>
+	<p>¿Estás buscando <strong>desarrollador backend freelance</strong>?, en symfony 5, laravel 8, codeigniter 3/4, aquí lo encontrarás, desde trabajo por horas o hito en plataformas freelance, desarrollador remoto para empresas, ajustes de código de programación como integración stripe checkout o algún otro? API.</p>
+	
+	</div>
+
+
+		<div class="col-12">
+
+			<header class="entry-header">				
+				<img src="assets/img/servicios_01.jpg" class="img-fluid">
+			</header>
+
+			<h2>Freelance en línea</h2>
+
+			<p><strong>Desarrollo web</strong>: En este espacio verás el conjunto de servicios que ofrezco.</p>
+			<ul >
+				<li>Desarrollo web personalizado (desarrollo tu idea y la traduzco en un producto final llamado software)</li>
+				<li>Me uno a tu equipo de trabajo (si tengo el perfil que buscas, me uno a tu equipo de trabajo como desarrollador remoto)</li>
+				<li>Consultoría (te asesoro sobre mejoras o nuevas implementaciones en tu proyecto)</li>
+				<li>Me uno a tu equipo de trabajo como autónomo (si tengo el perfil que buscas)
+				</li>									
+			</ul>
+
+			{# <img src="assets/img/pago.jpg" class="img-fluid float-right img-thumbnail"> #}
+
+			<div class="col-4">
+			{{ include('inc/upwork_banner.html.twig') }}
+			</div>
+			{{ include('inc/ad_defect.html.twig') }}
+
+			<h2>Servicios de IT</h2> 
+			<p><strong>Forma de pago</strong>: En este espacio verás la forma de pago que ofrezco.</p>
+
+			<ul >
+				<li>Desarrollo web personalizado (los pagos serán por hito, desarrollaré una demo inicial con pago previo)</li>
+				<li>Desarrollo remoto (los pagos se acordarán, según su proyecto)</li>
+				<li>Consultoría (prepago)</li>
+				<li>Freelance (los pagos serán con una plataforma como intermediario, en este caso  <strong>Upwork</strong>)</li>						
+			</ul>
+			<br>			
+
+		</div>
+
+	</div>
+
+		</div><!-- end container -->
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

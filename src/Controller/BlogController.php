@@ -11,13 +11,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
-    
+    /**
+     * @Route("/blog", name="blog")
+     */
     public function index(): Response
     {        
 
-        return $this->render('blog/index.html.twig', [
-            'controller_name' => 'BlogController',
-        ]);
+        return $this->render('blog/index.html.twig');
     }
 
     /**
@@ -183,6 +183,24 @@ class BlogController extends AbstractController
      {              
 
         return $this->render('blog/ci4_deploy.html.twig');
+    }
+
+    /**
+     * @Route("/blog/postgresql-de-0-al-limite", name="curso_postgres")
+     */
+     public function postgresCourse()
+     {           
+
+        return $this->render('blog/postgresql_course.html.twig');
+    }
+
+     /**
+     * @Route("/blog/codeigniter-4-rest", name="ci4_api")
+     */
+     public function ci4restEspa()
+     {           
+
+        return $this->render('blog/codeigniter4_rest_espa.html.twig');
     }
    
 }

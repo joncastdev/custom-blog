@@ -17,5 +17,14 @@ class ServiceController extends AbstractController
         return $this->render('service/index.html.twig');
     }
 
+     /**
+     * @Route("/servicios", name="servicios")
+     */
+    public function serviciosEspa(): Response
+    {        
+
+        return $this->render('service/servicios.html.twig');
+    }
+
    
 }
