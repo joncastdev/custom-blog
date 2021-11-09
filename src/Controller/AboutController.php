@@ -17,5 +17,14 @@ class AboutController extends AbstractController
         return $this->render('about/index.html.twig');
     }
 
+    /**
+     * @Route("/sobre-open-gis-crm", name="sobre")
+     */
+    public function sobreOpen(): Response
+    {        
+
+        return $this->render('about/sobre.html.twig');
+    }
+
    
 }
