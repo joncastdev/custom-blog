@@ -21,7 +21,7 @@ class TutorialController extends AbstractController
 
 
     /**
-     * @Route("/tutoriales/codeigniter-4-tutorial", name="ci4_tutorial")
+     * @Route("/tutoriales/codeigniter-4-tutorial", name="ci4_tutorial_espa")
      */ 
     public function codeigniterCuatro()
     {		
