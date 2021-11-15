@@ -202,5 +202,14 @@ class BlogController extends AbstractController
 
         return $this->render('blog/codeigniter4_rest_espa.html.twig');
     }
+
+     /**
+     * @Route("/blog/codeigniter-4-deploy-heroku", name="ci4_heroku")
+     */
+     public function ci4DeployHeroku()
+     {           
+
+        return $this->render('blog/ci4_deploy_heroku.html.twig');
+    }
    
 }
