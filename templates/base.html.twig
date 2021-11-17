@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+ {% block lang %}
 <html lang="en">
+ {% endblock %}
     <head>
         <meta charset="UTF-8">        
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -33,7 +35,10 @@
         {% endblock %}
 
       <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
-      <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+     {#  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+ #}
+
+  <script src="assets/js/main.js"></script>
 
 
       <script>hljs.initHighlightingOnLoad();</script>
@@ -126,7 +131,10 @@
    {% block javascripts %}
 
     <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+       {#  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script> #}
+
+
+
 {# 
         <script type="text/javascript">      
 
