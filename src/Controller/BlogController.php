@@ -211,5 +211,32 @@ class BlogController extends AbstractController
 
         return $this->render('blog/ci4_deploy_heroku.html.twig');
     }
+
+     /**
+     * @Route("/blog/symfony-vista-404", name="symfony_vista_404")
+     */
+     public function symVistaNo()
+     {           
+
+        return $this->render('blog/sym_personalizar.html.twig');
+    }
+
+     /**
+     * @Route("/blog/fixtures-symfony", name="fixtu_espa")
+     */
+     public function symFixtuEspa()
+     {           
+
+        return $this->render('blog/espa_fixtu.html.twig');
+    }
+
+     /**
+     * @Route("/blog/twig-symfony", name="twig_espa")
+     */
+     public function symTwigEspa()
+     {           
+
+        return $this->render('blog/espa_twi.html.twig');
+    }
    
 }
