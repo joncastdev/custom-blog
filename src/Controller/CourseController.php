@@ -22,7 +22,7 @@ class CourseController extends AbstractController
     
 
     /**
-     * @Route("/cursos/codeigniter-4-de-0-al-limite", name="curso_ci4")
+     * @Route("/cursos/codeigniter-4-de-0-al-limite", name="curso_espa_ci4")
      */
     public function codeigniterCuatro()
     {		

@@ -4,12 +4,12 @@
 <html lang="es">
  {% endblock %}
 
-{% block title %}Deploy CodeIgniter 4 Heroku{% endblock %}
+{% block title %}Deploy CodeIgniter 4 Heroku | OpenGisCRM{% endblock %}
 
 	{% block meta %}
 	    <link rel="canonical" href="https://www.opengiscrm.com/blog/codeigniter-4-deploy-heroku" /> 	
 		<meta name="description" content="Deploy CodeIgniter 4 con Heroku y postgresql">
-		<meta name="keywords" content="codeigniter 4 deployment, codeigniter 4 heroku, codeigniter 4 postgresql, codeigniter 4 shared hosting"/>
+		<meta name="keywords" content="codeigniter deploy, codeigniter 4 heroku, codeigniter 4 postgresql, codeigniter hosting"/>
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content="Deploy CodeIgniter 4 Heroku" />
 		<meta property="og:description" content="Deploy CodeIgniter 4 con Heroku y postgresql" />
@@ -65,7 +65,7 @@
 
 		<div class="col-4">
 
-		{{ include('inc/ad_defect.html.twig') }}
+		{{ include('inc/ad_products.html.twig') }}
 		
 
 		</div>
@@ -109,7 +109,33 @@
 
 		<p>Es momento de logearnos en heroku.</p>
 
-		<code>sudo heroku login</code>
+		<pre><code>sudo heroku git:remote -a tutorial-ci4</code></pre>
+
+			<pre><code>sudo heroku run bash</code></pre>
+
+			<pre>
+			<code>
+			public $default = [
+        'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => '',
+        'password' => '',
+        'database' => '',
+        'DBDriver' => 'MySQLi',
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => 3306,
+    ];	
+			</code>
+			</pre>
 
 		<div class="text-center">
 
@@ -151,7 +177,7 @@
 
 		<p>Iremos a la raíz de nuestro proyecto y crearemos un archivo Procfile.</p>
 
-		<code>sudo echo "web: vendor/bin/heroku-php-apache2 public/" > Procfile</code>
+		<pre><code>sudo echo "web: vendor/bin/heroku-php-apache2 public/" > Procfile</code></pre>
 
 		<p>Setearemos el repositorio de git que tengamos, con el repositorio de heroku.</p>
 

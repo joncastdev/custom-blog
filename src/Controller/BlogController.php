@@ -238,5 +238,14 @@ class BlogController extends AbstractController
 
         return $this->render('blog/espa_twi.html.twig');
     }
+
+     /**
+     * @Route("/blog/symfony-mailer-enviar-emails", name="symfony-mailer_enviar_emails")
+     */
+     public function symMail()
+     {           
+
+        return $this->render('blog/sym/sym_mail.html.twig');
+    }
    
 }
