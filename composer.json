@@ -1,6 +1,18 @@
 {
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
+     "authors": [
+        {
+            "name": "Jonathan Castro",
+            "email": "sistemaspymesjc@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/foroworkers/foroworkers/issues",
+        "forum": "https://discord.gg/ntpz4aRHHy",
+        "wiki": "https://github.com/foroworkers/foroworkers/wiki",
+        "source": "https://github.com/foroworkers/foroworkers"
+    },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
