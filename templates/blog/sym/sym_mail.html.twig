@@ -1,0 +1,287 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Symfony Mailer - Enviar Emails | OpenGisCRM{% endblock %}
+
+	{% block meta %}
+	    <link rel="canonical" href="https://www.opengiscrm.com/blog/symfony-mailer-enviar-emails" /> 	
+		<meta name="description" content="Symfony Mailer Enviar Emails, un poderoso componente">
+		<meta name="keywords" content="symfony mailer, symfony cli, symfony sendmail, symfony smtp, symfony documentation"/>
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Symfony Mailer - Enviar Emails" />
+		<meta property="og:description" content="Symfony Mailer Enviar Emails, un poderoso componente" />
+		<meta property="og:image" content="assets/img/symfony_mailer.png" /> 
+		<meta property="og:url" content="https://www.opengiscrm.com/blog/symfony-mailer-enviar-emails" /> 
+	{% endblock %}
+
+	{% block stylesheets %}
+
+	{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		<!-- Page Header-->
+		<header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+		<div class="container position-relative px-4 px-lg-5">
+		<div class="row gx-4 gx-lg-5 justify-content-center">
+		<div class="col-md-10 col-lg-8 col-xl-7">
+		<div class="site-heading">
+		<h1>Symfony Mailer - Enviar Emails</h1>                            
+		</div>
+		</div>
+		</div>
+		</div>
+		</header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/symfony_mailer.png" alt="Symfony Mailer - Enviar Emails">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_products.html.twig') }}
+		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ad_defect.html.twig') }}
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos como utilizar el componente <strong>Symfony Mailer</strong>, con la versión 5 de este framework php, haremos uso de la command line tool (cli), siguiendo las buenas prácticas de la <a class="text-info" href="https://symfony.com/doc/current/mailer.html" target="_blank">documentación</a> con ejemplos en protocolos smtp, sendmail.</p>
+
+		<h2>Symfony Cli - Iniciar con el proyecto</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero es necesario crear un proyecto seguiremos el proceso de instalación que nos orece la <a class="text-info" href="https://symfony.com/doc/current/setup.html" target="_blank">documentación online</a> de symfony.</p>
+
+		<p>Creamos un nuevo proyecto con <a class="text-info" href="https://getcomposer.org/" target="_blank">composer</a>, ejecutamos el siguiente comando en una terminal.</p>
+
+		
+		<pre><code>composer create-project symfony/website-skeleton sym_mailer</code></pre>
+	
+		<br>
+		<br>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/sym_mailer1.png" alt="sym_mailer1">
+
+		</div>
+
+		<p>Ejecutamos el proyecto, luego de darle los permisos con, <strong>sudo chmod -R 777 nombreProyecto</strong></p>
+
+		<pre><code>symfony server:start</code></pre>
+	
+		<br>
+		<br>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/sym_mailer2.png" alt="sym_mailer2">
+
+		</div>
+
+		<p>Vamos al navegador donde pegaremos la url del proyecto, lo cual nos mostrara la siguiente salida.</p>		
+	
+		<br>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/sym_mailer3.png" alt="sym_mailer3">
+
+		</div>
+
+		<br>
+
+		<h2>Symfony Controllers</h2>
+
+		<p>Crearemos un nuevo controlador ejecutando el siguiente comando, el cual se llamara Message.</p>
+
+		<pre><code>php bin/console make:controller Message</code></pre>		
+	
+		<br>
+		<br>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/sym_mailer4.png" alt="sym_mailer4">
+
+		</div>
+
+		<p>Vamos a la url en el navegador y verificamos la nueva ruta que se ha creado.</p>		
+	
+		<br>	
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/sym_mailer5.png" alt="sym_mailer5">
+
+		</div>
+
+		<p>Añadiremos las siguientes líneas de código para trabajar con el componente de envíos de email.</p>
+
+		<pre class="text-code">
+		<code>
+		// usar las siguientes clases
+		use Symfony\Component\Mailer\MailerInterface;
+		use Symfony\Component\Mime\Email;
+
+	  /**
+	   * @Route("/email")
+	   */
+	    public function sendEmail(MailerInterface $mailer): Response
+	    {
+	        $email = (new Email())
+	            ->from('jonathancastro@opengiscrm.com')
+	            ->to('youemail@gmail.com')          
+	            ->subject('Tutorial Symfony 5 Mailer!')
+	            ->text('Tutoriales Cursos y Más Contenido')
+	            ->html('Integrar Twig para mejorar la funcionalidad');
+
+	        $mailer->send($email);
+	       
+	    }
+		</code>
+		</pre>
+
+		<p>Al intentar realizar una petición a la ruta tendremos el siguiente error, hasta que  no configuremos las variables de entorno.</p>			
+	
+		<br>		
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/sym_mailer6.png" alt="sym_mailer6">
+
+		</div>
+
+		<p>Descomentamos con el signo de almohadillas <strong>#</strong> en el archivo <strong>.env</strong></p>
+
+		<pre class="text-code">
+		<code>
+		 MAILER_DSN=smtp://localhost
+		</code>
+		</pre>
+
+		<h2>Symfony Smtp</h2>
+
+		<p>Tenemos que symfony viene configurado por defecto con smtp (Protocolo para transferencia simple de correo), primero haremos una petición con este protocolo, el cual mostrara la siguiente exception, <strong>Connection could not be established with host "localhost:25": stream_socket_client(): unable to connect to localhost:25 (Connection refused)</strong>.</p>
+
+		<br>		
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/sym_mailer7.png" alt="sym_mailer7">
+
+		</div>
+
+		<p>Ahora si vamos a la barra de depuración, nos mostrara un correo que ha sido enviado, donde recibimos toda la información, si deseamos combinar el uso de template podemos usar <a class="text-info" href="twig-templates-symfony">Twig</a>.</p>
+
+		<br>		
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/sym_mailer8.png" alt="sym_mailer8">
+
+		</div>
+
+		<br>
+
+		<h2>Symfony Sendmail</h2>
+
+		<p>Ahora realizaremos una nueva petición, con el protocolo sendmail (Protocolo para transferencia simple de correo), el cual nos mostraría la siguiente exception, Connection to "process /usr/sbin/sendmail -bs" has been closed unexpectedly.
+, he igualmente si vamos a la barra de depuración podemos verificar el email para pruebas.</p>
+
+		<pre class="text-code">
+		<code>
+		 MAILER_DSN=sendmail://default
+		</code>
+		</pre>		
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/sym_mailer9.png" alt="sym_mailer9">
+
+		</div>				
+
+		</div>
+
+		<br>
+
+
+		<blockquote >
+		<p class="blockquote-footer">Jonathan Castro
+		</p>
+		</blockquote>
+
+		<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+		</div>
+
+		<br>
+
+
+
+
+		</div>	
+
+		</div>
+
+
+		<div class="row">
+
+		<div class="offset-8 col-4">
+
+		<div class="">
+		<a class="btn btn-outline-primary" href="/blog">
+		<span class="fas fa-arrow-left"></span>		
+		Regresar</a>
+		</div>
+
+		</div> 
+
+		</div>
+		<br>
+
+		<br>
+		<br>
+
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Symfony Personalizar 404 | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/blog/symfony-vista-404" /> 		
+<meta name="description" content="Symfony Personalizar 404 Vista 404">
+<meta name="keywords" content="symfony 404, symfony bundles"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Symfony Personalizar 404</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/symfony_temp.png" alt="How to Customize Error Pages Symfony 5">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/namecheap_banner.html.twig') }} 	
+
+	 {# <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ez&f=ifr&linkID=f36d5433998101c1adbb0f9259aee714&t=opengiscrm999-21&tracking_id=opengiscrm999-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe> #}
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/sym_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos cómo personalizar una <strong>vista 404 en Symfony php</strong>, con <a class="text-info" href="/twig-symfony">Twig templates</a>.</p>
+
+		<h2>¿Cómo personalizar una vista 404?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Tenemos que las vistas 404, 500 entre otras son manejadas por las excepciones predeterminadas del marco, que por defecto muestra una vista 404 como la siguiente.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/exception.png" alt="exception">
+
+		</div>
+
+		<p>Ahora en nuestro proyecto vamos a sobrescribir la vista predeterminada. <code>nameProject/templates/bundles/TwigBundle/Exception/error404.html.twig</code>, incluiremos una barra de navegación para que el usuario permanezca en el sitio web y sea más amigable con el SEO.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/exception1.png" alt="exception1">
+
+		</div>
+
+		<p>Resultado final, el usuario permanece en el sitio web y mejoramos el seo de nuestro sitio web.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/exception2.png" alt="exception2">
+
+		</div>
+		
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

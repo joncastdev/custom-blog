@@ -1,0 +1,236 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CodeIgniter 4 Tutorial | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/codeigniter-4-tutorial" /> 	
+<meta name="description" content="CodeIgniter 4 Tutorial from scratch, Build Your First Application">
+<meta name="keywords" content="codeigniter 4 tutorial, codeigniter 4 tutorial from scratch, learn codeigniter 4"/>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CodeIgniter 4 Tutorial" />
+<meta property="og:description" content="CodeIgniter 4 Tutorial from scratch, Build Your First Application" />
+<meta property="og:image" content="assets/img/tutorial-ci4.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/codeigniter-4-tutorial" />
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>CodeIgniter 4 Tutorial</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/tutorial-ci4.png" alt="CodeIgniter 4 Tutorial">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{# {{ include('inc/ad_defect.html.twig') }}  #}	
+
+		 <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ez&f=ifr&linkID=f36d5433998101c1adbb0f9259aee714&t=opengiscrm999-21&tracking_id=opengiscrm999-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>	
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ci4_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>We will learn in this <strong>CodeIgniter 4 course/tutorial from scratch</strong>, how to install with composer, the operation of the controllers, views, routes, everything step by step.</p>
+
+		<h2>How to install CodeIgniter 4 with composer?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }}
+
+		<p>First we need to have installed on our computer <strong>php</strong> from its version <strong>7.3</strong> henceforth, have the extensions enabled <strong>intl/mbstring</strong>, and <a class="text-info" href="https://getcomposer.org/" target="_blank">Composer</a> for handling dependencies, first we run the following command to create a new project.</p>
+
+		<code>composer create-project codeigniter4/appstarter tutorial-ci4</code>		
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci41.png" alt="ci41">
+
+		</div>
+
+		<p>Then we will list and give all the permissions to our project which is called <strong>tutorial-ci4</strong>.</p>
+			
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci42.png" alt="ci42">
+
+		</div>
+
+		<p>We navigate to the interior of our project, with which we will find ourselves in the root and we will start the development server, we will use the <strong>command line tool</strong>.</p>
+
+		<code>php spark serve</code>	
+			
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci43.png" alt="ci43">
+
+		</div>
+
+		<p>We copy the url in our browser, with which we have the project running.</p>			
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci44.png" alt="ci44">
+
+		</div>
+
+		<p>We will create a new file called <code>.env</code> to add the environment variables, we will modify the variables <code>CI_ENVIRONMENT</code> and <code>app.baseURL</code>, to work in a state of development.</p>
+
+		<pre class="text-code">
+		<code>
+	#--------------------------------------------------------------------
+	# Example Environment Configuration file
+	#
+	# This file can be used as a starting point for your own
+	# custom .env files, and contains most of the possible settings
+	# available in a default install.
+	#
+	# By default, all of the settings are commented out. If you want
+	# to override the setting, you must un-comment it by removing the '#'
+	# at the beginning of the line.
+	#--------------------------------------------------------------------
+
+	#--------------------------------------------------------------------
+	# ENVIRONMENT
+	#--------------------------------------------------------------------
+
+	  CI_ENVIRONMENT = development
+
+	#--------------------------------------------------------------------
+	# APP
+	#--------------------------------------------------------------------
+
+	  app.baseURL = 'http://localhost:8080/'
+		</code>
+		</pre>
+
+
+		<p>We will create a new controller, if you want to know how the default controller works read the following article <a class="text-info" href="/codeigniter-4-controllers">CodeIgniter 4 Controllers</a>.</p>
+
+		<code>php spark make:controller Student</code>				
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci45.png" alt="ci45">
+
+		</div>
+
+		<p>We will create a new route in <code>nameProject/app/Config/Routes.php</code>, with which we associate a url, the class and the name of the method.</p>
+
+		<code>$routes->get('/student', 'Student::index');</code>
+
+		<p>We verify the set of routes that we have created.</p>
+
+		<code>php spark routes</code>						
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci46.png" alt="ci46">
+
+		</div>
+
+		<p>We go to the browser and show the message.</p>						
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/tutorial-ci47.png" alt="ci47">
+
+		</div>
+
+		<br>				
+
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/">
+<span class="fas fa-arrow-left"></span>		
+Go Back</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

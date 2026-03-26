@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Curso Git desde cero | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Curso Git desde cero">
+<meta name="keywords" content="cursos udemy, cursos desarrollo web, curso git, curso español, curso github, curso github español, git, github"/>
+{% endblock %}	
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/cursos-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Cursos</h1>
+                            <span class="subheading">Encuentra Cursos</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+	<div class="container">
+	<br>
+	 <article class="">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="">
+
+                    <h1>Curso Git desde cero</h1>
+
+                    <p><strong>Los mejores cursos de Git en línea Udemy</strong> te mostramos <strong>Git - De 0 al Limite</strong>, uno de los cursos más completos en udemy sobre <strong>git</strong>, dictado por el instructor <strong>Jonathan Castro</strong>, el cual cuenta con buenas valoraciones de los estudiantes. 
+                    </p>
+                                           
+                    </div>
+                </div>
+            </div>
+        </article>  
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">
+				<img class="img-fluid" src="../assets/img/curso_git2.png" alt="Git - De 0 al Limite">
+				
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>Comandos Git</li>
+							<li>Ejercicios Desde 0</li>
+							<li>Manejo Fluido de una Consola</li>
+							<li>Entender Cada Comando Paso a Paso</li>
+							<li>Git init, status, branch, pull, push</li>
+							<li>Git log, show, merge</li>
+							<li>Archivo .gitignore</li>
+							<li>Resolución de conflictos con diferentes branch</li>										
+						</ul>					
+
+					</div>					
+
+
+
+					<a class="btn btn-danger" href="https://www.udemy.com/course/aprende-git-github-practicando-con-algo-de-scrum/?referralCode=ED3000797103E7A0A9AD" target="_blank">
+					<span class="fas fa-play"></span>		
+					Ir al curso</a>
+					<br>
+					<br>
+					<a class="btn btn-outline-primary" href="/cursos">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+
+
+			</div>
+		</div>
+
+	</div>		
+</div>
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

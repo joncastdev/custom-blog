@@ -60,7 +60,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         // aqui tenemos que poner el name no el path
         // return new RedirectResponse($this->urlGenerator->generate('app_login'));
 
-        return new RedirectResponse($this->urlGenerator->generate('user_dashboard'));
+        return new RedirectResponse($this->urlGenerator->generate('admin_dashboard'));
 
 
 

@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Curso CakePHP 4 desde cero | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Aprende CakePHP 4 desde cero">
+<meta name="keywords" content="Los mejores cursos de CakePHP en línea Udemy, cursos udemy, cursos desarrollo web, curso CakePHP 4, curso CakePHP 4 español, CakePHP 4"/>
+{% endblock %}		
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/cursos-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Cursos</h1>
+                            <span class="subheading">Encuentra Cursos</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>   
+
+	<div class="container">
+	<br>
+	 <article class="">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="">
+
+                    <h1>Curso CakePHP 4 desde cero</h1>
+
+                    <p><strong>Los mejores cursos de CakePHP en línea Udemy</strong> te mostramos <strong>CakePHP 4 - De 0 al Limite</strong>, uno de los cursos más completos en udemy sobre <strong>CakePHP</strong>, dictado por el instructor <strong>Jonathan Castro</strong>, el cual cuenta con buenas valoraciones de los estudiantes. 
+                    </p>
+
+                    <p><strong>Aprende CakePHP hoy</strong> desde cero, este curso comienza completamente <strong>desde cero</strong>, no son necesarios conocimientos previos en frameworks php, solo tener nociones básicas del lenguaje de programación <strong>php</strong>, al final de este curso se obtendrá un nivel intermedio sobre el <strong>marco cakephp</strong>, luego puedes continuar con un framework php más completo <a class="" href="/cursos/symfony-5-de-0-al-limite">
+					<span class=""></span>		
+					Conocer más</a>.
+                    </p>
+
+                                           
+                    </div>
+                </div>
+            </div>
+        </article>   
+	
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">
+				<img class="img-fluid" src="../assets/img/curso_cakephp42.png" alt="CakePHP 4 - De 0 al Limite">
+				
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>CakePHP 4 desde 0</li>
+							<li>Combinar Cakephp 4 con MySQL Bootstrap 4</li>
+							<li>Desarrollar en entornos Linux</li>
+							<li>Buenas practicas en la programación</li>
+							<li>Crear Rest Services sin el uso de librerías</li>
+							<li>Rest Api</li>
+							<li>SQL</li>							
+						</ul>					
+
+					</div>					
+
+					
+
+					<a class="btn btn-danger" href="https://www.udemy.com/course/cakephp-4-una-guia-paso-a-paso/?referralCode=B5FCF6605C3A3E8E9100" target="_blank">
+					{# <a class="btn btn-danger" href="https://www.udemy.com/course/codeigniter-4-desarrollando-en-linux/?couponCode=73FD861CE4F0179E5087" target="_blank"> #}
+					<span class="fas fa-play"></span>		
+					Ir al curso</a>
+					<br>
+					<br>
+					<a class="btn btn-outline-primary" href="/cursos">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+				
+			</div>
+		</div>
+
+	</div>		
+</div>
+<br>
+<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

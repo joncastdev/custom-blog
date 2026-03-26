@@ -1,0 +1,199 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Fixtures Symfony | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/blog/fixtures-symfony" /> 		
+<meta name="description" content="Como usar Fixtures en Symfony Framework">
+<meta name="keywords" content="symfony test, symfony data"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Fixtures Symfony</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/fixtures_symfony.png" alt="How to use DoctrineFixturesBundle">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{# {{ include('inc/ad_defect.html.twig') }}  #}
+
+		{{ include('inc/amazon_web_cam_banner.html.twig') }} 		
+
+		{# <iframe style="width:300px;height:250px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="https://rcm-eu.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&t=opengiscrm999-21&m=amazon&o=30&p=8&l=as1&IS1=1&asins=B006A2Q81M&linkId=578811d886768c0bd21a505bb7d70ab5&bc1=FFFFFF&amp;lt1=_top&fc1=333333&lc1=0066C0&bg1=FFFFFF&f=ifr">
+        </iframe> #}
+
+        {# <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ez&f=ifr&linkID=f36d5433998101c1adbb0f9259aee714&t=opengiscrm999-21&tracking_id=opengiscrm999-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>	 #}
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/sym_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos <strong>cómo funcionan los fixtures en el framework Symfony 5</strong>, para trabajar con datos de prueba en nuestras bases de datos.</p>
+
+		<h2>¿Cómo crear fixtures en Symfony PHP?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero tenemos que instalar el paquete con <strong>composer</strong>, ejecutamos el comando en una terminal, en la raíz del proyecto.</p>
+
+		<pre class="text-code">
+		<code>
+	composer require --dev doctrine/doctrine-fixtures-bundle
+		</code>
+		</pre>
+
+		<p>Luego crearemos el archivo para las fixtures.</p>
+
+		<pre class="text-code">
+		<code>
+	php bin/console make:fixtures
+		</code>
+		</pre>
+
+		<p>Ponemos un nombre a los fixtures, por ejemplo <strong>UserFixture</strong>.</p>
+
+		<p>Ahora crearemos la estructura básica en la siguiente ubicación <code>nameProject/src/DataFixtures/UserFixtures.php</code>, crearemos una clase y un método, he agregado los valores con los que vamos a trabajar dentro de la clase.</p>
+	
+		<pre class="text-code">
+		<code class="">
+	namespace App\DataFixtures;
+
+	// we use the user entity, first we need to create it
+	use App\Entity\User;
+
+	use Doctrine\Bundle\FixturesBundle\Fixture;
+	use Doctrine\Persistence\ObjectManager;
+
+	class UserFixtures extends Fixture
+	{
+
+		public function load(ObjectManager $manager)
+		{  
+			// we create an instance
+			$user = new User();
+
+			// we set 3 properties from the entity
+			$user->setFirstName('jonathan');
+			$user->setLastName('castro');
+			$user->setEmail('admin@hotmail.com');		
+
+			$manager->persist($user);		
+
+			$manager->flush();
+		}
+	}
+		</code>
+		</pre>
+
+		<h2>¿Cómo cargar las fixtures?</h2>		
+
+		<p>Finalmente cargamos las fixtures con los datos de prueba.</p>
+
+
+		<pre class="text-code">
+		<code>
+	php bin/console doctrine:fixtures:load 
+		</code>
+		</pre>
+
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

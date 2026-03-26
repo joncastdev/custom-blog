@@ -1,0 +1,246 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CodeIgniter 4 Deployment | OpenGisCRM{% endblock %}
+
+	{% block meta %}
+	    <link rel="canonical" href="https://www.opengiscrm.com/codeigniter-4-deployment" /> 	
+		<meta name="description" content="CodeIgniter 4 Deployment in shared hosting">
+		<meta name="keywords" content="codeigniter 4 deployment, codeigniter 4 migrations, codeigniter 4 seeds, codeigniter 4 shared hosting"/>
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="CodeIgniter 4 Deployment" />
+		<meta property="og:description" content="CodeIgniter 4 Deployment in shared hosting" />
+		<meta property="og:image" content="assets/img/ci4_deploy.png" /> 
+		<meta property="og:url" content="https://www.opengiscrm.com/codeigniter-4-deployment" /> 
+	{% endblock %}
+
+	{% block stylesheets %}
+
+	{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		<!-- Page Header-->
+		<header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+		<div class="container position-relative px-4 px-lg-5">
+		<div class="row gx-4 gx-lg-5 justify-content-center">
+		<div class="col-md-10 col-lg-8 col-xl-7">
+		<div class="site-heading">
+		<h1>CodeIgniter 4 Deployment</h1>                            
+		</div>
+		</div>
+		</div>
+		</div>
+		</header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/ci4_deploy.png" alt="CodeIgniter 4 Deployment">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/namecheap_banner.html.twig') }} 	
+
+		{# <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="https://rcm-eu.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&t=opengiscrm999-21&m=amazon&o=30&p=8&l=as1&IS1=1&asins=B0851KC99Z&linkId=434a370f0847cbc622c765d5e4311026&bc1=FFFFFF&amp;lt1=_top&fc1=333333&lc1=0066C0&bg1=FFFFFF&f=ifr">
+       </iframe>	 #}
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ad_products.html.twig') }}
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see how to upload our application to the web with <strong>CodeIgniter 4 Deployment</strong> with the use of composer, <strong>CodeIgniter 4 Migrations</strong> and <strong>CodeIgniter 4 Seeds</strong> the example will be done in a <strong>shared hosting</strong>, i will use the domain provider <a class="text-info" href="https://namecheap.pxf.io/rnOVB5" target="_blank">namecheap</a>.</p>
+
+		<h2>CodeIgniter 4 Deployment on shared hosting</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>For this example we will use a subdomain, you need a domain or subdomain to start, then we will create a user to use <strong>ftp</strong> with the program <a class="text-info" href="https://filezilla-project.org/" target="_blank">filezilla</a>.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_deploy1.png" alt="ci4_deploy">
+
+		</div>
+
+		<p>We seek our credentials to continue.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_deploy2.png" alt="ci4_deploy">
+
+		</div>
+
+		<p>We will connect to our domain or subdomain to continue..</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_deploy3.png" alt="ci4_deploy">
+
+		</div>
+
+		<p>We place ourselves at the root of our project, and we will begin to upload all the files.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_deploy4.png" alt="ci4_deploy">
+
+		</div>
+
+		<p>To be faster and more efficient we will enter through the terminal to make the necessary configurations.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_deploy5.png" alt="ci4_deploy">
+
+		</div>
+
+		<p>We will list all the files and folders.</p>
+
+		<code>ls</code>
+
+		<p>We navigate inside our folder.</p>				
+
+		<code>cd ci4tutorial</code>
+
+		<p>We install the vendor folder with <strong>composer</strong>.</p>				
+
+		<code>composer install</code>
+
+		<p>We will show an <strong>error 500</strong>, now it is necessary to make the corresponding configurations.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_deploy6.png" alt="ci4_deploy">
+
+		</div>
+
+
+		<p>We make the settings with the environment variables, if you work with a database you must create it previously.</p>
+
+		<code>nano .env</code>
+
+		<pre class="text-code">
+		<code>
+		#--------------------------------------------------------------------
+		# ENVIRONMENT
+		#--------------------------------------------------------------------
+		 CI_ENVIRONMENT = production
+
+		#--------------------------------------------------------------------
+		# APP
+		#--------------------------------------------------------------------
+
+		 app.baseURL = 'youDomainName'
+
+
+		#--------------------------------------------------------------------
+		# DATABASE
+		#--------------------------------------------------------------------
+
+		 database.default.hostname = localhost
+		 database.default.database = youDatabase
+		 database.default.username = youUsername
+		 database.default.password = youPassword
+		 database.default.DBDriver = MySQLi
+		 database.default.DBPrefix =
+		</code>
+		</pre>
+
+		<p>Once the connection to the database is established, we will continue with migrations and seeds to work with test data.</p>
+
+		<p>We run all migrations.</p>
+
+		<code>php spark migrate</code>
+
+		<p>We run a seed for the test data with users.</p>
+
+		<code>php spark db:seed UserSeeder</code>		
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_deploy7.png" alt="ci4_deploy">
+
+		</div>
+
+		<p>Finally we will clear the cache.</p>
+
+		<code>php spark cache:clear</code>				
+
+		</div>
+
+		<br>
+
+
+		<blockquote >
+		<p class="blockquote-footer">Jonathan Castro
+		</p>
+		</blockquote>
+
+		<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+		</div>
+
+		<br>
+
+
+
+
+		</div>	
+
+		</div>
+
+
+		<div class="row">
+
+		<div class="offset-8 col-4">
+
+		<div class="">
+		<a class="btn btn-outline-primary" href="/">
+		<span class="fas fa-arrow-left"></span>		
+		Go Back</a>
+		</div>
+
+		</div> 
+
+		</div>
+		<br>
+
+		<br>
+		<br>
+
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

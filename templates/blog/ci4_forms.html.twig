@@ -1,0 +1,245 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}How to Create Forms in CodeIgniter 4 | OpenGisCRM{% endblock %}
+
+	{% block meta %}
+	    <link rel="canonical" href="https://www.opengiscrm.com/codeigniter-4-forms" />  
+		<meta name="description" content="How to Create Forms in CodeIgniter 4 with Security Class">
+		<meta name="keywords" content="codeigniter 4 forms, codeigniter 4 security class, codeigniter 4 helper form, codeigniter 4 controllers"/>
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="How to Create Forms in CodeIgniter 4" />
+		<meta property="og:description" content="How to Create Forms in CodeIgniter 4 with Security Class" />
+		<meta property="og:image" content="assets/img/codeigniter4_forms.png" /> 
+		<meta property="og:url" content="https://www.opengiscrm.com/codeigniter-4-forms" /> 
+	{% endblock %}
+
+	{% block stylesheets %}
+
+	{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		<!-- Page Header-->
+		<header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+		<div class="container position-relative px-4 px-lg-5">
+		<div class="row gx-4 gx-lg-5 justify-content-center">
+		<div class="col-md-10 col-lg-8 col-xl-7">
+		<div class="site-heading">
+		<h1>How to Create Forms in CodeIgniter 4</h1>                            
+		</div>
+		</div>
+		</div>
+		</div>
+		</header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/codeigniter4_forms.png" alt="How to Create Forms in CodeIgniter 4">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/amazon_pc_banner.html.twig') }} 
+
+		{# <iframe style="width:320px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="https://rcm-eu.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&t=opengiscrm999-21&m=amazon&o=30&p=8&l=as1&IS1=1&asins=8441532109&linkId=708bd894d49ff9c517eea75993a82f6f&bc1=FFFFFF&amp;lt1=_top&fc1=333333&lc1=0066C0&bg1=FFFFFF&f=ifr">
+    	</iframe>	 #}	
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ci4_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see <strong>CodeIgniter 4 Forms</strong>, with the use of the security class, we will use the command line tool and route handling.</p>
+
+		<h2>How to create Forms in Codeigniter 4?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>First it is necessary to create a controller, we will enter the following command, if you do not know the basics of this framework read the following article <a class="text-info" href="/codeigniter-4-tutorial">CodeIgniter 4 Tutorial</a>.</p>
+
+		<code>php spark make:controller Persons</code>
+
+		<p>Which will create the base structure of a controller in codeigniter 4, we will work with a controller called Persons.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_form1.png" alt="ci4_rutasapi">
+
+		</div>
+
+		<p>We will add the following code inside the controller.</p>
+
+		<pre class="text-code">
+		<code>
+		namespace App\Controllers;
+
+		use App\Controllers\BaseController;
+
+		class Persons extends BaseController
+		{
+
+			public function __construct()
+			{		
+				helper('form');
+			}
+
+			public function index()
+			{
+				return view('persons');
+			}
+
+			public function create()
+			{
+				$email = $this->request->getPost('email');
+				$password = $this->request->getPost('password');
+
+				dd($email.$password);
+			}
+
+		}
+		</code>
+		</pre>
+
+		<p>We will create a new view in <code>nameProject/app/Views/persons.php</code> and we will add the following method <code>return view('persons');</code>, where we will pass the people view as a parameter to the view method, we create a constructor where we will load the <code>helper('form');</code>.</p>
+
+		<p>We create the set of necessary routes of type get and post.</p>
+
+		<code>
+		$routes->get('/persons', 'Persons::index');		
+		</code>
+		<br>
+		<code>
+		$routes->post('/persons', 'Persons::create');
+		</code>
+
+		<p>We verify the set of routes.</p>
+
+		<code>
+		php spark routes
+		</code>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_form2.png" alt="ci4_rutasapi">
+
+		</div>
+
+		<p>We will go to the browser to show the view.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_form3.png" alt="ci4_rutasapi">
+
+		</div>
+
+		<p>In the persons view we create the following form, we will use 2 methods for CSRF protection.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_form4.png" alt="ci4_rutasapi">
+
+		</div>
+
+		<p>We will enable CSRF protection in the .env file.</p>		
+
+		<pre class="text-code">
+		<code>
+		#--------------------------------------------------------------------
+		# SECURITY
+		#--------------------------------------------------------------------
+
+		  security.tokenName = 'csrf_token_name'
+		  security.headerName = 'X-CSRF-TOKEN'
+		  security.cookieName = 'csrf_cookie_name'
+		  security.expires = 7200
+		  security.regenerate = true
+		  security.redirect = true
+		  security.samesite = 'Lax'
+		</code>
+		</pre>
+
+		<p>We send a post type request and show the result.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_form5.png" alt="ci4_rutasapi">
+
+		</div>		
+
+		</div>
+
+		<br>
+
+
+		<blockquote >
+		<p class="blockquote-footer">Jonathan Castro
+		</p>
+		</blockquote>
+
+		<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+		</div>
+
+		<br>
+
+
+
+
+		</div>	
+
+		</div>
+
+
+		<div class="row">
+
+		<div class="offset-8 col-4">
+
+		<div class="">
+		<a class="btn btn-outline-primary" href="/">
+		<span class="fas fa-arrow-left"></span>		
+		Go Back</a>
+		</div>
+
+		</div> 
+
+		</div>
+		<br>
+
+		<br>
+		<br>
+
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

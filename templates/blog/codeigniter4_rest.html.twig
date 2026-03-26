@@ -1,0 +1,332 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}How to Create RESTful API in CodeIgniter 4 | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/codeigniter4-restful-api" /> 	
+<meta name="description" content="How to Create RESTful API in CodeIgniter 4 with API Response Trait">
+<meta name="keywords" content="codeigniter 4 rest api, codeigniter 4 restful api, codeigniter 4 api response trait, codeigniter 4 routes"/>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Create RESTful API in CodeIgniter 4" />
+<meta property="og:description" content="How to Create RESTful API in CodeIgniter 4 with PI Response Trait" />
+<meta property="og:image" content="assets/img/codeigniter4_rest.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/codeigniter4-restful-api" /> 
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>How to Create RESTful API in CodeIgniter 4</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/codeigniter4_rest.png" alt="How to Create RESTful API in CodeIgniter 4">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/amazon_iphone_banner.html.twig') }} 
+
+		{# <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="https://rcm-eu.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&t=opengiscrm999-21&m=amazon&o=30&p=8&l=as1&IS1=1&asins=B08CVP2HXP&linkId=f8c32ded93843b01bb6ab1cadd83363a&bc1=FFFFFF&amp;lt1=_top&fc1=333333&lc1=0066C0&bg1=FFFFFF&f=ifr">
+       </iframe> #}	
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ci4_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see how to create a <strong>RESTful API in CodeIgniter 4</strong>, with the use of <strong>API Response Trait</strong>, something new that is incorporated in this new version, we will also learn how to use routes and the use of routes of type <strong>resource</strong>.</p>
+
+		<h2>How to create a RestFul api codeigniter 4?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>First we will start from our controller, this is in <code>nameApp/app/Controller/Users.php</code>, we are going to make a <strong>api rest of type CRUD</strong> to perform operations with users.</p>
+
+		<pre class="text-code">
+		<code>
+		// import the trait
+		use CodeIgniter\API\ResponseTrait;
+
+		// import the model
+		use App\Models\UserModel;
+
+		class Users extends BaseController
+		{
+			// use the trait
+			use ResponseTrait;
+
+			// we declare the variables
+			protected $UserModel;			
+
+			protected $validation;	
+
+
+			public function __construct()
+			{
+
+				$this->UserModel = new UserModel();
+
+				// load the helper form
+				helper('form');				
+
+				// load the validation service
+				$this->validation =  \Config\Services::validation();
+
+			}
+
+			public function index()
+			{				
+				
+				// query, it would be select * from users;
+				$data['users'] = $this->UserModel->findAll();			
+
+				// we pass the data to him, and we get a code 200
+				return $this->respond($data);			
+				
+				
+			}
+
+
+			public function create()
+			{
+				// We declare validation rules from the front-end
+				$rules = [
+					'first_name' => [
+						'rules'  => 'required',
+						'errors' => [
+							'required' => 'Name is required.'
+						]
+					],
+					'last_name' => [
+						'rules'  => 'required',
+						'errors' => [
+							'required' => 'LastName is required.'
+						]
+					],
+					'password' => [
+						'rules'  => 'required',
+						'errors' => [
+							'required' => 'Password is required.'
+						]
+					],
+					'email'    => [
+						'rules'  => 'required|valid_email',
+						'errors' => [
+							'required' => 'Email is required.',
+							'valid_email' => 'Verify the email.'
+						]
+					],
+				];		
+
+				// we get everything we send by the method post
+				$data = $this->request->getPost();
+
+				
+
+				// if validation fails
+				if (!$this->validate($rules)) {
+
+					$errors = $this->validator->listErrors();			
+
+					return $this->failValidationError($errors);					
+					
+				}else{
+
+					// query to create a resource, insert into users etc
+					$data = $this->UserModel->save($data);
+
+					// method when creating a resource status code 201
+					return $this->respondCreated($data);
+				}		
+				
+			}
+
+
+			public function show($id)
+			{
+				
+
+				if (!$data = $this->UserModel->find($id)) {			
+
+					
+					// we use a default exception of the framework, to status code 404
+					throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Un error a ocurrido");
+					
+
+				}else{
+
+					// status code 200
+					return $this->respond($data);
+				}
+				
+				
+			}
+
+			public function update($id)
+			{
+				
+				// we get everything we send by methods put o patch
+				$data = $this->request->getRawInput();
+				
+
+				if (!$user = $this->UserModel->find($id)) {
+
+					// method when we can't find a resource
+					return $this->failNotFound('User with  id nro:'.$id.' no found.');
+					
+				}else{
+
+					// update users etc
+					$data['user'] = $this->UserModel->update($id,$data);
+
+					return $this->respond($data);
+
+
+				}
+
+				
+				
+			}
+
+
+			public function delete($id)
+			{		
+
+				
+				// We validate that we delete a user by id, delete users etc
+				if ($data = $this->UserModel->delete($id)) {			
+
+					// response when delete
+					return $this->respondDeleted();
+					
+				}
+				
+				
+			}
+
+			
+
+		}
+		</code>
+		</pre>
+
+		<h2>How do routes work in codeigniter 4?</h2>
+
+		<p>Now we go with the routes, the routes are in <code>nameApp/app/Config/Routes.php</code>, we create a resource type route <strong>resource</strong>, remember to disable the method <code>setAutoRoute(false)</code>, since if we leave it in true we can enter with <strong>class name / controller name</strong>.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_rest.png" alt="ci4_test">
+
+		</div>
+
+		<p>Now we are going to list the routes associated with our controller <strong>users</strong>, which is the name of the class that we are passing.</p>
+
+
+		<pre class="text-code">
+		<code>
+	php spark routes
+		</code>
+		</pre>
+
+		<p>And in this way we would list all the routes associated with our controller methods and each of the <strong>endpoints</strong>, where we can use tools like postman, to test apis in the format <strong>json</strong> or any other.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_rutasapi.png" alt="ci4_rutasapi">
+
+		</div>
+		<br>		
+		
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/">
+<span class="fas fa-arrow-left"></span>		
+Go Back</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

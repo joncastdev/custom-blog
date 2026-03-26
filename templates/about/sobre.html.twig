@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+
+{% block title %}Sobre OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/sobre-open-gis-crm" />  
+<meta name="description" content="Sobre OpenGisCRM, Conoce el proceso educativo">
+<meta name="keywords" content="Sobre OpenGisCRM"/>
+{% endblock %}
+		
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/theme-blog/assets/img/homes-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Blog</h1>
+                            <span class="subheading">Encuentra Artículos</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>  
+
+		<div class="">
+		<br>
+		<br>	
+
+	<div class="row">
+
+		
+
+                    <div class="col-6 offset-4">
+                    <h1>Sobre OpenGisCRM - Proyecto Educativo</h1>                   
+                    </div>
+
+                   {#  <div class="col-4 offset-4">                    
+                    <img class="img-fluid rounded-circle mx-auto d-block" src="assets/img/open_gis_crm.jpg" alt="img_opengiscrm">
+                    </div>    #} 
+
+		 <article class="">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="">                                 
+
+                    <p>Hola, gracias por saber un poco sobre OpenGisCRM.com, primero vayamos con un poco de historia :), OpenGisCRM.com nace en 2021 con el propósito de brindar cursos, tutoriales y artículos de calidad, para todo tipo de público sin importar su origen, estatus social o edad, el conocimiento es gratuito y cualquiera puede aprender algo nuevo.  
+                    </p>
+
+                     <h2>Proceso educativo:</h2>
+                     <br>
+
+                    <ul>
+                    	<li><strong>Cursos</strong></li>
+                    	<p>Brindar cursos de calidad sobre desarrollo web.</p>
+                    	<li><strong>Tutorialess</strong></li>
+                    	<p>Tutoriales desde cero y análisis de herramientas o plataformas.</p>
+                    	<li><strong>Artículos</strong></li>
+                    	<p>Artículos descritos paso a paso con ejemplo didáctico.</p>
+                    	<li><strong>Códigos de programación</strong></li>
+                    	<p>Códigos personalizados y gratuitos.</p>
+                    </ul>
+                    
+
+                      <blockquote cite="">
+                    	<p>Como puedes ver en OpenGisCRM, siempre podemos obtener nuevos conocimientos.</p>
+                    </blockquote>                   
+
+                                           
+                    </div>
+                </div>
+            </div>
+        </article>   
+
+
+	</div>
+
+	<br>
+
+		</div><!-- end container -->
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

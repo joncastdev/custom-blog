@@ -1,0 +1,237 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}How to block Adblock with javascript and SweetAlert | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/how-to-block-adblock" /> 	
+<meta name="description" content="How to block Adblock with javascript and SweetAlert, Symfony 5 framework">
+<meta name="keywords" content="symfony 5 block adblock, symfony 5 sweetalert integrate"/>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to block Adblock with javascript and SweetAlert" />
+<meta property="og:description" content="How to block Adblock with javascript and SweetAlert, Symfony 5 framework" />
+<meta property="og:image" content="assets/img/block.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/how-block-adblock" /> 
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>How to block Adblock with javascript and SweetAlert</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/block.png" alt="How to block Adblock with javascript and SweetAlert">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{# {{ include('inc/ad_defect.html.twig') }}  #}	
+
+		 <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ez&f=ifr&linkID=f36d5433998101c1adbb0f9259aee714&t=opengiscrm999-21&tracking_id=opengiscrm999-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>	
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/master_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see <strong>how to block adblock in symfony 5 framework</strong> on our website, we will use the library <strong>SweetAlert2</strong> to create elegant alerts, we will first start from a script that this friend shares with us in his <a class="" href="https://jonathanmelgoza.com/blog/como-detectar-adblock-con-javascript/" target="_blank">publication</a>, which I found interesting, always remember to give credit to other people's work.</p>
+
+		<h2>How to avoid Adblock on my website?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Many people make a living from their web projects, be it a blog, referral links etc, the use of <strong>Adblock</strong> limits the presence of advertisements on our website, with the use of <strong>Google AdSense</strong>.</p>
+
+		<p>first we start from <strong>script</strong> base of the friend, which generates a generic alert when detecting the blocker, what we will do is create an alert with which the user will not be able to remove the alert when clicking, until <strong>disable blocker</strong>.</p>
+
+		<pre class="text-code">
+		<code>
+        $(document).ready(function(){
+ 
+          detectarBloqueador();
+ 
+        });
+
+        async function detectarBloqueador(){
+          const bloqueadorActivo = await checkAdBlocker();
+          if( bloqueadorActivo ){
+          	  
+              // we will create a new function, upon detecting the blocker 
+              modalBlock();
+          }
+      }
+
+      async function checkAdBlocker() {
+ 
+          let bloqueador;
+       
+          async function tryRequest() {
+              try {
+                 return fetch(
+                     new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
+                        method: 'HEAD',
+                        mode: 'no-cors'
+                      }))
+                      .then(function(response) {
+                        bloqueador = false;
+                        return bloqueador;
+                      }).catch(function(e) {
+                        bloqueador = true;
+                        return bloqueador;
+                  });
+              } catch (error) {
+                    console.log(error);
+                    bloqueador = true;
+                    return bloqueador;
+              }
+          }
+       
+          return bloqueador !== undefined ? bloqueador : await tryRequest();
+      }           
+		</code>
+		</pre>
+
+		<p>So far what we have done is add a new function called <code>modalBlock()</code>, now we proceed with the loading of the jquery and sweetalert libraries with the use of their cdn.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/alert1.png" alt="alert1">
+
+		</div>
+
+		<h2>How to use sweetalert 2?</h2>
+
+		<p>We will then call the function <code>modalBlock()</code>, remember to open and close script tag, we will use the function <code>swal()</code> which inside has properties such as icon, title, etc., we will use the property <strong>button</strong> as false so that a button does not appear and here the important thing is the property <strong>closeOnClickOutside</strong>, so that when clicking outside the modal it does not close.</p>
+
+		<pre class="text-code">
+		<code>
+		async function modalBlock()
+		{
+
+		    swal({
+		      icon: "warning",
+		      title: 'Este sitio muestra anuncios',
+		      text: 'DeshabilitarAdBlock',
+		      type: 'warning',
+		      showCancelButton: false,
+		      showConfirmButton: false,
+		      button: false,
+		      closeOnClickOutside: false
+		    }).then(function() {      
+
+		    	console.log("Algun mensaje de success,opcional");
+
+		      }, function(err) {   
+
+		      	console.log("Algun mensaje de error" + err);
+		      });
+
+		  }          
+		</code>
+		</pre>
+
+		<p>Result when we have adblock activated.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/alert2.png" alt="adblock2">
+
+		</div>
+
+		<p>Result when you disable adblock.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/alert3.png" alt="adblock3">
+
+		</div>
+
+		<p>If this article is helpful, support by sharing the content.</p>
+
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/">
+<span class="fas fa-arrow-left"></span>		
+Go Back</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

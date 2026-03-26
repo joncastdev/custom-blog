@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Open About - OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/about" />  
+<meta name="description" content="OpenGisCRM - Open About, our mission is that you learn">
+<meta name="keywords" content="open about, opengiscrm about"/>
+{% endblock %}
+		
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/theme-blog/assets/img/homes-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Blog</h1>
+                            <span class="subheading">Encuentra Artículos</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>  
+
+		<div class="">
+		<br>
+		<br>	
+
+	<div class="row">
+
+		
+
+                    <div class="col-6 offset-4">
+                    <h1>Open About - Hello! (OpenGisCRM)</h1>                   
+                    </div>
+
+                   {#  <div class="col-4 offset-4">                    
+                    <img class="img-fluid rounded-circle mx-auto d-block" src="assets/img/open_gis_crm.jpg" alt="img_opengiscrm">
+                    </div>    #} 
+
+		 <article class="">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="">                                 
+
+                    <p>Hello, thanks for knowing a little about OpenGisCRM.com, first let's go with a little history :), OpenGisCRM.com was born in 2021 with the purpose of providing quality courses, tutorials and articles, for all types of audiences regardless their origin, social status or age, knowledge is free and anyone can learn something new.  
+                    </p>
+
+                     <h2>Educational process:</h2>
+                     <br>
+
+                    <ul>
+                    	<li><strong>courses</strong></li>
+                    	<p>Provide quality courses on web development.</p>
+                    	<li><strong>Tutorials</strong></li>
+                    	<p>Tutorials from scratch and analysis of tools or platforms.</p>
+                    	<li><strong>Articles</strong></li>
+                    	<p>Articles described step by step with didactic example.</p>
+                    	<li><strong>Programming codes</strong></li>
+                    	<p>Both free and custom codes.</p>
+                    </ul>
+                    
+
+                      <blockquote cite="">
+                    	<p>As you can see in OpenGisCRM we can always get new knowledge.</p>
+                    </blockquote>                   
+
+                                           
+                    </div>
+                </div>
+            </div>
+        </article>   
+
+
+	</div>
+
+	<br>
+
+		</div><!-- end container -->
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

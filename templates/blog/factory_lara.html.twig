@@ -1,0 +1,203 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}How to use Factories in Laravel 8 | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/factory-laravel-8" /> 	
+<meta name="description" content="How to use Factories in Laravel 8 for database testing">
+<meta name="keywords" content="factories laravel 8, seeder laravel 8, database testing laravel 8, faker laravel 8"/>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to use Factories in Laravel 8" />
+<meta property="og:description" content="How to use Factories in Laravel 8 for database testing" />
+<meta property="og:image" content="assets/img/factory.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/factory-laravel-8" /> 
+{% endblock %}
+		
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>How to use Factories in Laravel 8</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/factory.png" alt="How to use Factories in Laravel 8">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{# {{ include('inc/ad_defect.html.twig') }}  #}
+
+		{{ include('inc/amazon_web_cam_banner.html.twig') }} 	
+
+		{# <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="https://rcm-eu.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&t=opengiscrm999-21&m=amazon&o=30&p=8&l=as1&IS1=1&asins=B00YUIM2J0&linkId=7ad77ed62b4ae50f7bd356da0728b008&bc1=FFFFFF&amp;lt1=_top&fc1=333333&lc1=0066C0&bg1=FFFFFF&f=ifr">
+    	</iframe>	 #}	
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/master_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see How to use <strong>Factories</strong> (Factories / seeder) in Laravel 8, with the use of the Factory class and combine it with the faker library, to test test data, we will use PostgreSQL and the graphical interface pgAdmin 4..</p>
+
+		<h2>How do factories work in laravel 8?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>First we have to create the class with which we are going to work <code>php artisan make:factory Project
+		</code>, once created with the Factory created <strong>Factory created successfully</strong>, we will have a class with a <code>definition()</code> method, which we are going to combine with the <strong>faker</strong> libray to work with test data, remember to preload the migrations <code>php artisan migrate</code>.</p>
+
+		<pre class="text-code">
+		<code>
+		namespace Database\Factories;
+
+		use App\Models\Project;
+		use Illuminate\Database\Eloquent\Factories\Factory;
+
+		class ProjectFactory extends Factory
+		{
+		    /**
+		     * The name of the factory's corresponding model.
+		     *
+		     * @var string
+		     */
+		    protected $model = Project::class;
+
+		    /**
+		     * Define the model's default state.
+		     *
+		     * @return array
+		     */
+		    public function definition()
+		    {
+		    	// define the methods of the facker library
+		        return [
+		         'client_name' => $this->faker->name(),
+		         'client_company_name' => $this->faker->company(),
+		         'client_phone' => $this->faker->phoneNumber(),
+		         'client_email' => $this->faker->companyEmail(),
+		         'client_address' => $this->faker->address(),
+		         'project_name' => $this->faker->jobTitle(),
+		     ];
+		 }
+		}
+		</code>
+		</pre>
+
+		<p>Now in the archive <code>DatabaseSeeder.php</code>, add as a parameter to the factory class the set of values that we are going to insert in the associated table, in this case they would be <strong>30</strong>, we now execute the command <code>php artisan db:seed</code> to insert the data.</p>
+
+		<pre class="text-code">
+		<code>
+		namespace Database\Seeders;
+
+		use Illuminate\Database\Seeder;
+
+
+		class DatabaseSeeder extends Seeder
+		{
+		    /**
+		     * Seed the application's database.
+		     *
+		     * @return void
+		     */
+		    public function run()
+		    {        
+		    	// we will add this line of code
+		        \App\Models\Project::factory(30)->create();
+		        
+		    }
+		}
+		</code>
+		</pre>
+
+		<p>Result in our table with the use of PostgreSQL and pgAdmin 4, we have generated 30 records with random data with the faker library.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/factory1.png" alt="factory1">
+
+		</div>
+		<br>
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/">
+<span class="fas fa-arrow-left"></span>		
+Go Back</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

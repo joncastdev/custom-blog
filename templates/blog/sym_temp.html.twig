@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}How to Customize Error Pages Symfony 5 | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/error-pages-symfony5" /> 		
+<meta name="description" content="How to Customize Error Pages Symfony 5, error 404 not found">
+<meta name="keywords" content="symfony 5 exceptions, symfony 5 template 404, symfony 5 error pages 404"/>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Customize Error Pages Symfony 5" />
+<meta property="og:description" content="How to Customize Error Pages Symfony 5, error 404 not found" />
+<meta property="og:image" content="assets/img/symfony_temp.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/error-pages-symfony5" />
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>How to Customize Error Pages Symfony 5</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/symfony_temp.png" alt="How to Customize Error Pages Symfony 5">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/namecheap_banner.html.twig') }} 	
+
+	 {# <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ez&f=ifr&linkID=f36d5433998101c1adbb0f9259aee714&t=opengiscrm999-21&tracking_id=opengiscrm999-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe> #}
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/sym_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see <strong>how to customize a 404 view in symfony 5</strong>, with <a class="text-info" href="/twig-symfony">Twig templates</a>.</p>
+
+		<h2>How to customize a 404 view?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>We have that the 404, 500 views among others are handled by the default exceptions of the framework, which by default shows a 404 view like the following.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/exception.png" alt="exception">
+
+		</div>
+
+		<p>Now in our project we are going to overwrite the default view <code>nameProject/templates/bundles/TwigBundle/Exception/error404.html.twig</code>, we will include a navigation bar so that the user stays on the website and is more SEO friendly.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/exception1.png" alt="exception1">
+
+		</div>
+
+		<p>Final result, the user stays on the website and we improve the seo of our website.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/exception2.png" alt="exception2">
+
+		</div>
+		
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/">
+<span class="fas fa-arrow-left"></span>		
+Go Back</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

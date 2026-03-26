@@ -1,0 +1,331 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Crear una API REST en CodeIgniter 4 | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/blog/codeigniter-4-rest" /> 	
+<meta name="description" content="Crear una API REST en CodeIgniter 4 con el uso del API Response Trait">
+<meta name="keywords" content="codeigniter api, codeigniter restful"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Crear una API REST en CodeIgniter 4</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/codeigniter4_rest.png" alt="How to Create RESTful API in CodeIgniter 4">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/amazon_iphone_banner.html.twig') }} 
+
+		{# <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="https://rcm-eu.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&t=opengiscrm999-21&m=amazon&o=30&p=8&l=as1&IS1=1&asins=B08CVP2HXP&linkId=f8c32ded93843b01bb6ab1cadd83363a&bc1=FFFFFF&amp;lt1=_top&fc1=333333&lc1=0066C0&bg1=FFFFFF&f=ifr">
+       </iframe> #}	
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ci4_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos cómo crear una  <strong>API Rest en CodeIgniter 4</strong>, con el uso de clases y métodos que incorpora en esta versión 4.</p>
+
+		<h2>¿Cómo crear una API REST en Codeigniter 4?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero partiremos de nuestro controlador, esto está en <code>nameApp/app/Controller/Users.php</code>, vamos a crear una <strong>api rest de tipo CRUD</strong> para realizar operaciones con los usuarios.</p>
+
+		<pre class="text-code">
+		<code>
+		// import the trait
+		use CodeIgniter\API\ResponseTrait;
+
+		// import the model
+		use App\Models\UserModel;
+
+		class Users extends BaseController
+		{
+			// use the trait
+			use ResponseTrait;
+
+			// we declare the variables
+			protected $UserModel;			
+
+			protected $validation;	
+
+
+			public function __construct()
+			{
+
+				$this->UserModel = new UserModel();
+
+				// load the helper form
+				helper('form');				
+
+				// load the validation service
+				$this->validation =  \Config\Services::validation();
+
+			}
+
+			public function index()
+			{				
+				
+				// query, it would be select * from users;
+				$data['users'] = $this->UserModel->findAll();			
+
+				// we pass the data to him, and we get a code 200
+				return $this->respond($data);			
+				
+				
+			}
+
+
+			public function create()
+			{
+				// We declare validation rules from the front-end
+				$rules = [
+					'first_name' => [
+						'rules'  => 'required',
+						'errors' => [
+							'required' => 'Name is required.'
+						]
+					],
+					'last_name' => [
+						'rules'  => 'required',
+						'errors' => [
+							'required' => 'LastName is required.'
+						]
+					],
+					'password' => [
+						'rules'  => 'required',
+						'errors' => [
+							'required' => 'Password is required.'
+						]
+					],
+					'email'    => [
+						'rules'  => 'required|valid_email',
+						'errors' => [
+							'required' => 'Email is required.',
+							'valid_email' => 'Verify the email.'
+						]
+					],
+				];		
+
+				// we get everything we send by the method post
+				$data = $this->request->getPost();
+
+				
+
+				// if validation fails
+				if (!$this->validate($rules)) {
+
+					$errors = $this->validator->listErrors();			
+
+					return $this->failValidationError($errors);					
+					
+				}else{
+
+					// query to create a resource, insert into users etc
+					$data = $this->UserModel->save($data);
+
+					// method when creating a resource status code 201
+					return $this->respondCreated($data);
+				}		
+				
+			}
+
+
+			public function show($id)
+			{
+				
+
+				if (!$data = $this->UserModel->find($id)) {			
+
+					
+					// we use a default exception of the framework, to status code 404
+					throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Un error a ocurrido");
+					
+
+				}else{
+
+					// status code 200
+					return $this->respond($data);
+				}
+				
+				
+			}
+
+			public function update($id)
+			{
+				
+				// we get everything we send by methods put o patch
+				$data = $this->request->getRawInput();
+				
+
+				if (!$user = $this->UserModel->find($id)) {
+
+					// method when we can't find a resource
+					return $this->failNotFound('User with  id nro:'.$id.' no found.');
+					
+				}else{
+
+					// update users etc
+					$data['user'] = $this->UserModel->update($id,$data);
+
+					return $this->respond($data);
+
+
+				}
+
+				
+				
+			}
+
+
+			public function delete($id)
+			{		
+
+				
+				// We validate that we delete a user by id, delete users etc
+				if ($data = $this->UserModel->delete($id)) {			
+
+					// response when delete
+					return $this->respondDeleted();
+					
+				}
+				
+				
+			}
+
+			
+
+		}
+		</code>
+		</pre>
+
+		<h2>¿Cómo funcionan las rutas en codeigniter 4?</h2>
+
+		<p>Ahora vamos con las rutas, las rutas están en <code>nameApp/app/Config/Routes.php</code>, crearemos una ruta de tipo <strong>resource</strong>, recuerda deshabilitar el método <code>setAutoRoute(false)</code>, ya que si lo dejamos en true podemos ingresar con el <strong>nombre de la clase / nombre del controlador</strong>.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_rest.png" alt="ci4_test">
+
+		</div>
+
+		<p>Ahora vamos a listar las rutas asociadas a los <strong>users</strong> de nuestro controlador, que es el nombre de la clase que estamos pasando.</p>
+
+
+		<pre class="text-code">
+		<code>
+	php spark routes
+		</code>
+		</pre>
+
+		<p>Y de esta manera listaríamos todas las rutas asociadas a nuestros métodos de controlador y cada uno de los <strong>endpoints</strong>, donde podemos usar herramientas como <a class="text-info" href="https://www.postman.com/" target="_blank">Postman</a>, para probar apis en el formato <strong>json</strong> o cualquier otro.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/ci4_rutasapi.png" alt="ci4_rutasapi">
+
+		</div>
+		
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

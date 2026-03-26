@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Curso Laravel 8 desde cero | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Curso Laravel 8 desde cero">
+<meta name="keywords" content="Los mejores cursos de PHP en línea Udemy, cursos udemy, cursos desarrollo web, codeigniter 4, laravel 8, symfony 5, yii2, cakephp 4"/>
+{% endblock %}		
+
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+		
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/cursos-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Cursos</h1>
+                            <span class="subheading">Encuentra Cursos</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+	<div class="container">
+	<br>
+		 <article class="">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="">
+
+                    <h1>Curso Laravel 8 desde cero</h1>
+
+                    <p><strong>Los mejores cursos de PHP en línea Udemy</strong> te mostramos <strong>Máster en Frameworks PHP - De 0 al Limite</strong>, uno de los cursos más completos en udemy sobre <strong>frameworks php</strong>, dictado por el instructor <strong>Jonathan Castro</strong>, el cual cuenta con buenas valoraciones de los estudiantes y más de 20 horas de contenido con 4 diferentes frameworks y diversas base de datos relacionales. 
+                    </p>
+
+                    <p><strong>Aprende PHP hoy</strong>, este curso comienza completamente <strong>desde cero</strong>, no son necesarios conocimientos previos en frameworks php, solo tener nociones básicas del lenguaje de programación <strong>php</strong>, al final de este curso se obtendrá un nivel avanzado sobre los <strong>marcos php</strong>, para cualquier duda comunicarse <a class="" href="/contacto">
+					<span class=""></span>		
+					Contacto</a>.
+                    </p>
+
+                                           
+                    </div>
+                </div>
+            </div>
+        </article>   
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">
+				<img class="img-fluid" src="../assets/img/curso_masterphp2.png" alt="Máster en Frameworks PHP | Laravel | CodeIgniter | Symfony">
+				
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>Laravel 7 o 8</li>
+							<li>Symfony 5</li>
+							<li>Combinar frameworks PHP con Bootstrap 4,5 - MySQL - PostgreSQL - Postman</li>
+							<li>Combinar frameworks PHP con Jquery - VueJs - Ajax</li>
+							<li>CodeIgniter 3 y 4</li>
+							<li>CakePHP 4</li>
+							<li>Crear SPA</li>
+							<li>Deploy de Aplicaciones</li>
+							<li>Sistemas de Login y Roles</li>
+						</ul>					
+
+					</div>					
+
+					
+					<a class="btn btn-danger" href="https://www.udemy.com/course/master-en-frameworks-php-laravel-codeigniter-symfony/?referralCode=E11692E05076AA066A88" target="_blank">
+				{# 	<a class="btn btn-danger" href="https://www.udemy.com/course/master-en-frameworks-php-laravel-codeigniter-symfony/?couponCode=5A65F45CE5118BD070AB" target="_blank"> #}
+					<span class="fas fa-play"></span>		
+					Ir al curso</a>
+					<br>
+					<br>
+					<a class="btn btn-outline-primary" href="/cursos">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+				
+			</div>
+		</div>
+
+	</div>		
+</div>
+<br>
+<br>
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

@@ -1,0 +1,183 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}OpenGisCRM - Contacto{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/contacto" />  	
+<meta name="description" content="OpenGisCRM - Contacto, cuentame sobre tu proyecto online.">
+<meta name="keywords" content="opengiscrm contact, web developer contact, freelance contact"/>
+{% endblock %}	
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+ 
+{% endblock %}					
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/theme-blog/assets/img/contacto-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Contacto</h1>
+                            <span class="subheading">Mensaje</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header> 
+ 
+
+		<div class="container">
+
+			<br>
+	<br>
+
+	<div class="row">
+
+		<div class="col-12">
+			<div class="text-center">
+
+				<h1 class="texto-blog">OpenGisCRM - Contacto (Hola?)</h1>
+
+				<p class="texto-blog">¿Está buscando un desarrollador web o especialista SEO?, instructor online, desarrollador freelance o presencial especializado en symfony, laravel, codeigniter, nodejs, vuejs, contáctame completando el formulario, escucho tu idea, jonathancastro@opengiscrm.com</p>							
+				
+				<hr>
+
+			</div>
+		</div>
+
+		<div class="col-6">		
+
+			<br>
+			<br>
+			<br>
+
+			<div class="text-center">
+
+				<div class="text-info" id="msg_success">					
+				</div>
+
+				
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">
+						<input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre">
+						<div class="text-danger" id="msg_first_name">					
+						</div>				
+					</div>
+				</div>
+				<br>
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">
+						<input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellido">
+						<div class="text-danger" id="msg_last_name">					
+						</div>				
+					</div>
+				</div>
+				<br>
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">
+						<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+						<div class="text-danger" id="msg_email">					
+						</div>
+					</div>
+				</div>
+				<br>
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">                              
+						<textarea name="message" class="form-control" id="message" name="message" placeholder="Mensaje"></textarea>
+						<div class="text-danger" id="msg_message">					
+						</div>
+					</div>
+				</div>
+				<br>                         
+
+				<div class="form-group">
+					<div class="offset-md-3 col-sm-6">   
+						<button type="submit" class="btn btn-primary btn-block">Enviar</button>
+					</div>
+				</div>                         
+
+
+			
+
+			</div> 
+
+		</div> <!-- text -->
+
+		<div class="col-6">  
+	 		<div id="mapid" style="width: 100%;height: 480px;box-shadow: 5px 5px 5px #888;"></div>
+		 </div>
+
+
+	</div> <!-- end row -->
+
+	{# <div class="row">
+
+		<div class="offset-md-3 col-sm-6">  
+	 		<div id="mapid" style="width: 100%;height: 480px;box-shadow: 5px 5px 5px #888;"></div>
+		 </div>
+
+	 </div> #}
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+		</div><!-- end container -->
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }}
+
+		<script>
+
+
+ var map = L.map('mapid').
+     setView([40.6643, -73.9385],
+     15);
+
+     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+maxZoom: 18
+}).addTo(map);
+
+     L.control.scale().addTo(map);
+
+     // L.marker([10.48801, -66.87919],{draggable: true}).addTo(map);
+
+     L.marker([40.6643, -73.9385],{draggable: true}).bindPopup("<b>OpenGisCRM</b><br>jonathancastro@opengiscrm.com").addTo(map).openPopup();
+
+     // marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+ // var circle = L.circle([40.6643, -73.9385], {
+ //     color: 'red',
+ //     fillColor: '#f03',
+ //     fillOpacity: 0.5,
+ //     radius: 500
+	//  }).addTo(map);
+
+   </script> 
+	{% endblock %}

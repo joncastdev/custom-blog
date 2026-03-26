@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Twig Symfony | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/blog/twig-symfony" /> 	
+<meta name="description" content="Usar Templates Twig en Symfony PHP">
+<meta name="keywords" content="symfony html"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Twig Symfony PHP</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/twig_symfony.png" alt="Creating and Using Templates With Twig">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{# {{ include('inc/ad_defect.html.twig') }} 	 #}	
+
+		 <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ez&f=ifr&linkID=f36d5433998101c1adbb0f9259aee714&t=opengiscrm999-21&tracking_id=opengiscrm999-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/sym_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos como funciona <strong>twig</strong> el sistema de plantillas del framework Symfony 5.</p>
+
+		<h2>¿Cómo trabajar con twig en Symfony 5?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero tenemos el archivo base que nos genera al crear un nuevo proyecto el cual se llama <code>base.html.twig</code> situado en <code>nameProject/templates/base.html.twig</code>, tenemos que la convención que usa Symfony, es terminar con la extensión <strong>.twig</strong> en los templates.</p>		
+
+		<p>Con las plantillas twig todo se basa en <strong>blocks</strong>, por ejemplo abrimos <strong>block</strong> y cerramos <strong>endblock</strong> con el signo de porcentaje <strong>%</strong> , que se puede exntender y reutilizar, evitando así la repetición innecesaria de códigos.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/twig.png" alt="twig">
+
+		</div>
+		
+		<p>Estas son algunas de las muchas cosas que podemos hacer con <strong>twig templates</strong>.</p>		
+
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/blog">
+<span class="fas fa-arrow-left"></span>		
+Regresar</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

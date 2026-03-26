@@ -1,26 +1,29 @@
-{% if not app.user %}
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	<!-- <a class="navbar-brand" href="/">
-		<img src="assets/img/open_gis_crm.jpg" alt="Logo" style="width:40px;">
-	</a>
- -->
-	<a class="navbar-brand nav-bar-title" href="/">OpenGisCRM</a>
-
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
-	<div class="collapse navbar-collapse" id="collapsibleNavbar">
-		<ul class="navbar-nav mx-auto">			
-		<li class="nav-item">
-			<a class="nav-link" href="/register">Register</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="/login">Login</a>
-		</li>
-	</ul>
-</div>
-</nav>
-
-{% endif %}
+ <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="/">OpenGisCRM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">                       
+                        <a class="nav-link" href="/blog">Blog</a>
+                        </li>
+                        <li class="nav-item">                       
+                        <a class="nav-link" href="/cursos">Cursos</a>
+                        </li>
+                        <li class="nav-item">                       
+                        <a class="nav-link" href="/tutoriales">Tutoriales</a>
+                        </li>
+                        <li class="nav-item">                       
+                        <a class="nav-link" href="/sobre-open-gis-crm">Acerca De</a>
+                        </li>
+                        <li class="nav-item">                       
+                        <a class="nav-link" href="/contacto">Contacto</a>
+                        </li> 
+                      </ul>
+                </div>
+            </div>
+        </nav>

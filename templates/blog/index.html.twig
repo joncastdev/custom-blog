@@ -1,0 +1,329 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Open Blog | Desarrollo Web{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/blog" /> 	
+<meta name="description" content="Open Blog en Desarrollo Web, Aprende Desde Cero">
+<meta name="keywords" content="open blog, blog abierto, web development blog, blog programming, blog codeigniter 4, blog codeigniter 3, blog symfony 5, blog yii2, blog cakephp 4, blog mysql, blog postgresql"/>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}				
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Blog</h1>
+                            <span class="subheading">Encuentra Artículos</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>  
+
+		<div class="container">
+		<br>
+		<br>				 
+
+	
+		<div class="row">
+
+		<h1>Open Blog | Artículos en Desarrollo Web</h1>
+
+		{# {{ include('inc/ad_defect.html.twig') }}  #}
+
+		<div>
+		<p>Aquí encontrarás los mejores artículos en inglés y español, sobre desarrollo web, con ejemplo en códigos de programación, novedades en frameworks php, mejores prácticas en programación con ejemplos claros en diferentes lenguajes o frameworks como symfony, laravel, codeigniter, varias tecnologías y uno que otro tema relacionado.</p>		
+		</div>
+		</div>
+		{# end row #}	
+	<br>	
+
+	<h2>Blog Abierto, Aprende Ahora:</h2>
+
+	  <div class="row">
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/curso_postgresql2.png" alt="curso postgresql">
+
+				<div class="card-header">
+
+					<h3 class="home-text">Curso PostgreSQL</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Curso PostgreSQL desde cero y paso a paso.</p>
+					
+					<a class="btn btn-primary" href="/blog/postgresql-de-0-al-limite">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir Leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/codeigniter4_rest.png" alt="codeigniter 4 restapi">
+
+				<div class="card-header">
+
+					<h3 class="home-text">Codeigniter 4 rest api</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Aprende a crear una api rest en codeigniter4.</p>
+					
+					<a class="btn btn-primary" href="/blog/codeigniter-4-rest">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir Leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/heroku_deploy.png" alt="Deploy CodeIgniter 4 Heroku">
+
+				<div class="card-header">
+
+					<h3 class="home-text">Deploy ci4 con heroku</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Aprenderemos el proceso de deploy con heroku.</p>
+					
+					<a class="btn btn-primary" href="/blog/codeigniter-4-deploy-heroku">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir Leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+{# 	end row #}
+<br>
+
+ <div class="row">
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/symfony_temp.png" alt="Vista 404 Symfony">
+
+				<div class="card-header">
+
+					<h3 class="home-text">Symfony 404</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Personalizar Vista 404 en Symfony PHP.</p>
+					
+					<a class="btn btn-primary" href="/blog/symfony-vista-404">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir Leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/fixtures_symfony.png" alt="Fixtures Symfony">
+
+				<div class="card-header">
+
+					<h3 class="home-text">Fixtures Symfony</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Usar fixtures en symfony php.</p>
+					
+					<a class="btn btn-primary" href="/blog/fixtures-symfony">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir Leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/twig_symfony.png" alt="Twig Plantillas">
+
+				<div class="card-header">
+
+					<h3 class="home-text">Twig Template</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Usar Twig template en symfony.</p>
+					
+					<a class="btn btn-primary" href="/blog/twig-symfony">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir Leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+{# 	end row #}
+<br>
+
+ <div class="row">
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/symfony_mailer.png" alt="Symfony Mailer - Enviar Emails">
+
+				<div class="card-header">
+
+					<h3 class="home-text">Symfony Mailer</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Envios de emails con symfony mailer.</p>
+					
+					<a class="btn btn-primary" href="/blog/symfony-mailer-enviar-emails">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir Leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/fixtures_symfony.png" alt="Fixtures Symfony">
+
+				<div class="card-header">
+
+					<h3 class="home-text">Fixtures Symfony</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Usar fixtures en symfony php.</p>
+					
+					<a class="btn btn-primary" href="/blog/fixtures-symfony">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir Leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-sm-4">
+
+			<div class="card">
+
+				<img class="img-fluid" src="assets/img/twig_symfony.png" alt="Twig Plantillas">
+
+				<div class="card-header">
+
+					<h3 class="home-text">Twig Template</h3>
+
+				</div>
+
+				<div class="card-body">									
+
+					<p>Usar Twig template en symfony.</p>
+					
+					<a class="btn btn-primary" href="/blog/twig-symfony">
+						<span class="fas fa-arrow-right"></span>	
+						Seguir Leyendo
+					</a>					
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+{# 	end row #}
+<br>
+
+
+<br>
+
+
+	<br>
+{# 	end posts #}
+
+
+		</div><!-- end container -->
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}
+

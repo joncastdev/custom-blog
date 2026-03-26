@@ -1,0 +1,172 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Codeigniter 3 Config Class | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/codeigniter-3-config-class" /> 		
+<meta name="description" content="Codeigniter 3 Config Class, with examples">
+<meta name="keywords" content="codeigniter 3 config class"/>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Codeigniter 3 Config Class" />
+<meta property="og:description" content="Codeigniter 3 Config Class, with examples" />
+<meta property="og:image" content="assets/img/ci3_config.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/codeigniter-3-config-class" />
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                           <h1 class="texto-title-blog">Codeigniter 3 Config Class</h1>
+                           {#  <span class="subheading">Encuentra Artículos</span>  #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>   
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+		<div class="row">
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/ci3_config.png" alt="Codeigniter 3 Config Class">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">	
+		{# <h1 class="texto-title-blog">codeigniter 3 configuraciones</h1> #}
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{# {{ include('inc/ad_defect.html.twig') }}  #}
+
+		{{ include('inc/amazon_web_cam_banner.html.twig') }} 	
+
+		 {# <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ez&f=ifr&linkID=f36d5433998101c1adbb0f9259aee714&t=opengiscrm999-21&tracking_id=opengiscrm999-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe> #}
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/master_banner.html.twig') }} 
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see <strong>How to configure codeigniter 3 framework</strong>.</p>
+		
+		<h2 class="texto-title-blog">How to configure the base_url?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 
+		
+		<p>First we will go to <code>nameProject/application/config/config.php</code>, where we have this empty variable.</p>
+		
+
+	
+		<pre class="text-code">
+		<code class="">
+	$config['base_url'] = '';
+		</code>
+		</pre>
+
+		
+		<p>Now what we will do is set this url, by the url of your local server or domain.</p>
+		
+
+		<pre class="text-code">
+		<code class="">
+	$config['base_url'] = 'http://localhost/your_app/';
+		</code>
+		</pre>
+
+		<h2 class="texto-title-blog">How do we load resources?</h2>		
+
+		
+		<p>Now we will automatically load all the resources that we want to use in our application in <code>nameApp/application/config/autoload.php</code>, or we can also load it in the <strong>constructor</strong>.</p>
+		
+
+		<pre class="text-code">
+		<code class="">
+	//we load all the libraries to use		
+	$autoload['libraries'] = array('database', 'form_validation', 'email', 'session', 'pagination');
+
+	//we load all the helpers to use
+	$autoload['helper'] = array('url' ,'security');
+		</code>
+		</pre>		
+
+</div>
+
+<br>
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/">
+<span class="fas fa-arrow-left"></span>		
+Go Back</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

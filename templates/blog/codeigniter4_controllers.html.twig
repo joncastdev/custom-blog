@@ -1,0 +1,245 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}How to create controllers in codeigniter 4 | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/codeigniter-4-controllers" /> 	
+<meta name="description" content="How to create controllers in codeigniter 4, use BaseController">
+<meta name="keywords" content="codeigniter 4 controllers"/>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to create controllers in codeigniter 4" />
+<meta property="og:description" content="How to create controllers in codeigniter 4, use BaseController" />
+<meta property="og:image" content="assets/img/ci4_controllers.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/codeigniter-4-controllers" />
+{% endblock %}
+
+	{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>How to create controllers in codeigniter 4</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>   
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+		<div class="row">	
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-responsive" src="../assets/img/ci4_controllers.png" alt="How to create controllers in codeigniter 4">
+		</div>
+		</div>
+
+		
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="offset-2 col-8 text-center">	
+				
+
+		</div>
+	
+		</div>		
+
+		{# </div> #}
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{# {{ include('inc/ad_defect.html.twig') }}  #}
+
+		 <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ez&f=ifr&linkID=f36d5433998101c1adbb0f9259aee714&t=opengiscrm999-21&tracking_id=opengiscrm999-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ci4_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see <strong>how to use the controllers in version 4</strong> of the codeigniter framework.</p>
+
+		<h2 class="texto-title-blog">How do the controllers work?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 
+		
+		<p>First we have the basic structure of a controller.</p>
+		
+
+
+		{# 	pre mantiene el formato del texto #}
+		<pre class="text-code">
+		<code class="">
+		class Users extends BaseController
+		{
+		public function index()
+		{		
+		
+		$data['tittle'] = 'Users';		
+
+		return view('admin/index',$data);
+		}
+
+		}
+		</code>
+		</pre>
+
+		<p>The controllers are located in <code>nameProject/app/Controllers</code>, every controller extends from the main controller named <strong>BaseController</strong>, which is on the same route.</p>
+
+		{# <pre> #}
+		<p>
+		<code class="">
+
+		class Users extends BaseController
+
+		</code>
+		</p>
+		{# </pre> #}
+		
+
+		<h2 class="texto-title-blog">What is the BaseController?</h2>			
+
+		<p>Here we have the BaseController which extends from Controller which is the core class of the framework, through the initController function we can automatically load services, libraries, models etc.</p>
+		<pre class="text-code">
+		<code class="">
+		namespace App\Controllers;
+
+		/**
+		* Class BaseController
+		*
+		* BaseController provides a convenient place for loading components
+		* and performing functions that are needed by all your controllers.
+		* Extend this class in any new controllers:
+		*     class Home extends BaseController
+		*
+		* For security be sure to declare any new methods as protected or private.
+		*
+		* @package CodeIgniter
+		*/
+
+		use CodeIgniter\Controller;
+
+		class BaseController extends Controller
+		{
+
+		/**
+		* An array of helpers to be loaded automatically upon
+		* class instantiation. These helpers will be available
+		* to all other controllers that extend BaseController.
+		*
+		* @var array
+		*/
+		protected $helpers = [];
+
+		/**
+		* Constructor.
+		*/
+		public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
+		{
+		// Do Not Edit This Line
+		parent::initController($request, $response, $logger);
+
+		//--------------------------------------------------------------------
+		// Preload any models, libraries, etc, here.
+		//--------------------------------------------------------------------
+		// E.g.:
+		// $this->session = \Config\Services::session();
+		}
+
+		}
+		</code>
+		</pre>
+		
+		<p>Inside we have a variable <code>$data</code> which we can pass to a view.</p>
+		<code class="">
+		public function index()
+		</code>
+
+		
+		<p>Now we have the index method, which is the first method that is executed when loading the class, unless we load the constructor.</p>
+		<code class="">
+		$data['tittle'] = 'Users';
+		</code>
+
+		
+		<p>Finally we return a view, where the first parameter is the path of the view and which accepts as the second parameter the <code>$data</code>.</p>
+		<code class="">
+		return view('admin/index',$data);
+		</code>
+
+			
+
+
+		</div>
+		<br>		
+	
+
+		<blockquote >
+		<p class="blockquote-footer">Jonathan Castro
+		</p>
+		</blockquote>
+
+		<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+		</div>
+
+		<br>
+
+
+
+
+		</div>	
+
+		</div>
+
+
+		<div class="row">
+
+		<div class="offset-8 col-4">
+
+		<div class="">
+		<a class="btn btn-outline-primary" href="/">
+		<span class="fas fa-arrow-left"></span>		
+		Go Back</a>
+		</div>
+
+		</div> 
+
+		</div>
+		<br>
+
+		<br>
+		<br>
+
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

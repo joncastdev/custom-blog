@@ -1,0 +1,211 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stripe Payment Gateway Integration | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/stripe-payment-gateway-integration" /> 	
+<meta name="description" content="Stripe Payment Gateway Integration codeigniter 4">
+<meta name="keywords" content="stripe payment gateway, stripe payment gateway integration, stripe api, stripe api codeigniter 4"/>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Stripe Payment Gateway Integration" />
+<meta property="og:description" content="Stripe Payment Gateway Integration codeigniter 4" />
+<meta property="og:image" content="assets/img/stripe.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/stripe-payment-gateway-integration" /> 
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Stripe Payment Gateway Integration</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/stripe.png" alt="Stripe Payment Gateway Integration">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/amazon_tvbox_banner.html.twig') }} 
+
+		{# <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="https://rcm-eu.amazon-adsystem.com/e/cm?ref=tf_til&t=opengiscrm999-21&m=amazon&o=30&p=8&l=as1&IS1=1&asins=B08CB4M11R&linkId=65012f0f2f780ab01205fa250b173c2e&bc1=ffffff&amp;lt1=_top&fc1=333333&lc1=0066c0&bg1=ffffff&f=ifr">
+    	</iframe>	 #}	
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/ci4_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see <strong>How to integrate Stripe Api in CodeIgniter 4</strong>, with the use of <strong>Stripe Payment Gateway</strong>, we will create a form with <strong>stripe checkout</strong> and we will do some tests in <strong>test mode</strong>.</p>
+
+		<h2>How to integrate Stripe Api in CodeIgniter 4?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>We will first install the package with <strong>composer</strong>, go to the root of your project and run the following command <code>composer require stripe/stripe-php</code>, which adds the most recent version, check later in the file <strong>composer.json</strong>, where says <strong>require</strong>.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/stripe1.png" alt="stripe1">
+
+		</div>
+
+		<p>We will create the form for the checkout, <strong>PK will be the publishable key</strong>, which we will use only in the views, and we have the <strong>SK secret key that will be for operations with the back-end</strong> and <strong>test because we are in test mode</strong>.</p>
+
+		<pre class="text-code">
+		<code>
+		namespace App\Controllers;
+
+
+		use Stripe\Stripe;
+		use Stripe\Customer;
+		use Stripe\Charge;
+
+
+		class Customers extends BaseController
+		{
+
+			public function __construct()
+			{		
+				$stripe = Stripe::setApiKey('sk_test_yourApiKey');
+
+			}
+
+			public function index()
+			{
+				return view('customers');
+			}
+
+			public function createCustomer()
+			{
+
+				$customer = Customer::create([
+					'email' => $this->request->getPost('stripeEmail'),
+					'source'  => $this->request->getPost('stripeToken'),
+					'description' => 'Full access'
+				]);
+
+				$charge = Charge::create([
+					'customer' => $customer->id,         
+					'amount'   => 79900,
+					'currency' => 'usd'
+				]);
+
+				dd($customer);	
+
+			}
+			}
+		</code>
+		</pre>
+
+		<p>Adding the checkout in the view, we will only use the <strong>PK</strong>.</p>
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/stripe2.png" alt="stripe2">
+
+		</div>
+
+		<p>Finally we have the form ready, it only remains to create a new one customer and associate a charge for your id.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/stripe3.png" alt="stripe3">
+
+		</div>		
+		<br>
+		<div class="embed-responsive embed-responsive-4by3 text-center">
+
+				<h2>CodeIgniter 4 Stripe Tutorial</h2>
+				
+
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/ZoLCW4AIFXk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+
+		</div>
+		<br>
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/">
+<span class="fas fa-arrow-left"></span>		
+Go Back</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

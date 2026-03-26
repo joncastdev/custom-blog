@@ -22,9 +22,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/user/dashboard", name="user_dashboard")
-     */
+   
     public function userDashboard(): Response
     {
         // return $this->render('dashboard/index.html.twig', [

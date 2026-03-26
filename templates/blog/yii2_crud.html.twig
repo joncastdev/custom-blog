@@ -1,0 +1,218 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRUD Operations with YII2 | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/yii-2-crud" /> 	
+<meta name="description" content="CRUD Operations with YII2 Framework using GII Tool">
+<meta name="keywords" content="yii2 crud, yii2 migrations, yii2 gii"/>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CRUD Operations with YII2" />
+<meta property="og:description" content="CRUD Operations with YII2 Framework using GII Tool" />
+<meta property="og:image" content="assets/img/yii2_crud.png" /> 
+<meta property="og:url" content="https://www.opengiscrm.com/yii-2-crud" />
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>CRUD Operations with YII2</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/yii2_crud.png" alt="CRUD Operations with YII2">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+	{# 	{{ include('inc/ad_defect.html.twig') }}  #}
+
+	{{ include('inc/amazon_web_cam_banner.html.twig') }} 	
+
+	{#  <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ez&f=ifr&linkID=f36d5433998101c1adbb0f9259aee714&t=opengiscrm999-21&tracking_id=opengiscrm999-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>	 #}	
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/master_banner.html.twig') }} 	
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>In this article we will see <strong>How to create a crud with yii 2 framework</strong>, using migrations and the command line tool.</p>
+
+		<h2>How to create migrations in yii2?</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>First we will create the table with the use of migrations</p>		
+
+	
+		<pre class="text-code">
+		<code class="">
+	// create migration
+	php yii migrate/create Country
+		</code>
+		</pre>
+
+		
+		<p>Now we have generated a file with a date format <code>migrations/m210725_210438_Country.php</code></p>
+		
+
+		<pre class="text-code">
+		<code class="">
+	use yii\db\Migration;
+
+	// you need to add Schema for this way to work with migrations
+	use yii\db\Schema;
+
+	/**
+	 * Class m210725_210438_Country
+	 */
+	class m210725_210438_Country extends Migration
+	{
+	    /**
+	     * {@inheritdoc}
+	     */
+	    public function safeUp()
+	    {
+
+	    }
+
+	    /**
+	     * {@inheritdoc}
+	     */
+	    public function safeDown()
+	    {
+	        echo "m210725_210438_Country cannot be reverted.\n";
+
+	        return false;
+	    }
+
+	    
+	    // Use up()/down() to run migration code without a transaction.
+	    public function up()
+	    {
+
+	        $this->createTable('country', [
+	            'id' => Schema::TYPE_PK,
+	            'country' => Schema::TYPE_STRING . ' NOT NULL',            
+	        ]);
+
+	    }
+
+	    public function down()
+	    {
+	        // echo "m210725_210438_Country cannot be reverted.\n";
+
+	        // return false;
+
+	        $this->dropTable('country');
+	    }
+	    
+	}
+		</code>
+		</pre>
+
+		<h2>How to run migrations in yii2?</h2>		
+		
+		<p>Now we execute the migrations, in this case we have only 1, where we will call the function <code>up()</code> to create a table with the function <code>createTable</code></p>
+		
+
+		<pre class="text-code">
+		<code class="">
+	// we execute migrations	
+	php yii migrate
+		</code>
+		</pre>
+
+		
+
+</div>
+
+<br>
+
+
+<blockquote >
+<p class="blockquote-footer">Jonathan Castro
+</p>
+</blockquote>
+
+<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+</div>
+
+<br>
+
+
+
+
+</div>	
+
+</div>
+
+
+<div class="row">
+
+<div class="offset-8 col-4">
+
+<div class="">
+<a class="btn btn-outline-primary" href="/">
+<span class="fas fa-arrow-left"></span>		
+Go Back</a>
+</div>
+
+</div> 
+
+</div>
+<br>
+
+<br>
+<br>
+
+
+{{ include('inc/footer.html.twig') }} 
+{% endblock %}

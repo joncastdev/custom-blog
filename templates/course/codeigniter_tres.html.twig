@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Curso CodeIgniter 3 desde cero | OpenGisCRM{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Curso CodeIgniter 3 desde cero">
+<meta name="keywords" content="cursos udemy, cursos desarrollo web, curso codeigniter 3, curso codeigniter 3 español, codeigniter 3"/>
+{% endblock %}	
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		 <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/cursos-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Cursos</h1>
+                            <span class="subheading">Encuentra Cursos</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+
+		<div class="container">
+	<br>
+	 <article class="">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="">
+
+                    <h1>Curso CodeIgniter 3 desde cero</h1>
+
+                    <p><strong>Los mejores cursos de CodeIgniter en línea Udemy</strong> te mostramos <strong>CodeIgniter 3 - De 0 al Limite</strong>, uno de los cursos más completos en udemy sobre <strong>codeigniter</strong>, dictado por el instructor <strong>Jonathan Castro</strong>, el cual cuenta con buenas valoraciones de los estudiantes. 
+                    </p>
+                                           
+                    </div>
+                </div>
+            </div>
+        </article>  
+	<br>
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<div class="card">
+				<img class="img-fluid" src="../assets/img/curso_codeigniter32.png" alt="CodeIgniter 3 - De 0 al Limite">
+
+				<div class="card-body">
+
+					<div class="jumbotron">
+
+
+						<h3 class="font-weight-bold">Lo que aprenderás</h3>
+						<br>						
+						<ul class="font-italic">
+							<li>CodeIgniter 3</li>
+							<li>Conocer las librerias y helpers</li>
+							<li>Aplicar el MVC en tus proyectos</li>
+							<li>Crear sistema de login y accesos desde cero</li>
+							<li>Interactuar con ajax</li>
+							<li>Generar Reportes</li>
+							<li>Chart estadisticos</li>
+							<li>Trabajar con DataTables</li>										
+						</ul>					
+
+					</div>					
+
+					
+
+					<a class="btn btn-danger" href="https://www.udemy.com/course/codeigniter-3-de-0-al-limite/?referralCode=52B0A6D35126B4F41244" target="_blank">
+					<span class="fas fa-play"></span>		
+					Ir al curso</a>	
+					<br>
+					<br>
+					<a class="btn btn-outline-primary" href="/cursos">
+					<span class="fas fa-arrow-left"></span>		
+					Regresar</a>
+
+
+				</div>
+				
+			</div>
+		</div>
+
+	</div>		
+</div>
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

@@ -1,0 +1,353 @@
+{% extends 'base.html.twig' %}
+
+ {% block lang %}
+<html lang="es">
+ {% endblock %}
+
+{% block title %}Deploy CodeIgniter 4 Heroku | OpenGisCRM{% endblock %}
+
+	{% block meta %}
+	    <link rel="canonical" href="https://www.opengiscrm.com/blog/codeigniter-4-deploy-heroku" /> 	
+		<meta name="description" content="Deploy CodeIgniter 4 con Heroku y postgresql">
+		<meta name="keywords" content="codeigniter deploy, codeigniter 4 heroku, codeigniter 4 postgresql, codeigniter hosting"/>
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Deploy CodeIgniter 4 Heroku" />
+		<meta property="og:description" content="Deploy CodeIgniter 4 con Heroku y postgresql" />
+		<meta property="og:image" content="assets/img/heroku_deploy.png" /> 
+		<meta property="og:url" content="https://www.opengiscrm.com/blog/codeigniter-4-deploy-heroku" /> 
+	{% endblock %}
+
+	{% block stylesheets %}
+
+	{% endblock %}			
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		<!-- Page Header-->
+		<header class="masthead" style="background-image: url('../assets/theme-blog/assets/img/blog-bg.jpg')">
+		<div class="container position-relative px-4 px-lg-5">
+		<div class="row gx-4 gx-lg-5 justify-content-center">
+		<div class="col-md-10 col-lg-8 col-xl-7">
+		<div class="site-heading">
+		<h1>Deploy CodeIgniter 4 Heroku</h1>                            
+		</div>
+		</div>
+		</div>
+		</div>
+		</header>    
+
+		
+		<div class="container">
+
+
+		<br>
+		<div class="">
+
+
+
+		<div class="offset-2 col-8">
+
+		<div class="text-center">			
+		<img class="img-fluid" src="../assets/img/heroku_deploy.png" alt="Deploy CodeIgniter 4 Heroku">
+		</div>
+		</div>
+		</div>
+		<br>
+
+		<div class="row">				
+		<div class="col-12 text-center">		
+
+		</div>
+		</div>
+		<br>
+		<div class="row">
+
+		<div class="col-4">
+
+		{{ include('inc/ad_products.html.twig') }}
+		
+
+		</div>
+
+		<div class="offset-4 col-4">
+
+		{{ include('inc/upwork_banner.html.twig') }}
+
+		</div>
+
+
+		</div>
+		<hr>
+
+		<div class="texto-blog">					
+		<p>En este artículo veremos como hacer un <strong>Deploy en CodeIgniter 4 en Heroku</strong> + postgresql conexión, con el uso de comandos git, heroku es una alternativa a un <strong>shared hosting</strong>, especialmente recomiendo <a class="text-info" href="https://namecheap.pxf.io/rnOVB5" target="_blank">namecheap</a>, por su calidad de servicio y precios económicos.</p>
+
+		<h2>Deploy CodeIgniter 4 en Heroku usando Git</h2>
+
+		{{ include('inc/ad_defect.html.twig') }} 	
+		
+		<p>Primero es necesario tener instalado <a class="text-info" href="https://git-scm.com/" target="_blank">git</a>, <a class="text-info" href="https://nodejs.org/" target="_blank">nodejs</a> y crearnos una cuenta en <a class="text-info" href="https://www.heroku.com/" target="_blank">heroku</a>, luego procedemos a instalar heroku con el uso de alguna herramienta de paquetes, para este tutorial usaremos <strong>snapd</strong>.</p>
+
+		<p>Instalamos el gestor de paquetes.</p>
+
+		<code>sudo apt install snapd</code>
+
+		<p>Instalamos heroku.</p>
+
+		<code>sudo snap install --classic heroku</code>
+
+		<p>Verificamos la versión instalada.</p>
+
+		<code>sudo heroku –version</code>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku1.png" alt="heroku1">
+
+		</div>
+
+		<p>Es momento de logearnos en heroku.</p>
+
+		<pre><code>sudo heroku git:remote -a tutorial-ci4</code></pre>
+
+			<pre><code>sudo heroku run bash</code></pre>
+
+			<pre>
+			<code>
+			public $default = [
+        'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => '',
+        'password' => '',
+        'database' => '',
+        'DBDriver' => 'MySQLi',
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => 3306,
+    ];	
+			</code>
+			</pre>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku2.png" alt="heroku2">
+
+		</div>
+
+		<p>Si no abre una nueva ventana en el navegador, copiar la dirección de enlace y pegarla en el navegador.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku3.png" alt="heroku3">
+
+		</div>
+
+		<p>Una vez logeados creamos un nuevo proyecto, colocarle como parámetro el nombre del proyecto, porque si no creara un nombre de proyecto al azar.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku4.png" alt="heroku">
+
+		</div>
+
+		<p>Luego iremos a nuestro dashboard y tendremos el proyecto creado, también podemos crearlo desde el panel.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku5.png" alt="heroku5">
+
+		</div>
+
+		<p>Abrimos el proyecto en el navegador.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku6.png" alt="heroku6">
+
+		</div>
+
+		<p>Iremos a la raíz de nuestro proyecto y crearemos un archivo Procfile.</p>
+
+		<pre><code>sudo echo "web: vendor/bin/heroku-php-apache2 public/" > Procfile</code></pre>
+
+		<p>Setearemos el repositorio de git que tengamos, con el repositorio de heroku.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku7.png" alt="heroku7">
+
+		</div>
+
+		<p>Agregamos todos los archivos con su respetivo mensaje.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku8.png" alt="heroku8">
+
+		</div>
+
+		<p>Realizamos el push, añadiendo las credenciales, es necesario agregar la <strong>api key</strong> en el password.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku9.png" alt="heroku9">
+
+		</div>
+
+		<p>Buscamos y copiamos la api key.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku10.png" alt="heroku10">
+
+		</div>
+
+		<p>Pegamos la api key y el proyecto se subirá a la rama <strong>máster</strong> al menos que creemos otra.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku11.png" alt="heroku11">
+
+		</div>
+
+		<p>Vamos al navegador y ya tenemos el proyecto en marcha.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku12.png" alt="heroku12">
+
+		</div>
+
+		<p>Podemos ingresar a la <strong>bash</strong> de la siguiente manera.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku13.png" alt="heroku13">
+
+		</div>
+
+		<p>En el caso que trabajemos con información en base de datos es necesario configurar los archivos pertinentes.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku14.png" alt="heroku14">
+
+		</div>
+
+		<p>Añadiremos un Add-ons para trabajar con postgresql el cual es gratis.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku15.png" alt="heroku15">
+
+		</div>
+
+		<p>Realizamos la orden gratuita para continuar.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku16.png" alt="heroku16">
+
+		</div>
+
+		<p>Luego veremos el panel de base de datos.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku17.png" alt="heroku17">
+
+		</div>
+
+		<p>Buscaremos las credenciales para continuar.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku18.png" alt="heroku18">
+
+		</div>
+
+		<p>Copiamos las credenciales de nuestra base de datos para configurarla posteriormente.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku19.png" alt="heroku19">
+
+		</div>
+
+		<p>En las variables de entorno copiaremos las credenciales, lo cual quedaría de la siguiente manera, recuerden colocar el estado de desarrollo en <strong>production</strong>.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku20.png" alt="heroku20">
+
+		</div>
+		
+
+		<p>También podemos realizar las configuraciones en el siguiente archivo.</p>
+
+		<div class="text-center">
+
+		<img class="img-fluid" src="../assets/img/heroku21.png" alt="heroku21">
+
+		</div>
+
+		<p>Recomiendo la siguiente guía <a class="text-info" href="/codeigniter-4-deployment">CI4 Deployment Shared Hosting</a>, la cual es una opción más económica.</p>
+
+				
+
+		</div>
+
+		<br>
+
+
+		<blockquote >
+		<p class="blockquote-footer">Jonathan Castro
+		</p>
+		</blockquote>
+
+		<div class="sharethis-inline-share-buttons">
+			
+		</div>	
+
+		</div>
+
+		<br>
+
+
+
+
+		</div>	
+
+		</div>
+
+
+		<div class="row">
+
+		<div class="offset-8 col-4">
+
+		<div class="">
+		<a class="btn btn-outline-primary" href="/blog">
+		<span class="fas fa-arrow-left"></span>		
+		Regresar</a>
+		</div>
+
+		</div> 
+
+		</div>
+		<br>
+
+		<br>
+		<br>
+
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}

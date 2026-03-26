@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Open Portfolio - OpenGisCRM{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://www.opengiscrm.com/portfolio" /> 	
+<meta name="description" content="OpenGisCRM - Open Portfolio, our most successful projects">
+<meta name="keywords" content="open portfolio, opengiscrm portfolio, web developer portfolio"/>
+{% endblock %}
+        		
+
+	{% block body %}
+		{{ include('inc/navbar.html.twig') }}
+
+		  <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/theme-blog/assets/img/homes-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            {# <h1>Blog</h1>
+                            <span class="subheading">Encuentra Artículos</span> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>  
+
+		
+		<br>
+		<br>
+	<br>
+
+	<div class="container">
+
+	<br>	
+	<div class="row">
+		<div class="col-12">
+
+				<h1 class="texto-blog">Open Portfolio - BackEnd Developer (OpenGisCRM)</h1>
+
+				<p>Portfolio with the use of technologies, symfony, codeigniter, laravel, with the use of platforms such as upwork, freelance services, face-to-face, remote and open source projects.</p>        
+			
+			
+		</div>
+	</div>	
+
+	<div class="row">
+
+		<div class="col-12">
+			<hr>		
+
+			<img src="assets/img/11.jpg" class="img-fluid float-right img-thumbnail">
+
+			<p class="portafolio-texto-intro"><b>JDCSCHOOL:</b> it is a school project, whose functionality is to manage the set of students, teachers, notes, reports in pdf / xls formats.</p>
+
+			<ul class="portafolio-texto-content" >
+				<li>Developed in codeIgniter v3</li>
+				<li>Mysql database v5.7</li>
+				<li>Template AdminLte</li>
+				<li>Bootstrap3</li>
+				<li>Jquery</li>				
+				<li>Sweet alert 2</li>
+				<li>Internationalization</li>
+				<li>Admin panel</li>								
+				<li>Email shipments</li>
+				<li><a href="https://vimeo.com/307629110" target="_blank" class="btn btn-info portafolio-texto-link">Demo</a></li>
+			</ul>
+
+			<hr>
+
+			<br>
+
+
+			<img src="assets/img/55.jpg" class="img-fluid float-left img-thumbnail">
+
+			<p class="portafolio-texto-intro"><b>JONATHANCASTRODEVBLOG:</b> is a landing page project with blog, whose functionality is to publish new content and manage comments.</p>
+
+			<ul class="portafolio-texto-content" style="list-style-type:none;">
+				<li>Developed in codeIgniter v4</li>
+				<li>Postgresql database v10</li>
+				<li>Template AdminLte</li>
+				<li>Bootstrap3</li>
+				<li>Jquery</li>				
+				<li>Sweet alert 2</li>			
+				<li>Admin panel</li>								
+				<li>Email shipments</li>
+				<li><a href="https://vimeo.com/jdcdeveloper" target="_blank" class="btn btn-info portafolio-texto-link">Demo</a></li>
+			</ul>
+
+			<hr>
+
+			<br>
+
+			<img src="assets/img/amazon.jpg" class="img-fluid float-right img-thumbnail">
+
+			<p class="portafolio-texto-intro"><b>SISTEMA AMAZON ADVERTISING API: </b> It is a project with an administrator panel, where the set of advertising campaigns and their statistics are reflected.</p>
+
+			<ul class="portafolio-texto-content">
+				<li>Developed in laravel v5.5</li>
+				<li>Interaction with data from the amazon api</li>
+				<li>Using sdk</li>				
+				<li>Template Blade</li>
+				<li>Bootstrap4</li>
+				<li>Jquery</li>						
+				<li>Admin Panel</li>						
+				<li><a href="https://www.upwork.com/o/profiles/users/_~016c272f36ca6d79ee/" target="_blank" class="btn btn-info portafolio-texto-link">Demo</a></li>
+			</ul>
+
+
+			<br>
+			<br>
+
+			<hr>
+
+			<img src="assets/img/collage.jpg" class="img-fluid float-left img-thumbnail">
+
+			<p class="portafolio-texto-intro"><b>COLLAGE OF VALUES:</b> It is a project with an administrator panel, which seeks to manage data of the user's values and reflect them in statistics.</p>
+
+			<ul class="portafolio-texto-content" style="list-style-type:none;">
+				<li>Developed in symfony v5</li>
+				<li>Postgresql database v13</li>
+				<li>Template AdminLte</li>
+				<li>Bootstrap3</li>
+				<li>Jquery</li>				
+				<li>Sweet alert 2</li>			
+				<li>Admin panel</li>								
+				<li>Email shipments</li>				
+				<li><a href="https://vimeo.com/370560004" target="_blank" class="btn btn-info portafolio-texto-link">Demo</a></li>
+			</ul>
+
+			<br>
+
+
+		</div>
+
+	</div>
+
+</div>
+<br>
+
+
+		<br>
+		<br>
+		
+
+		{{ include('inc/footer.html.twig') }} 
+	{% endblock %}
